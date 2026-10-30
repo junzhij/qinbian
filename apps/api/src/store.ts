@@ -5,9 +5,11 @@ import { mkdirSync, readdirSync, readFileSync, existsSync, writeFileSync } from 
 import { resolve, extname } from 'node:path'
 import { createHash, randomUUID } from 'node:crypto'
 import sharp from 'sharp'
+import { renderChart } from './charts.ts'
+import { cropImage } from './crop.ts'
 import * as schema from './schema.ts'
 import type { Config } from './config.ts'
-import { assetUrl, sanitizeHtml, htmlAssetIds, normalizePalette, prepareComponent, defaultPalette, paletteEntries, normalizeHex, type Block, type Resource, type Article, type Asset, type Palette } from '@qinbian/shared'
+import { assetUrl, sanitizeHtml, wechatHtml, materializeImages, cropInputSchema, centerCrop, chartFromUrl, htmlAssetIds, normalizePalette, prepareComponent, defaultPalette, paletteEntries, normalizeHex, type Block, type Resource, type Article, type Asset, type Palette } from '@qinbian/shared'
 
 export const now=()=>new Date().toISOString()
 export const id=()=>randomUUID()
@@ -40,6 +42,7 @@ export class Store {
  record(type:string,payload:any){this.db.insert(schema.versions).values({id:id(),entityType:type,entityId:payload.id,revision:payload.revision,payload,createdAt:now()}).onConflictDoNothing().run()}
  references(assetId:string){
   const refs:{type:string;id:string;name:string}[]=[]
+  for(const a of this.db.select().from(schema.assets).all())if(a.sourceAssetId===assetId&&!a.deletedAt)refs.push({type:'asset',id:a.id,name:a.name+'（裁切副本）'})
   for(const r of this.db.select().from(schema.resources).all())if(JSON.stringify(r.data).includes(assetUrl(assetId)))refs.push({type:'resource',id:r.id,name:r.name+(r.deletedAt?'（回收站）':'')})
   for(const d of this.db.select().from(schema.documents).all())if(JSON.stringify(d.blocks).includes(assetUrl(assetId)))refs.push({type:'document',id:d.id,name:d.title+(d.deletedAt?'（回收站）':'')})
   for(const v of this.db.select().from(schema.versions).all())if(JSON.stringify(v.payload).includes(assetUrl(assetId))&&!refs.some(r=>r.id===v.entityId))refs.push({type:'version',id:v.entityId,name:'历史版本中的图片'})
@@ -64,9 +67,24 @@ export class Store {
   if(old){if(old.deletedAt)this.db.update(schema.assets).set({deletedAt:null}).where(eq(schema.assets.id,old.id)).run();return {...old,deletedAt:null}}
   const key=id(), fileName=hash+(({jpeg:'.jpg',png:'.png',gif:'.gif',webp:'.webp'} as Record<string,string>)[info.format!]||extname(name))
   writeFileSync(resolve(this.config.dataDir,'uploads',fileName),buffer)
-  await sharp(buffer,{animated:false}).resize({width:480,height:360,fit:'inside',withoutEnlargement:true}).webp({quality:75}).toFile(resolve(this.config.dataDir,'thumbs',key+'.webp'))
-  const row={id:key,name:name.slice(0,150),fileName,mime,bytes:buffer.length,width:info.width||0,height:info.pageHeight||info.height||0,hash,builtin,createdAt:now(),deletedAt:null}
+  await sharp(buffer,{animated:false}).rotate().resize({width:480,height:360,fit:'inside',withoutEnlargement:true}).webp({quality:75}).toFile(resolve(this.config.dataDir,'thumbs',key+'.webp'))
+  const row={id:key,name:name.slice(0,150),fileName,mime,bytes:buffer.length,width:(info.orientation&&info.orientation>=5?info.height:info.width)||0,height:(info.orientation&&info.orientation>=5?info.width:info.pageHeight||info.height)||0,hash,builtin,createdAt:now(),deletedAt:null}
   this.db.insert(schema.assets).values(row).run();return row
+ }
+ async assetInfo(key:string){const a=this.asset(key),m=await sharp(readFileSync(resolve(this.config.dataDir,'uploads',a.fileName)),{animated:false}).metadata(),swap=!!m.orientation&&m.orientation>=5&&m.orientation<=8;return{...a,width:(swap?m.height:m.width)||a.width,height:(swap?m.width:m.pageHeight||m.height)||a.height}}
+ async cropAsset(key:string,raw:unknown){
+  const request=cropInputSchema.parse(raw)
+  let source=this.asset(key)
+  if(source.deletedAt)fail(400,'原图已在回收站，请先恢复')
+  const seen=new Set<string>()
+  while(source.sourceAssetId&&!seen.has(source.id)){seen.add(source.id);source=this.asset(source.sourceAssetId)}
+  const spec={...request.spec,...(request.spec.shape==='circle'?{ratio:1}:{})},rect=request.rect||centerCrop(source.width,source.height,spec.ratio)
+  const existing=this.db.select().from(schema.assets).all().find(a=>a.sourceAssetId===source.id&&!a.deletedAt&&a.crop?.spec.shape===spec.shape&&(a.crop.spec.ratio||0)===(spec.ratio||0)&&(a.crop.spec.radius??.08)===(spec.radius??.08)&&Object.keys(rect).every(k=>Math.abs(a.crop!.rect[k as keyof typeof rect]-rect[k as keyof typeof rect])<.000001))
+  if(existing)return existing
+  const result=await cropImage(readFileSync(resolve(this.config.dataDir,'uploads',source.fileName)),request)
+  const a:Asset=await this.putAsset(result.buffer,source.name.replace(/\.[^.]+$/,'')+' · '+({rect:'裁切',circle:'圆形裁切',rounded:'圆角裁切'}[result.spec.shape])+'.'+result.extension)
+  if(a.id!==source.id&&!a.sourceAssetId)this.db.update(schema.assets).set({sourceAssetId:source.id,crop:{spec:result.spec,rect:result.rect}}).where(eq(schema.assets.id,a.id)).run()
+  return this.asset(a.id)
  }
  async extractImages(html:string){
   const matches=[...html.matchAll(/\bsrc=(["'])(data:image\/(?:png|jpeg|webp|gif);base64,[a-zA-Z0-9+/=\s]+)\1/g)]
@@ -99,7 +117,16 @@ export class Store {
   for(const status of ['queued','validating'])this.db.update(schema.jobs).set({status:'failed',error:'应用重新启动，未完成的任务已停止。',updatedAt:now()}).where(eq(schema.jobs.status,status)).run()
  }
  async portable(html:string){
-  html=sanitizeHtml(html,true)
+  html=await materializeImages(sanitizeHtml(html),async(src,spec)=>{
+   const chart=chartFromUrl(src);if(chart)return 'data:image/png;base64,'+(await renderChart(chart)).toString('base64')
+   const key=src.match(/^\/api\/assets\/([a-zA-Z0-9_-]+)\/file$/)?.[1]
+   if(key&&(spec.shape!=='rect'||spec.ratio)){
+    const a=this.asset(key),crop=a.crop
+    if(!crop||crop.spec.shape!==spec.shape||Math.abs((crop.spec.ratio||a.width/a.height)-(spec.ratio||a.width/a.height))>.001||spec.shape==='rounded'&&(crop.spec.radius??.08)!==(spec.radius??.08))src=assetUrl((await this.cropAsset(key,{spec})).id)
+   }
+   return src
+  })
+  html=wechatHtml(sanitizeHtml(html,true))
   for(const key of htmlAssetIds(html)){const a=this.asset(key);const data=readFileSync(resolve(this.config.dataDir,'uploads',a.fileName)).toString('base64');html=html.replaceAll(assetUrl(key),`data:${a.mime};base64,${data}`)}
   return html
  }

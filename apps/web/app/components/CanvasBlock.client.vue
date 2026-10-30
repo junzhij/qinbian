@@ -6,6 +6,7 @@ import TextAlign from '@tiptap/extension-text-align'
 import Underline from '@tiptap/extension-underline'
 import Link from '@tiptap/extension-link'
 import { sanitizeHtml, cleanStyle } from '@qinbian/shared'
+import { imageElements } from '~/utils/image-slots'
 import { elementPath, elementAtPath, paragraphContent, mountParagraphHost, composeParagraph, editableTextElement } from '~/utils/paragraph-session'
 
 const props=defineProps<{html:string;selected?:boolean;readonly?:boolean}>()
@@ -75,8 +76,9 @@ function clicked(event:MouseEvent){
  emit('select');const target=event.target as HTMLElement
  if(props.readonly||!island.value)return
  if(editor?.view.dom.contains(target))return
- const img=target.closest('img'),placeholder=target.closest('section')
- const slots=Array.from(island.value.querySelectorAll('section,img')).filter(el=>el.tagName==='IMG'||(el.firstElementChild?.tagName==='P'&&el.firstElementChild.textContent?.trim()==='＋'))
+ if(target.closest('[data-qb-chart]')&&target.closest('img'))return
+ const img=target.closest('img'),placeholder=target.closest<HTMLElement>('[data-qb-field-type="image"],section')
+ const slots=imageElements(island.value)
  if(img||placeholder&&slots.includes(placeholder)){const index=Math.max(0,slots.indexOf(img||placeholder!));stop();emit('media',index);return}
  const paragraph=editableTextElement(island.value,target)
  if(paragraph&&island.value.contains(paragraph))editParagraph(paragraph)

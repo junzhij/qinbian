@@ -46,7 +46,7 @@
 ```
 
 ```html
-<div style="padding:12px 16px;" data-qb-field="title"><span leaf="">{{title}}</span></div>
+<section style="padding:12px 16px;" data-qb-field="title"><span leaf="">{{title}}</span></section>
 <p><span leaf="" data-qb-field="percent">{{percent}}</span>％</p>
 <section style="height:6px;width:{{percent}}%;background-color:{{color3-highlight}};"></section>
 ```
@@ -54,6 +54,22 @@
 type还支持`image`，值为素材库图片地址或素材id。空图片字段保留选择图片的位置。计算字段只支持明确的百分比结构，不执行任意表达式。右侧字段编辑更新values；画布改字会反向同步字段值。
 
 未显式标记的旧版“文本框内容占位”等单纯文案容器会自动获得文本字段。`div + span`以及普通段落、标题均支持直接编辑。富文本只接管当前文字容器，保留外层版式；重复点击、选字和双击不会重建整个组件。
+
+## 图片形状与裁切
+
+图片字段支持 `image:{shape:"circle",ratio:1}`，`shape` 为 `rect`、`circle` 或 `rounded`，`ratio` 为宽/高，省略时保持原图比例；圆形固定1:1。圆角使用相对短边的 `radius`，默认0.08，范围0—0.5。
+
+```html
+<img data-qb-field="portrait" data-qb-field-type="image"
+     data-qb-image='{"shape":"circle","ratio":1}'
+     style="width:120px;max-width:100%;height:auto;margin:0 auto 16px;">
+```
+
+空字段提供选图入口。选图会按形状与比例居中裁切；网页裁切器可调整位置、缩放与比例。API为 `POST /api/assets/:id/crop`，请求 `{spec:{shape:"circle",ratio:1},rect:{x:0.25,y:0,width:0.5,height:1}}`，坐标均相对旋转校正后的原图。省略rect时自动居中。
+
+返回独立素材，`sourceAssetId` 指向原图，`crop` 保存形状与范围。再次调整从原图取景，避免反复裁切损失。圆形、圆角写入透明像素；GIF逐帧裁切，保留循环与时长。原图被裁切副本引用时禁止删除。已存在的圆形占位会识别尺寸和位置，不再将方图塞进占位外框。
+
+导出在移除编辑标记之前完成裁切，转为微信兼容的section/p标签，并将字体样式写到文字层。边框、底色、圆角与间距保留内联值；图片内嵌，复制不依赖编辑器控件或CSS遮罩。
 
 ## 生成结果
 

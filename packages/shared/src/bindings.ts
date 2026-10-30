@@ -1,5 +1,7 @@
 import { parseFragment, serialize } from 'parse5'
 import { z } from 'zod'
+import { chartSchema, chartReferences, bindChartNode, chartColorTokens } from './charts.ts'
+import { imageSpecSchema, inferImageSpec, fillImageNode } from './images.ts'
 
 export const tones=['regular','highlight','light'] as const
 export const toneLabels={regular:'主题色',highlight:'强调色',light:'减淡色'}
@@ -8,7 +10,7 @@ export const paletteColorSchema=z.object({id:z.string().regex(/^color[1-6]$/),na
 export const paletteSchema=z.object({name:z.string().max(100).default('自定义配色'),colors:z.array(paletteColorSchema).min(3).max(6)}).refine(p=>new Set(p.colors.map(c=>c.id)).size===p.colors.length,'颜色代号不能重复')
 export type Palette=z.infer<typeof paletteSchema>
 export type PaletteColor=z.infer<typeof paletteColorSchema>
-export const fieldSchema=z.object({id:z.string().regex(/^[a-zA-Z][\w.-]{0,63}$/),label:z.string().max(80),type:z.enum(['text','number','image','computed']).default('text'),default:z.union([z.string().max(10000),z.number()]).default(''),min:z.number().optional(),max:z.number().optional(),step:z.number().positive().optional(),suffix:z.string().max(20).default(''),formula:z.object({op:z.literal('percent'),numerator:z.string(),denominator:z.string()}).optional()})
+export const fieldSchema=z.object({id:z.string().regex(/^[a-zA-Z][\w.-]{0,63}$/),label:z.string().max(80),type:z.enum(['text','number','image','computed']).default('text'),default:z.union([z.string().max(10000),z.number()]).default(''),min:z.number().optional(),max:z.number().optional(),step:z.number().positive().optional(),suffix:z.string().max(20).default(''),image:imageSpecSchema.optional(),formula:z.object({op:z.literal('percent'),numerator:z.string(),denominator:z.string()}).optional()})
 export type FieldDefinition=z.infer<typeof fieldSchema>
 export const componentSettingsSchema=z.object({palette:paletteSchema.optional(),fields:z.array(fieldSchema).max(40).default([]),values:z.record(z.string(),z.union([z.string(),z.number()])).default({}),colorMappings:z.record(z.string(),z.string()).default({})})
 export type ComponentSettings=z.infer<typeof componentSettingsSchema>
@@ -50,7 +52,7 @@ export function extractFieldValues(html:string,fields:FieldDefinition[]){const r
 export function bindComponent(html:string,settings:Partial<ComponentSettings>={},themePalette?:Palette){
  const palette=normalizePalette(settings.palette||themePalette),fields=(settings.fields||[]).map(f=>fieldSchema.parse(f)),values={...settings.values},mappings=settings.colorMappings||{},root:any=parseFragment(html)
  const ensureField=(key:string,n?:any)=>{if(!fields.some(f=>f.id===key)&&!colorToken.test(key))fields.push(fieldSchema.parse({id:key,label:key,type:attr(n,'data-qb-field-type')||'text',default:n?text(n):`${key}占位`}))}
- walk(root,n=>{const key=attr(n,'data-qb-field');if(key)ensureField(key,n);if(n.nodeName==='#text')for(const m of n.value.matchAll(tokenPattern))ensureField(m[1]!);for(const [,v]of declarations(attr(n,'style')||''))for(const m of v.matchAll(tokenPattern))ensureField(m[1]!)})
+ walk(root,n=>{if(attr(n,'data-qb-chart')){const chart=chartSchema.parse(JSON.parse(attr(n,'data-qb-chart')!));for(const key of chartReferences(chart))ensureField(key)}const key=attr(n,'data-qb-field');if(key)ensureField(key,n);if(n.nodeName==='#text')for(const m of n.value.matchAll(tokenPattern))ensureField(m[1]!);for(const [,v]of declarations(attr(n,'style')||''))for(const m of v.matchAll(tokenPattern))ensureField(m[1]!)})
  let auto=1
  walk(root,n=>{
   if(!['p','div','h2','h3','h4','figcaption'].includes(n.tagName)||attr(n,'data-qb-field')||!text(n).includes('占位'))return
@@ -88,13 +90,15 @@ export function bindComponent(html:string,settings:Partial<ComponentSettings>={}
   for(const [prop,template]of Object.entries(bindings)){const value=substitute(template,true);for(let i=styles.length-1;i>=0;i--)if(styles[i]![0]===prop)styles.splice(i,1);styles.push([prop,value])}
   if(Object.keys(bindings).length)setAttr(n,'data-qb-styles',JSON.stringify(bindings))
   if(styles.length)setAttr(n,'style',styles.map(([k,v])=>`${k}:${v};`).join(''))
+  bindChartNode(n,resolved,t=>resolveColor(t,palette,mappings))
   const key=attr(n,'data-qb-field'),field=fields.find(f=>f.id===key)
   if(field){setAttr(n,'data-qb-field-type',field.type);if(field.type==='image'){
-   const value=String(resolved[field.id]||'');let image:any;walk(n,c=>{if(c.tagName==='img')image=c})
-   if(value){const src=value.startsWith('/api/assets/')?value:`/api/assets/${value}/file`;if(image)setAttr(image,'src',src);else n.childNodes=[node('img',{src,alt:field.label,style:'max-width:100%;height:auto;display:block;margin:0 auto;'})]}
-   else if(n.tagName==='img'){n.tagName='section';n.nodeName='section';n.attrs=n.attrs.filter((a:any)=>!['src','alt','width','height'].includes(a.name));n.childNodes=[node('p',{},[node('span',{leaf:''},[textNode('＋')])]),node('p',{},[node('span',{leaf:''},[textNode(field.label||'图片占位')])])]}
+   const spec=inferImageSpec(attr(n,'style')||'',attr(n,'data-qb-image'),field.image);field.image=spec;setAttr(n,'data-qb-image',JSON.stringify(spec))
+   const value=String(resolved[field.id]||'')
+   if(value){const src=value.startsWith('/api/assets/')?value:`/api/assets/${value}/file`;fillImageNode(n,src,spec);if(!attr(n,'alt'))setAttr(n,'alt',field.label)}
+   else if(n.tagName==='img'){const css=attr(n,'style')||'';setAttr(n,'style',css+(spec.ratio?`aspect-ratio:${spec.ratio};`:'min-height:100px;')+'text-align:center;');n.tagName='section';n.nodeName='section';n.attrs=n.attrs.filter((a:any)=>!['src','alt','width','height'].includes(a.name));n.childNodes=[node('p',{},[node('span',{leaf:''},[textNode('＋')])]),node('p',{},[node('span',{leaf:''},[textNode(field.label||'图片占位')])])]}
   }else {const value=String(resolved[field.id]??'');if(!text(n).includes('{{')&&text(n)!==value)n.childNodes=[node('span',{leaf:''},[textNode(value)])]}}
  })
  return {html:serialize(root),palette,fields,values:Object.fromEntries(fields.filter(f=>f.type!=='computed').map(f=>[f.id,resolved[f.id]??''])),colorMappings:mappings}
 }
-export function usedColorTokens(html:string){const tokens=new Set<string>();const root:any=parseFragment(html);walk(root,n=>{for(const value of Object.values(jsonMap(attr(n,'data-qb-styles'))))for(const m of value.matchAll(tokenPattern))if(colorToken.test(m[1]!))tokens.add(m[1]!)});return [...tokens].sort()}
+export function usedColorTokens(html:string){const tokens=new Set<string>(chartColorTokens(html));const root:any=parseFragment(html);walk(root,n=>{for(const value of Object.values(jsonMap(attr(n,'data-qb-styles'))))for(const m of value.matchAll(tokenPattern))if(colorToken.test(m[1]!))tokens.add(m[1]!)});return [...tokens].sort()}

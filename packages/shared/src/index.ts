@@ -1,7 +1,13 @@
 import { parseFragment, serialize } from 'parse5'
 import { z } from 'zod'
+import { chartSchema, chartFromUrl } from './charts.ts'
+import { imageSpecSchema, type ImageCrop } from './images.ts'
 import { componentSettingsSchema, paletteSchema, bindComponent, type Palette, type ComponentSettings, type FieldDefinition } from './bindings.ts'
 export * from './bindings.ts'
+export * from './images.ts'
+export * from './charts.ts'
+export * from './resources.ts'
+export * from './wechat.ts'
 export * from './ids.ts'
 export * from './snapshots.ts'
 
@@ -21,7 +27,7 @@ export const rules = {
   allowedTags: ['section','div','p','span','strong','b','em','i','u','s','a','img','figure','figcaption','hr','br','table','thead','tbody','tr','td','th','code','pre','ul','ol','li','h2','h3','h4'],
   blockedTags: ['script','style','iframe','object','embed','link','meta','svg','canvas','video','audio','form','input','button','textarea','select'],
 }
-const allowedStyles = new Set(['box-sizing','width','height','max-width','min-width','max-height','margin','margin-top','margin-right','margin-bottom','margin-left','padding','padding-top','padding-right','padding-bottom','padding-left','color','background-color','font-family','font-size','font-weight','font-style','line-height','letter-spacing','word-wrap','overflow-wrap','word-break','white-space','text-align','text-decoration','text-decoration-line','text-decoration-color','text-decoration-style','text-decoration-thickness','border','border-top','border-right','border-bottom','border-left','border-color','border-width','border-style','border-radius','border-collapse','border-spacing','table-layout','display','vertical-align','list-style-type','text-indent'])
+const allowedStyles = new Set(['object-fit','object-position','aspect-ratio','box-sizing','width','height','max-width','min-width','max-height','margin','margin-top','margin-right','margin-bottom','margin-left','padding','padding-top','padding-right','padding-bottom','padding-left','color','background-color','font-family','font-size','font-weight','font-style','line-height','letter-spacing','word-wrap','overflow-wrap','word-break','white-space','text-align','text-decoration','text-decoration-line','text-decoration-color','text-decoration-style','text-decoration-thickness','border','border-top','border-right','border-bottom','border-left','border-color','border-width','border-style','border-radius','border-collapse','border-spacing','table-layout','display','vertical-align','list-style-type','text-indent'])
 for (const side of ['top','right','bottom','left']) for(const part of ['color','width','style']) allowedStyles.add(`border-${side}-${part}`)
 for (const corner of ['top-left','top-right','bottom-left','bottom-right']) allowedStyles.add(`border-${corner}-radius`)
 
@@ -49,7 +55,7 @@ export function cleanStyle(style: string) {
 }
 export function escapeHtml(value: unknown){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!))}
 export const assetUrl = (id:string) => `/api/assets/${encodeURIComponent(id)}/file`
-const validImage=(value:string)=>/^\/api\/assets\/[a-zA-Z0-9_-]+\/file$/.test(value)||/^data:image\/(?:png|jpeg|gif|webp);base64,[a-zA-Z0-9+/=\s]+$/.test(value)
+const validImage=(value:string)=>!!chartFromUrl(value)||/^\/api\/assets\/[a-zA-Z0-9_-]+\/file$/.test(value)||/^data:image\/(?:png|jpeg|gif|webp);base64,[a-zA-Z0-9+/=\s]+$/.test(value)
 const safeLink=(value:string)=>/^(https?:\/\/|mailto:|tel:|#)/i.test(value)&&!/[\x00-\x20\\]/.test(value)
 export function sanitizeHtml(source:string, portable=false):string {
   const root:any=parseFragment(String(source||'')); const walk=(parent:any,inLeaf=false,align='left')=>{
@@ -71,6 +77,8 @@ export function sanitizeHtml(source:string, portable=false):string {
       if(css)attrs.push({name:'style',value:css})
       if(tag==='span'&&Object.hasOwn(old,'leaf'))attrs.push({name:'leaf',value:''})
       if(!portable){
+        if(old['data-qb-chart']){try{if(old['data-qb-chart'].length<16000)attrs.push({name:'data-qb-chart',value:JSON.stringify(chartSchema.parse(JSON.parse(old['data-qb-chart'])))})}catch{}}
+        if(old['data-qb-image']){try{const spec=imageSpecSchema.parse(JSON.parse(old['data-qb-image']));attrs.push({name:'data-qb-image',value:JSON.stringify(spec)})}catch{}}
         if(old['data-qb-custom-color']==='true')attrs.push({name:'data-qb-custom-color',value:'true'})
         if(old['data-qb-custom-properties']){const names=old['data-qb-custom-properties'].split(',').map((s:string)=>s.trim()).filter((s:string)=>allowedStyles.has(s));if(names.length)attrs.push({name:'data-qb-custom-properties',value:names.join(',')})}
         if(/^[a-zA-Z][\w.-]{0,63}$/.test(old['data-qb-field']||''))attrs.push({name:'data-qb-field',value:old['data-qb-field']})
@@ -114,7 +122,7 @@ export interface ThemeSet {id:string;name:string;description:string;builtin:bool
 export interface ComponentData extends Partial<ComponentSettings>{html?:string;blocks?:Block[]}
 export interface Resource {id:string;themeSetId:string;kind:'component'|'template'|'palette';name:string;description:string;category:string;tags:string[];legacyId:string|null;builtin:boolean;data:ComponentData;revision:number;deletedAt:string|null;createdAt:string;updatedAt:string}
 export interface Article {id:string;title:string;themeSetId:string;blocks:Block[];revision:number;deletedAt:string|null;createdAt:string;updatedAt:string}
-export interface Asset {id:string;name:string;fileName:string;mime:string;bytes:number;width:number;height:number;hash:string;builtin:boolean;deletedAt:string|null;createdAt:string;references?:{type:string;id:string;name:string}[]}
+export interface Asset {id:string;name:string;fileName:string;mime:string;bytes:number;width:number;height:number;hash:string;builtin:boolean;deletedAt:string|null;createdAt:string;sourceAssetId?:string|null;crop?:ImageCrop|null;references?:{type:string;id:string;name:string}[]}
 export interface AiResult extends Partial<ComponentSettings>{kind?:'component'|'palette';name:string;description:string;category:string;tags:string[];html:string}
 export interface AiJob {id:string;operation:'generate'|'edit'|'palette';status:'queued'|'running'|'validating'|'ready'|'failed'|'cancelled'|'applied';model:string;request:AiInput;result:null|AiResult;error:string|null;usage:Record<string,number>|null;createdAt:string;updatedAt:string}
 export function articleHtml(blocks:Block[]){return `<section style="box-sizing:border-box;max-width:680px;margin:0 auto;padding:20px 18px;background-color:#FFFFFF;font-family:-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif;font-size:15px;line-height:1.85;color:#293F4F;text-align:left;">${blocks.map(b=>sanitizeHtml(b.html)).join('')}</section>`}

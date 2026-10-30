@@ -4,8 +4,10 @@ import { eq, desc, and, isNull } from 'drizzle-orm'
 import { z } from 'zod'
 import { readFileSync, createReadStream, writeFileSync, existsSync, rmSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { resourceInput, documentInput, themeInput, aiInput, models, sanitizeHtml, articleHtml, htmlAssetIds, inspectHtml, prepareComponent, normalizePalette, legacyTokens, type Block, type Resource } from '@qinbian/shared'
+import { cropInputSchema, resourceInput, documentInput, themeInput, aiInput, models, sanitizeHtml, articleHtml, htmlAssetIds, inspectHtml, prepareComponent, normalizePalette, legacyTokens, type Block, type Resource } from '@qinbian/shared'
 import { config as loadConfig, type Config } from './config.ts'
+import { renderChart } from './charts.ts'
+import { chartFromUrl } from '@qinbian/shared'
 import { Store, id, now, fail } from './store.ts'
 import { resources, themeSets, documents, assets, jobs, versions, settings } from './schema.ts'
 import { AiService } from './ai.ts'
@@ -108,8 +110,11 @@ export async function createApp(options:Partial<Config>={}){
  })
  app.get('/api/documents/:id/export',async(req)=>{const d=store.document(param(req));return {title:d.title,html:await store.portable(articleHtml(d.blocks))}})
  app.post('/api/export',async(req)=>{const body=z.object({html:z.string().max(100_000_000)}).parse(req.body);return {html:await store.portable(body.html)}})
+ app.get('/api/charts/render',async(req,reply)=>{const query=z.object({spec:z.string().max(18000)}).parse(req.query),chart=chartFromUrl('/api/charts/render?spec='+encodeURIComponent(query.spec));if(!chart)fail(400,'图表数据或格式无效');return reply.type('image/png').header('Cache-Control','private, max-age=86400').send(await renderChart(chart))})
  app.get('/api/assets',async(req)=>{const q=req.query as any;return store.db.select().from(assets).orderBy(desc(assets.createdAt)).all().filter(a=>q.trash==='true'?!!a.deletedAt:!a.deletedAt).filter(a=>!q.q||a.name.toLowerCase().includes(q.q.toLowerCase())).map(a=>({...a,references:store.references(a.id)}))})
  app.post('/api/assets',async(req,reply)=>{const part=await req.file();if(!part)fail(400,'请选择图片');const buffer=await part.toBuffer();return reply.code(201).send(await store.putAsset(buffer,part.filename))})
+ app.get('/api/assets/:id',async(req)=>store.assetInfo(param(req)))
+ app.post('/api/assets/:id/crop',async(req,reply)=>reply.code(201).send(await store.cropAsset(param(req),cropInputSchema.parse(req.body))))
  app.get('/api/assets/:id/references',async(req)=>{store.asset(param(req));return store.references(param(req))})
  app.get('/api/assets/:id/file',async(req,reply)=>{const a=store.asset(param(req));return reply.type(a.mime).header('Cache-Control','private, max-age=86400').send(createReadStream(resolve(store.config.dataDir,'uploads',a.fileName)))})
  app.get('/api/assets/:id/thumbnail',async(req,reply)=>{const a=store.asset(param(req)),file=resolve(store.config.dataDir,'thumbs',a.id+'.webp');return reply.type(existsSync(file)?'image/webp':a.mime).send(createReadStream(existsSync(file)?file:resolve(store.config.dataDir,'uploads',a.fileName)))})

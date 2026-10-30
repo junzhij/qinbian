@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import draggable from 'vuedraggable'
+import { plainText, copyRichHtml } from '~/utils/rich-clipboard'
 import { ArrowLeft, Plus, Copy, Trash2, GripVertical, Undo2, Redo2, Download, Clipboard, History, LayoutTemplate, Search, ChevronUp, ChevronDown, Settings2, Layers3, X, Save, Sparkles } from 'lucide-vue-next'
 import { sanitizeHtml, htmlAssetIds, newBlockId, cloneSnapshot, prepareComponent, extractFieldValues, type ComponentData, type Block, type Article, type Resource } from '@qinbian/shared'
 const props=withDefaults(defineProps<{id:string;target?:'document'|'resource'}>(),{target:'document'})
@@ -15,7 +16,7 @@ const snapshot=()=>JSON.stringify({title:title.value,themeSetId:themeSetId.value
 function cache(){localStorage.setItem(key.value,JSON.stringify({revision:revision.value,...JSON.parse(snapshot()),at:Date.now()}))}
 function queue(){if(loading.value||readonly.value)return;dirty.value=true;status.value='尚未保存';cache();clearTimeout(saveTimer);saveTimer=setTimeout(()=>void saveNow().catch(()=>{}),650)}
 function track(){const s=snapshot();if(s!==history.value[historyAt.value]){history.value=history.value.slice(0,historyAt.value+1);history.value.push(s);if(history.value.length>100)history.value.shift();historyAt.value=history.value.length-1}queue()}
-async function load(){loading.value=true;try{const d=await apiFetch<any>(endpoint.value+props.id);entity.value=d;title.value=props.target==='document'?d.title:d.name;themeSetId.value=d.themeSetId;blocks.value=structuredClone(props.target==='document'?d.blocks:d.data.blocks||[]);revision.value=d.revision;selected.value=blocks.value[0]?.id||'';saved=snapshot();dirty.value=false;status.value=readonly.value?'内置模板 · 原件只读':'已保存在本机';history.value=[saved];historyAt.value=0;const cached=localStorage.getItem(key.value);if(cached){try{const c=JSON.parse(cached);if(c.at>new Date(d.updatedAt).getTime()&&JSON.stringify({title:c.title,themeSetId:c.themeSetId,blocks:c.blocks})!==saved)recover.value=c;else localStorage.removeItem(key.value)}catch{}}}catch(e){ctx.error(e)}finally{loading.value=false}}
+async function load(){loading.value=true;try{const d=await apiFetch<any>(endpoint.value+props.id);entity.value=d;title.value=props.target==='document'?d.title:d.name;themeSetId.value=d.themeSetId;blocks.value=structuredClone(props.target==='document'?d.blocks:d.data.blocks||[]).map((b:Block)=>({...b,...prepareComponent(b)}));revision.value=d.revision;selected.value=blocks.value[0]?.id||'';saved=snapshot();dirty.value=false;status.value=readonly.value?'内置模板 · 原件只读':'已保存在本机';history.value=[saved];historyAt.value=0;const cached=localStorage.getItem(key.value);if(cached){try{const c=JSON.parse(cached);if(c.at>new Date(d.updatedAt).getTime()&&JSON.stringify({title:c.title,themeSetId:c.themeSetId,blocks:c.blocks})!==saved)recover.value=c;else localStorage.removeItem(key.value)}catch{}}}catch(e){ctx.error(e)}finally{loading.value=false}}
 onMounted(async()=>{await load();try{resourcesList.value=await apiFetch<Resource[]>('/api/resources',{query:{kind:'component'}})}catch(e){ctx.error(e)}})
 async function saveNow(){
  clearTimeout(saveTimer);if(readonly.value||loading.value)return
@@ -28,7 +29,7 @@ async function saveNow(){
 }
 function discardRecovery(){recover.value=null;localStorage.removeItem(key.value)}
 function recovered(){if(!recover.value)return;title.value=recover.value.title;themeSetId.value=recover.value.themeSetId;blocks.value=recover.value.blocks;recover.value=null;track()}
-function updateBlock(key:string,html:string){const b=blocks.value.find(b=>b.id===key);if(!b||readonly.value)return;const cleaned=sanitizeHtml(html);if(cleaned===b.html)return;b.html=cleaned;b.values={...b.values,...extractFieldValues(cleaned,b.fields||[])};b.assetIds=htmlAssetIds(b.html);track()}
+function updateBlock(key:string,html:string){const b=blocks.value.find(b=>b.id===key);if(!b||readonly.value)return;const cleaned=sanitizeHtml(html);if(cleaned===b.html)return;b.html=cleaned;b.values={...b.values,...extractFieldValues(cleaned,b.fields||[])};if(cleaned.includes('data-qb-chart'))Object.assign(b,prepareComponent(b));b.assetIds=htmlAssetIds(b.html);track()}
 function updateSettings(data:ComponentData){if(!current.value||readonly.value)return;Object.assign(current.value,prepareComponent(data));current.value.assetIds=htmlAssetIds(current.value.html);track()}
 function choose(key:string){if(selected.value!==key){activeEditor.value=null;selectedMedia.value=0}selected.value=key}
 function editor(key:string,e:any){if(e){activeEditorBlock.value=key;activeEditor.value=e}else if(activeEditorBlock.value===key)activeEditor.value=null}
@@ -40,7 +41,15 @@ function undo(){if(historyAt.value===0)return;historyAt.value--;applyHistory()};
 function applyHistory(){const s=JSON.parse(history.value[historyAt.value]!);title.value=s.title;themeSetId.value=s.themeSetId;blocks.value=s.blocks;activeEditor.value=null;if(!blocks.value.some(b=>b.id===selected.value))selected.value=blocks.value[0]?.id||'';queue()}
 async function exported(){await saveNow();if(props.target==='document')return await apiFetch<{html:string;title:string}>(endpoint.value+props.id+'/export');return await apiFetch<{html:string}>('/api/export',{method:'POST',body:{html:blocks.value.map(b=>b.html).join('')}})}
 async function download(){try{const r=await exported();downloadFile(new Blob(['<!doctype html><html lang="zh-CN"><meta charset="utf-8"><body>'+r.html+'</body></html>'],{type:'text/html;charset=utf-8'}),title.value+'.html');ctx.notify('正文已下载，图片已嵌入')}catch(e){ctx.error(e)}}
-async function copy(){try{const r=await exported();try{await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([r.html],{type:'text/html'}),'text/plain':new Blob([new DOMParser().parseFromString(r.html,'text/html').body.textContent||''],{type:'text/plain'})})]);ctx.notify('正文已复制，请在公众号粘贴并核对图片与手机效果')}catch{manualCopy.value=r.html}}catch(e){ctx.error(e)}}
+async function copy(){
+ const result=exported()
+ // Start the clipboard write during the click, before saving/exporting finishes (Safari).
+ try{
+  if(!navigator.clipboard?.write||typeof ClipboardItem==='undefined')throw new Error('manual')
+  const html=result.then(r=>new Blob([r.html],{type:'text/html'})),text=result.then(r=>new Blob([plainText(r.html)],{type:'text/plain'}))
+  await navigator.clipboard.write([new ClipboardItem({'text/html':html,'text/plain':text})]);ctx.notify('正文已带样式复制，请在公众号粘贴核对图片与手机效果')
+ }catch{try{const r=await result;if(copyRichHtml(r.html))ctx.notify('正文已带样式复制，请在公众号粘贴核对');else manualCopy.value=r.html}catch(e){ctx.error(e)}}
+}
 async function template(){try{await saveNow();if(props.target==='document'){await apiFetch(endpoint.value+props.id+'/template',{method:'POST',body:{name:title.value+' 模板',themeSetId:ctx.themes.value.find(t=>t.id===themeSetId.value&&!t.builtin)?.id||'mine'}});ctx.notify('文章结构已另存为编排模板')}else{const d=await apiFetch<any>('/api/documents',{method:'POST',body:{resourceId:props.id}});navigateTo('/documents/'+d.id)}}catch(e){ctx.error(e)}}
 async function openVersions(){await saveNow().catch(()=>{});try{versions.value=await apiFetch<any[]>(endpoint.value+props.id+'/versions');historyOpen.value=true}catch(e){ctx.error(e)}}
 async function restoreVersion(v:any){if(!confirm('恢复这个版本？当前版本仍保留在历史记录中。'))return;try{await apiFetch(endpoint.value+props.id+`/versions/${v.revision}/restore`,{method:'POST',body:{revision:revision.value}});historyOpen.value=false;localStorage.removeItem(key.value);await load();ctx.notify('已恢复所选版本')}catch(e){ctx.error(e)}}
@@ -58,5 +67,5 @@ onBeforeUnmount(()=>{disposed=true;clearTimeout(saveTimer);if(dirty.value)cache(
  </div>
  <UiModal v-if="historyOpen" title="历史版本" subtitle="恢复时会保留当前版本，可随时回看。" @close="historyOpen=false"><div class="version-list"><div v-for="v in versions" :key="v.id"><span>第 {{v.revision}} 版<small>{{formatDate(v.createdAt)}}</small></span><button class="btn" :disabled="v.revision===revision||readonly" @click="restoreVersion(v)">{{v.revision===revision?'当前版本':'恢复这一版'}}</button></div><p v-if="!versions.length" class="muted">还没有保存的历史版本。</p></div></UiModal>
  <UiModal v-if="sourceOpen" title="组件源码" subtitle="仅修改当前组件，保存时会检查正文结构。" wide @close="sourceOpen=false"><textarea v-model="sourceCode" class="source-editor" rows="18" spellcheck="false"/><div class="modal-actions"><button class="btn primary" @click="applyCode">应用到当前组件</button></div></UiModal>
- <UiModal v-if="manualCopy" title="手动复制正文" subtitle="浏览器未允许自动复制。请选中下面的正文，再按⌘C或Ctrl+C。" @close="manualCopy=''"><div class="manual-copy-content" contenteditable="true" v-html="manualCopy"/></UiModal>
+ <CopyBodyModal v-if="manualCopy" :html="manualCopy" @close="manualCopy=''"/>
  </div></template>
