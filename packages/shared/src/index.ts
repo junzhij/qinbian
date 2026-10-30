@@ -7,6 +7,7 @@ export * from './bindings.ts'
 export * from './images.ts'
 export * from './charts.ts'
 export * from './resources.ts'
+export * from './dividers.ts'
 export * from './wechat.ts'
 export * from './ids.ts'
 export * from './snapshots.ts'
@@ -116,7 +117,7 @@ export type Block=z.infer<typeof blockSchema>
 export const resourceInput=z.object({themeSetId:z.string().default('mine'),kind:z.enum(['component','template','palette']),name:z.string().trim().min(1).max(100),description:z.string().max(1000).default(''),category:z.string().max(100).default('正文与导读'),tags:z.array(z.string().max(40)).max(20).default([]),data:z.object({html:z.string().max(500_000).optional(),blocks:z.array(blockSchema).max(200).optional(),...componentSettingsSchema.partial().shape}),revision:z.number().int().positive().optional()})
 export const documentInput=z.object({title:z.string().trim().min(1).max(150),themeSetId:z.string().default('mine'),blocks:z.array(blockSchema).max(200).default([]),revision:z.number().int().positive().optional()})
 export const themeInput=z.object({name:z.string().trim().min(1).max(80),description:z.string().max(1000).default(''),tokens:z.record(z.string(),z.string()).default({}),palette:paletteSchema.optional(),rules:z.string().max(4000).default('')})
-export const aiInput=z.object({operation:z.enum(['generate','edit','palette']),prompt:z.string().trim().min(2).max(4000),themeSetId:z.string().default('shanhai'),model:z.enum(models).optional(),colorCount:z.number().int().min(3).max(6).optional(),palette:paletteSchema.optional(),referenceIds:z.array(z.string()).max(2).default([]),assetIds:z.array(z.string()).max(8).default([]),sourceHtml:z.string().max(500_000).optional(),settings:componentSettingsSchema.partial().optional(),targetType:z.enum(['resource','document']).optional(),targetId:z.string().optional(),targetRevision:z.number().int().optional(),blockId:z.string().optional()})
+export const aiInput=z.object({operation:z.enum(['generate','edit','palette']),designKind:z.enum(['component','chart','divider']).optional(),prompt:z.string().trim().min(2).max(4000),themeSetId:z.string().default('shanhai'),model:z.enum(models).optional(),colorCount:z.number().int().min(3).max(6).optional(),palette:paletteSchema.optional(),referenceIds:z.array(z.string()).max(2).default([]),assetIds:z.array(z.string()).max(8).default([]),sourceHtml:z.string().max(500_000).optional(),settings:componentSettingsSchema.partial().optional(),targetType:z.enum(['resource','document']).optional(),targetId:z.string().optional(),targetRevision:z.number().int().optional(),blockId:z.string().optional()})
 export type AiInput=z.infer<typeof aiInput>
 export interface ThemeSet {id:string;name:string;description:string;builtin:boolean;tokens:Record<string,string>;palette?:Palette;rules:string;createdAt:string;updatedAt:string;deletedAt:string|null}
 export interface ComponentData extends Partial<ComponentSettings>{html?:string;blocks?:Block[]}

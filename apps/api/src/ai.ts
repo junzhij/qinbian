@@ -32,12 +32,16 @@ export class AiService {
  async run(key:string,controller:AbortController){
   try{
    const job=this.get(key),input=job.request,theme=this.store.theme(input.themeSetId)
-   const skill=readFileSync(resolve(this.store.config.root,'skills/component-design/SKILL.md'),'utf8')
+   let skill=readFileSync(resolve(this.store.config.root,'skills/component-design/SKILL.md'),'utf8')
    let source=input.sourceHtml,sourceSettings:any=input.settings||{}
    if(!source&&input.targetId){const target=input.targetType==='document'?this.store.document(input.targetId):this.store.resource(input.targetId);source='blocks' in target?target.blocks.find(b=>b.id===input.blockId)?.html:target.data.html||target.data.blocks?.find(b=>b.id===input.blockId)?.html}
    if(input.targetId&&!input.settings){const target=input.targetType==='document'?this.store.document(input.targetId):this.store.resource(input.targetId);sourceSettings='blocks' in target?target.blocks.find(b=>b.id===input.blockId)||{}:target.kind==='component'?target.data:target.data.blocks?.find(b=>b.id===input.blockId)||{}}
+   const chartIntent=input.operation!=='palette'&&(input.designKind==='chart'||!!source?.includes('data-qb-chart')||/折线图|面积图|柱状图|条形图|饼图|环图|数据图|\b(?:line|area|bar|pie|donut)\b/i.test(input.prompt))
+   const dividerIntent=input.operation!=='palette'&&(input.designKind==='divider'||/分隔符|分隔线|分割线|\bdivider\b/i.test(input.prompt))
+   if(chartIntent)skill+='\n\n'+readFileSync(resolve(this.store.config.root,'skills/component-design/references/data-charts.md'),'utf8')
+   if(dividerIntent)skill+='\n\n'+readFileSync(resolve(this.store.config.root,'skills/component-design/references/dividers.md'),'utf8')
    const all=this.store.db.select().from(resources).where(eq(resources.kind,'component')).all().filter(r=>!r.deletedAt)
-   const examples=(input.referenceIds.length?input.referenceIds.map(k=>this.store.resource(k)):all.filter(r=>r.themeSetId===theme.id)).slice(0,2).map(r=>({name:r.name,html:r.data.html}))
+   const examples=(input.referenceIds.length?input.referenceIds.map(k=>this.store.resource(k)):all.filter(r=>r.themeSetId===theme.id&&(!chartIntent||r.data.html?.includes('data-qb-chart'))&&(!dividerIntent||r.category==='章节与分隔'||r.tags.includes('分隔符')))).slice(0,2).map(r=>({name:r.name,html:r.data.html}))
    const assets=input.assetIds.map(k=>{const a=this.store.asset(k);return {id:a.id,name:a.name,width:a.width,height:a.height,url:`/api/assets/${a.id}/file`}})
    let palette=normalizePalette(input.palette||sourceSettings.palette||theme.palette,theme.tokens)
    if(input.colorCount){palette={...palette,colors:palette.colors.slice(0,input.colorCount)};while(palette.colors.length<input.colorCount){const n=palette.colors.length+1;palette.colors.push(makeColor(`color${n}`,['墨蓝','灰青','朱砂','浅金','黛紫','石青'][n-1]!,['#183A49','#567067','#9E4B3B','#B38A55','#8A8393','#5B8790'][n-1]!))}}
@@ -59,7 +63,7 @@ export class AiService {
       const p=paletteSchema.parse({name:generated.name,colors:generated.colors.map(c=>({...makeColor(c.id,c.name,c.regular),...c}))})
       this.update(key,{status:'ready',result:{kind:'palette',name:generated.name,description:generated.description,category:'配色卡',tags:['配色'],html:'',palette:p},error:null});return
      }
-     const result=resultSchema.parse(JSON.parse(raw)),fields=result.fields||sourceSettings.fields||[]
+     const result=resultSchema.parse(JSON.parse(raw));if(chartIntent&&!result.html.includes('data-qb-chart'))throw new Error('数据图必须使用data-qb-chart协议，不能用空圆或CSS渐变代替');if(chartIntent)result.category='数据与清单';if(dividerIntent){result.category='章节与分隔';result.tags=[...new Set([...result.tags,'分隔符'])]}const fields=result.fields||sourceSettings.fields||[]
      const metadata=prepareComponent({...sourceSettings,...result,palette,fields,values:{...sourceSettings.values,...result.values,...extractFieldValues(result.html,fields)}})
      const checked=inspectHtml(metadata.html)
      if(checked.issues.length)throw new Error(checked.issues.join('；'))

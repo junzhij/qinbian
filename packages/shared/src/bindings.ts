@@ -12,7 +12,7 @@ export type Palette=z.infer<typeof paletteSchema>
 export type PaletteColor=z.infer<typeof paletteColorSchema>
 export const fieldSchema=z.object({id:z.string().regex(/^[a-zA-Z][\w.-]{0,63}$/),label:z.string().max(80),type:z.enum(['text','number','image','computed']).default('text'),default:z.union([z.string().max(10000),z.number()]).default(''),min:z.number().optional(),max:z.number().optional(),step:z.number().positive().optional(),suffix:z.string().max(20).default(''),image:imageSpecSchema.optional(),formula:z.object({op:z.literal('percent'),numerator:z.string(),denominator:z.string()}).optional()})
 export type FieldDefinition=z.infer<typeof fieldSchema>
-export const componentSettingsSchema=z.object({palette:paletteSchema.optional(),fields:z.array(fieldSchema).max(40).default([]),values:z.record(z.string(),z.union([z.string(),z.number()])).default({}),colorMappings:z.record(z.string(),z.string()).default({})})
+export const componentSettingsSchema=z.object({palette:paletteSchema.optional(),fields:z.array(fieldSchema).max(80).default([]),values:z.record(z.string(),z.union([z.string(),z.number()])).default({}),colorMappings:z.record(z.string(),z.string()).default({})})
 export type ComponentSettings=z.infer<typeof componentSettingsSchema>
 export function normalizeHex(value:string):string|null {
  let s=value.trim().toLowerCase()
@@ -59,7 +59,7 @@ export function bindComponent(html:string,settings:Partial<ComponentSettings>={}
   let parent=n.parentNode
   while(parent){if(attr(parent,'data-qb-field')||parent.tagName==='section'&&(parent.childNodes||[]).find((c:any)=>c.tagName)?.tagName==='p'&&text((parent.childNodes||[]).find((c:any)=>c.tagName)).trim()==='＋')return;parent=parent.parentNode}
   let nested=false;for(const child of n.childNodes||[])walk(child,c=>{if(['p','div','section','table','figure','img','h2','h3','h4'].includes(c.tagName))nested=true})
-  if(nested||fields.length>=40)return
+  if(nested||fields.length>=80)return
   while(fields.some(f=>f.id==='content'+auto))auto++
   const key='content'+auto++,label=text(n).replace(/占位/g,'').trim().slice(0,80)||'可修改文案'
   fields.push(fieldSchema.parse({id:key,label,type:'text',default:text(n)}));setAttr(n,'data-qb-field',key)

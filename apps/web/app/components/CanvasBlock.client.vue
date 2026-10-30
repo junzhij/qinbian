@@ -10,7 +10,7 @@ import { imageElements } from '~/utils/image-slots'
 import { elementPath, elementAtPath, paragraphContent, mountParagraphHost, composeParagraph, editableTextElement } from '~/utils/paragraph-session'
 
 const props=defineProps<{html:string;selected?:boolean;readonly?:boolean}>()
-const emit=defineEmits<{update:[html:string];select:[];editor:[editor:Editor|null];media:[index:number]}>()
+const emit=defineEmits<{update:[html:string];select:[];editor:[editor:Editor|null];media:[index:number];field:[id:string]}>()
 const island=ref<HTMLElement>()
 let editor:Editor|null=null,lastEmitted=props.html,working=sanitizeHtml(props.html),activeBase='',activePath:number[]=[],changed=false
 let blurTimer:ReturnType<typeof setTimeout>|undefined
@@ -76,7 +76,7 @@ function clicked(event:MouseEvent){
  emit('select');const target=event.target as HTMLElement
  if(props.readonly||!island.value)return
  if(editor?.view.dom.contains(target))return
- if(target.closest('[data-qb-chart]')&&target.closest('img'))return
+ if(target.closest('[data-qb-chart]')){emit('field',target.closest<HTMLElement>('[data-qb-field]')?.dataset.qbField||'');return}
  const img=target.closest('img'),placeholder=target.closest<HTMLElement>('[data-qb-field-type="image"],section')
  const slots=imageElements(island.value)
  if(img||placeholder&&slots.includes(placeholder)){const index=Math.max(0,slots.indexOf(img||placeholder!));stop();emit('media',index);return}

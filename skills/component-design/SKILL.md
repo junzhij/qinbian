@@ -33,6 +33,12 @@ description: 为秦编生成或修改校园公众号图文组件，遵循指定�
 
 数值样式可写width:{{percent}}%。百分比用computed和formula:{op:"percent",numerator:"current",denominator:"total"}，禁止可执行公式。
 
+## 数据图与分隔符
+
+数据图支持line、area、bar、horizontalBar、pie、donut。按任务选趋势、比较或整体占比；分类、数值、单位和来源可修改。用data-qb-chart声明结构，图形由渲染器绘制并导出PNG；不自行输出SVG、Canvas、CSS渐变或空圆。缺失值不当成0，不编造官方数据；示例必须标明。具体协议见references/data-charts.md，图表任务会附上该规范。
+
+分隔符优先细线、双线、少量点状或章节题签，控制16—32px留白，主题颜色与尺寸可修改；用section边框绘线，不堆叠横线字符、花纹或大色块。具体规范见references/dividers.md，分隔符任务会附上。
+
 ## 修改与输出
 
 默认保留事实、图片、数据来源、外层设计、字体和主题，只修改指定部分。姓名、时间、数值、引用来自资料，缺失则占位，不编造成绩、背书或成效。
