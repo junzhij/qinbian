@@ -1,0 +1,31 @@
+- generic [ref=f77e3]:
+  - complementary [ref=f77e4]:
+    - link "秦 秦编 一页之间，自有章法" [ref=f77e5] [cursor=pointer]:
+      - /url: /
+      - generic [ref=f77e6]: 秦
+      - generic [ref=f77e7]:
+        - text: 秦编
+        - generic [ref=f77e8]: 一页之间，自有章法
+    - navigation "主导航" [ref=f77e10]:
+      - link "资源库 藏" [ref=f77e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f77e14]: 资源库
+        - generic [ref=f77e15]: 藏
+      - link "图片素材" [ref=f77e16] [cursor=pointer]:
+        - /url: /assets
+      - link "我的文章" [ref=f77e22] [cursor=pointer]:
+        - /url: /documents
+    - generic [ref=f77e27]:
+      - generic [ref=f77e28]: 主题套组
+      - button "新建主题套组" [ref=f77e29] [cursor=pointer]
+    - button "全部资源" [ref=f77e32] [cursor=pointer]
+    - generic [ref=f77e36]:
+      - paragraph [ref=f77e41]: 把琐碎交给工具，把心思留给文字。
+      - link "回收站" [ref=f77e42] [cursor=pointer]:
+        - /url: /trash
+      - link "设置与备份" [ref=f77e46] [cursor=pointer]:
+        - /url: /settings
+      - generic [ref=f77e50]: 个人书房 · 本地保存
+  - main [ref=f77e52]:
+    - generic [ref=f77e53]: 正在打开这份版式…
+  - status

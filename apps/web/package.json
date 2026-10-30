@@ -1,0 +1,30 @@
+{
+  "name": "@qinbian/web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --host 127.0.0.1 --port 3030",
+    "build": "nuxt build",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@qinbian/shared": "workspace:*",
+    "ofetch": "^1.4.1",
+    "nuxt": "^4.0.0",
+    "vue": "^3.5.0",
+    "@tiptap/vue-3": "^3.0.0",
+    "@tiptap/core": "^3.0.0",
+    "@tiptap/starter-kit": "^3.0.0",
+    "@tiptap/extension-text-style": "^3.0.0",
+    "@tiptap/extension-text-align": "^3.0.0",
+    "@tiptap/extension-underline": "^3.0.0",
+    "@tiptap/extension-link": "^3.0.0",
+    "vuedraggable": "^4.1.0",
+    "lucide-vue-next": "^0.577.0",
+    "vue-router": "^5.4.0"
+  },
+  "devDependencies": {
+    "vue-tsc": "^3.0.0"
+  }
+}

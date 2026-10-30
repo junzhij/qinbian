@@ -1,0 +1,6 @@
+[   54248ms] [ERROR] DataCloneError: Failed to execute 'structuredClone' on 'Window': #<Object> could not be cloned.
+    at nt (http://192.168.9.109:3030/_nuxt/DY19b1Ii.js:146:15120)
+    at onClick (http://192.168.9.109:3030/_nuxt/DY19b1Ii.js:146:21521)
+    at Ir (http://192.168.9.109:3030/_nuxt/BKrhr_Qx.js:2:31445)
+    at Lr (http://192.168.9.109:3030/_nuxt/BKrhr_Qx.js:2:31513)
+    at HTMLButtonElement.n (http://192.168.9.109:3030/_nuxt/BKrhr_Qx.js:4:61725) @ http://192.168.9.109:3030/_nuxt/BKrhr_Qx.js:1

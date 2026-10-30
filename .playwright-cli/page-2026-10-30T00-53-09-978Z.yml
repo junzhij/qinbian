@@ -1,0 +1,5 @@
+- generic [ref=f78e3]:
+  - button "打开导航" [ref=f78e4] [cursor=pointer]
+  - main [ref=f78e6]:
+    - generic [ref=f78e7]: 正在打开这份版式…
+  - status

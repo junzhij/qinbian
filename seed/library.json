@@ -1,0 +1,1476 @@
+{
+  "theme": {
+    "name": "山海知行",
+    "themeId": "theme-neuq-shanhai",
+    "description": "东北大学秦皇岛分校公众号排版组件库",
+    "version": "1.0.1",
+    "palette": {
+      "深海蓝": "#073B72",
+      "山海墨": "#102F48",
+      "海沫青": "#247B80",
+      "沙金": "#AD8240",
+      "专题红": "#98433F",
+      "纸白": "#FAF8F2"
+    },
+    "categories": [
+      {
+        "id": "A",
+        "name": "封面与刊头",
+        "description": "让第一屏有记忆点"
+      },
+      {
+        "id": "B",
+        "name": "章节与分隔",
+        "description": "把长文读出呼吸感"
+      },
+      {
+        "id": "C",
+        "name": "正文与导读",
+        "description": "让重点自然浮现"
+      },
+      {
+        "id": "D",
+        "name": "新闻与现场",
+        "description": "清楚记录正在发生"
+      },
+      {
+        "id": "E",
+        "name": "人物与访谈",
+        "description": "把叙述留给具体的人"
+      },
+      {
+        "id": "F",
+        "name": "学术与科研",
+        "description": "严谨也可以有美感"
+      },
+      {
+        "id": "G",
+        "name": "数据与清单",
+        "description": "让信息一眼可读"
+      },
+      {
+        "id": "H",
+        "name": "活动与日程",
+        "description": "把参与路径讲明白"
+      },
+      {
+        "id": "I",
+        "name": "通知与服务",
+        "description": "让重要消息被看见"
+      },
+      {
+        "id": "J",
+        "name": "图像与媒体",
+        "description": "给影像恰好的位置"
+      },
+      {
+        "id": "K",
+        "name": "校园与叙事",
+        "description": "把山海写进日常"
+      },
+      {
+        "id": "L",
+        "name": "互动与文末",
+        "description": "让阅读有温暖的回声"
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "A01",
+      "name": "山海长卷",
+      "description": "主视觉封面。校名、题眼与潮线形成三个阅读层次。",
+      "category": "A",
+      "categoryLabel": "封面与刊头",
+      "tags": [
+        "专题",
+        "品牌"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:28px 24px;background-color:rgb(16, 47, 72);border-radius:5px;border-radius:5px;text-align:left;\"><section style=\"margin:0px 0px 26px;text-align:left;\"><img src=\"assets/校名-W.png\" alt=\"东北大学秦皇岛分校中英文校名\" width=\"260\" style=\"max-width:100%;height:auto;display:block;margin:0px auto;\"></section><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(174, 198, 213);text-align:left;\"><span leaf=\"\">山海知行　／　专题刊头</span></p><p style=\"margin:28px 0px 12px 0px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(255, 255, 255);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">向山海深处</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(255, 255, 255);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">向知行未来</span></p><section style=\"height:0px;width:22%;margin:16px 0px;border-top:1px solid rgb(91, 122, 142);font-size:0px;line-height:0;border-top:1px solid rgb(91, 122, 142);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:16px 0px 24px;font-size:13px;line-height:1.85;color:rgb(210, 224, 232);text-align:left;\"><span leaf=\"\">专题副标题占位</span></p><section style=\"padding:3px 0px;text-align:left;\"><section style=\"height:0px;border-top:1px solid rgb(113, 154, 171);border-radius:50%;width:92%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(113, 154, 171);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(113, 154, 171);border-radius:50%;width:77%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(113, 154, 171);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(113, 154, 171);border-radius:50%;width:58%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(113, 154, 171);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section></section><p style=\"margin:20px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(174, 198, 213);text-align:left;\"><span leaf=\"\">NEUQ　　山 · 海 · 知 · 行</span></p></section></section>"
+    },
+    {
+      "id": "A02",
+      "name": "知行白皮书",
+      "description": "用于科研、年度报告与深度解读的正式开篇。",
+      "category": "A",
+      "categoryLabel": "封面与刊头",
+      "tags": [
+        "科研",
+        "报告"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:24px;border:1px solid rgb(220, 229, 232);border-top:5px solid rgb(7, 59, 114);border-top:5px solid rgb(7, 59, 114);border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><section style=\"margin:0px 0px 26px;text-align:left;\"><img src=\"assets/校名.png\" alt=\"东北大学秦皇岛分校中英文校名\" width=\"260\" style=\"max-width:100%;height:auto;display:block;margin:0px auto;\"></section><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">RESEARCH　／　学术观察</span></p><section style=\"height:0px;width:20%;margin:16px 0px;border-top:1px solid rgb(7, 59, 114);font-size:0px;line-height:0;border-top:1px solid rgb(7, 59, 114);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">把问题写在前面</span></p><p style=\"margin:0px 0px 12px;font-size:20px;line-height:1.5;font-weight:700;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">让探索抵达更远</span></p><p style=\"margin:0px 0px 12px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">专题摘要占位，简要交代研究对象、报道角度与阅读价值。</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">内容方向</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">研究问题　／　方法证据　／　未来展望</span></p></section><p style=\"margin:18px 0px 12px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">专题名称占位</span></p></section></section>"
+    },
+    {
+      "id": "A03",
+      "name": "海岸来信",
+      "description": "以信纸的留白和细线，开启迎新、毕业及校友主题。",
+      "category": "A",
+      "categoryLabel": "封面与刊头",
+      "tags": [
+        "迎新",
+        "毕业"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:28px 22px;background-color:rgb(237, 245, 244);border:1px solid rgb(208, 227, 223);border-radius:3px;border-top:1px solid #D0E3DF;border-right:1px solid #D0E3DF;border-bottom:1px solid #D0E3DF;border-left:1px solid #D0E3DF;border-radius:3px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">一封写给你的信</span></p><section style=\"margin:0px 0px 26px;text-align:left;\"><img src=\"assets/校名.png\" alt=\"东北大学秦皇岛分校中英文校名\" width=\"260\" style=\"max-width:100%;height:auto;display:block;margin:0px auto;\"></section><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">在山海之间，</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">写下新的开始。</span></p><section style=\"height:0px;width:100%;margin:16px 0px;border-top:1px solid rgb(185, 212, 209);font-size:0px;line-height:0;border-top:1px solid rgb(185, 212, 209);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:0px 0px 12px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">这里放置一段短短的开场白，让故事从一句亲切的问候开始。</span></p><p style=\"margin:25px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:right;\"><span leaf=\"\">寄件人　／　{{栏目名称}}</span></p></section></section>"
+    },
+    {
+      "id": "A04",
+      "name": "东秦新闻头版",
+      "description": "紧凑刊头与主次标题，适合正式校园新闻。",
+      "category": "A",
+      "categoryLabel": "封面与刊头",
+      "tags": [
+        "新闻",
+        "报道"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"margin:0px 0px 26px;text-align:left;\"><img src=\"assets/校名.png\" alt=\"东北大学秦皇岛分校中英文校名\" width=\"260\" style=\"max-width:100%;height:auto;display:block;margin:0px auto;\"></section><section style=\"border-top:3px solid rgb(7, 59, 114);padding:18px 0px 0px;border-top:3px solid rgb(7, 59, 114);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">CAMPUS NEWS　／　校园新闻</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">新闻主标题占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">副标题概括事件核心信息</span></p><section style=\"height:0px;width:100%;margin:16px 0px;border-top:1px solid rgb(220, 229, 232);font-size:0px;line-height:0;border-top:1px solid rgb(220, 229, 232);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">{{发布单位}}　｜　{{发布日期}}</span></p></section></section>"
+    },
+    {
+      "id": "A05",
+      "name": "青春入场券",
+      "description": "把活动开篇做成一张上下联动的邀请票。",
+      "category": "A",
+      "categoryLabel": "封面与刊头",
+      "tags": [
+        "活动",
+        "邀请"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"background-color:rgb(250, 248, 242);border:1px solid rgb(226, 223, 209);border-radius:10px;border-top:1px solid #E2DFD1;border-right:1px solid #E2DFD1;border-bottom:1px solid #E2DFD1;border-left:1px solid #E2DFD1;border-radius:10px;text-align:left;\"><section style=\"padding:24px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">INVITATION　／　山海邀约</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">把热爱，写在现场。</span></p><p style=\"margin:0px;font-size:16px;line-height:1.85;text-align:left;\"><span leaf=\"\">活动名称占位</span></p></section><section style=\"padding:8px 24px 22px;background-color:rgb(240, 245, 242);border-top:1px solid rgb(202, 220, 213);border-top:1px solid rgb(202, 220, 213);text-align:left;\"><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">活动时间</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{日期}}　{{时段}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">活动地点</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{地点}}</span></p></section><p style=\"margin:16px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">入场序章　／　此刻，等你抵达</span></p></section></section></section>"
+    },
+    {
+      "id": "A06",
+      "name": "人物专刊",
+      "description": "从人物关键词切入，把姓名与主张并置。",
+      "category": "A",
+      "categoryLabel": "封面与刊头",
+      "tags": [
+        "人物",
+        "采访"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">PORTRAIT　／　人物专刊</span></p><section style=\"margin-bottom:18px;text-align:left;\"><section style=\"padding:36px 16px;text-align:center;background-color:rgb(250, 248, 242);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">人物肖像占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section></section><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">把热爱，做成日常。</span></p><p style=\"margin:0px 0px 12px;font-size:20px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">{{人物姓名}}</span></p><p style=\"margin:0px 0px 12px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">身份信息占位　／　采访主题占位</span></p><section style=\"height:0px;width:18%;margin:16px 0px;border-top:1px solid rgb(173, 130, 64);font-size:0px;line-height:0;border-top:1px solid rgb(173, 130, 64);text-align:left;\"><span leaf=\"\"><br></span></section></section>"
+    },
+    {
+      "id": "A07",
+      "name": "初心专题",
+      "description": "采用同一套版式语言的红金专题封面。",
+      "category": "A",
+      "categoryLabel": "封面与刊头",
+      "tags": [
+        "党团",
+        "专题"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:28px 24px;background-color:rgb(152, 67, 63);border-radius:4px;border-radius:4px;text-align:left;\"><section style=\"margin:0px 0px 26px;text-align:left;\"><img src=\"assets/校名-W.png\" alt=\"东北大学秦皇岛分校中英文校名\" width=\"260\" style=\"max-width:100%;height:auto;display:block;margin:0px auto;\"></section><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(228, 205, 175);text-align:left;\"><span leaf=\"\">SPECIAL EDITION　／　专题记录</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(255, 255, 255);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">以初心为笔</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(255, 255, 255);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">以行动作答</span></p><section style=\"height:0px;width:24%;margin:16px 0px;border-top:1px solid rgb(198, 163, 114);font-size:0px;line-height:0;border-top:1px solid rgb(198, 163, 114);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:22px 0px 0px;font-size:14px;line-height:1.85;color:rgb(244, 231, 216);text-align:left;\"><span leaf=\"\">专题名称占位</span></p></section></section>"
+    },
+    {
+      "id": "A08",
+      "name": "山海影集",
+      "description": "画幅、序言与落款组合成摄影专题首页。",
+      "category": "A",
+      "categoryLabel": "封面与刊头",
+      "tags": [
+        "摄影",
+        "校园"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">VISUAL DIARY　／　校园影像</span></p><section style=\"padding:51px 16px;text-align:center;background-color:rgb(237, 245, 244);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">校园主视觉占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><section style=\"padding:22px 16px;border-left:3px solid rgb(36, 123, 128);background-color:rgb(250, 248, 242);border-left:3px solid rgb(36, 123, 128);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">一帧，收好山海。</span></p><p style=\"margin:0px;font-size:13px;line-height:1.85;text-align:left;\"><span leaf=\"\">影像专题名称占位</span></p></section></section>"
+    },
+    {
+      "id": "B01",
+      "name": "潮汐编号章",
+      "description": "数字与短潮线构成章节的稳定锚点。",
+      "category": "B",
+      "categoryLabel": "章节与分隔",
+      "tags": [
+        "章节",
+        "编号"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">CHAPTER　／　章节</span></p><p style=\"margin:0px 0px 12px;font-size:22px;line-height:1.85;color:rgb(7, 59, 114);font-weight:700;text-align:left;\"><span leaf=\"\">01</span><span style=\"color:rgb(173, 130, 64);\"><span leaf=\"\">　／　</span></span><span leaf=\"\">章节标题占位</span></p><section style=\"padding:3px 0px;text-align:left;\"><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:92%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:77%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:58%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section></section></section>"
+    },
+    {
+      "id": "B02",
+      "name": "知行页签",
+      "description": "窄色签加标题，不打断正文的连续阅读。",
+      "category": "B",
+      "categoryLabel": "章节与分隔",
+      "tags": [
+        "小节",
+        "标签"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:18px;line-height:1.85;color:rgb(16, 47, 72);font-weight:600;text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-radius:3px;border-radius:3px;\"><span leaf=\"\">知行笔记</span></span><span leaf=\"\">小节标题占位</span></p></section>"
+    },
+    {
+      "id": "B03",
+      "name": "双语栏目条",
+      "description": "上下两条信息轨道，适合长期运营的固定栏目。",
+      "category": "B",
+      "categoryLabel": "章节与分隔",
+      "tags": [
+        "栏目",
+        "长期连载"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:14px 0px;border-top:1px solid rgb(7, 59, 114);border-bottom:1px solid rgb(220, 229, 232);border-top:1px solid rgb(7, 59, 114);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 5px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">FIELD NOTES　／　栏目英文名</span></p><p style=\"margin:0px;font-size:19px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">中文栏目标题</span></p></section></section>"
+    },
+    {
+      "id": "B04",
+      "name": "问题开章",
+      "description": "用一个问题组织接下来的回答。",
+      "category": "B",
+      "categoryLabel": "章节与分隔",
+      "tags": [
+        "学术",
+        "深度"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:0px 0px 0px 17px;border-left:3px solid rgb(173, 130, 64);border-left:3px solid rgb(173, 130, 64);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">QUESTION　／　从这里开始</span></p><p style=\"margin:0px 0px 12px;font-size:22px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">我们为什么提出这个问题？</span></p></section></section>"
+    },
+    {
+      "id": "B05",
+      "name": "竖题短章",
+      "description": "分行题眼与正文标题形成疏密对比。",
+      "category": "B",
+      "categoryLabel": "章节与分隔",
+      "tags": [
+        "文学",
+        "校园"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:10px 0px;text-align:left;\"><p style=\"margin:0px;font-size:18px;line-height:1.85;font-family:Songti SC, serif;letter-spacing:8px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">山　海</span></p><section style=\"height:0px;width:12%;margin:16px 0px;border-top:1px solid rgb(36, 123, 128);font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:0px 0px 12px;font-size:19px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">这一章，写给新的出发</span></p></section></section>"
+    },
+    {
+      "id": "B06",
+      "name": "结语页首",
+      "description": "以开放式结尾符号收束整篇。",
+      "category": "B",
+      "categoryLabel": "章节与分隔",
+      "tags": [
+        "结语",
+        "收束"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">CODA　／　写在最后</span></p><p style=\"margin:0px 0px 12px;font-size:22px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">∞　故事仍在继续</span></p><section style=\"height:0px;width:28%;margin:16px 0px;border-top:1px solid rgb(173, 130, 64);font-size:0px;line-height:0;border-top:1px solid rgb(173, 130, 64);text-align:left;\"><span leaf=\"\"><br></span></section></section>"
+    },
+    {
+      "id": "B07",
+      "name": "海平线",
+      "description": "三条不同长度的细线，模拟潮线的呼吸。",
+      "category": "B",
+      "categoryLabel": "章节与分隔",
+      "tags": [
+        "分隔",
+        "留白"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:10px 20px;text-align:left;\"><section style=\"padding:3px 0px;text-align:left;\"><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:92%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:77%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:58%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section></section><p style=\"margin:13px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">山海之间　／　片刻留白</span></p></section></section>"
+    },
+    {
+      "id": "B08",
+      "name": "书页转场",
+      "description": "文献式短转场，用于不同内容段之间。",
+      "category": "B",
+      "categoryLabel": "章节与分隔",
+      "tags": [
+        "转场",
+        "轻量"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:21px 0px;text-align:left;\"><p style=\"margin:0px;font-size:12px;line-height:1.85;letter-spacing:2px;color:rgb(101, 121, 133);text-align:center;\"><span leaf=\"\">—　下一页，继续知行　—</span></p></section></section>"
+    },
+    {
+      "id": "C01",
+      "name": "编辑按语",
+      "description": "把编辑视角独立成一个清楚的浅底序章。",
+      "category": "C",
+      "categoryLabel": "正文与导读",
+      "tags": [
+        "导语",
+        "编辑"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(250, 248, 242);border-radius:5px;border-left:3px solid rgb(36, 123, 128);border-left:3px solid rgb(36, 123, 128);border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">EDITOR’S NOTE　／　编者按</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">在这里写下本篇的</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">核心观察</span></span><span leaf=\"\">，用短短几句话说明为什么值得读下去。</span></p></section></section>"
+    },
+    {
+      "id": "C02",
+      "name": "三看点导读",
+      "description": "精选三条阅读线索，不充当全文章节目录。",
+      "category": "C",
+      "categoryLabel": "正文与导读",
+      "tags": [
+        "导读",
+        "目录"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px 18px;border:1px solid rgb(220, 229, 232);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">READING GUIDE　／　本篇看点</span></p><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">01</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">从一个问题出发</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">阅读线索占位，概括第一处核心看点。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">02</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">沿着事实寻找答案</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">阅读线索占位，点出最值得关注的细节。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">03</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">把思考带回日常</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">阅读线索占位，交代与读者的关联。</span></p></section></section></section>"
+    },
+    {
+      "id": "C03",
+      "name": "山海正文",
+      "description": "舒展的行距与克制下划线，适合长文连续阅读。",
+      "category": "C",
+      "categoryLabel": "正文与导读",
+      "tags": [
+        "正文",
+        "基础"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">这里是一段正文示例。好的叙述从</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">具体的人和事</span></span><span leaf=\"\">开始，用清楚的逻辑连接信息，让读者在自然的阅读节奏中找到重点。</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">段落之间保留适量空白，把</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">真正重要的短语</span></span><span leaf=\"\">轻轻标记，让视觉层级服务于内容。</span></p></section>"
+    },
+    {
+      "id": "C04",
+      "name": "一句话结论",
+      "description": "把一段论述压成一条可记住的结论。",
+      "category": "C",
+      "categoryLabel": "正文与导读",
+      "tags": [
+        "结论",
+        "强调"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:17px 0px;border-top:2px solid rgb(36, 123, 128);border-bottom:1px solid rgb(220, 229, 232);border-top:2px solid rgb(36, 123, 128);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">KEY MESSAGE　／　核心句</span></p><p style=\"margin:0px 0px 12px;font-size:20px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">让每一个问题，都有被认真回答的可能。</span></p></section></section>"
+    },
+    {
+      "id": "C05",
+      "name": "首字入文",
+      "description": "首字加重而不使用浮动，保留手机端阅读顺序。",
+      "category": "C",
+      "categoryLabel": "正文与导读",
+      "tags": [
+        "正文",
+        "叙事"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span style=\"font-family:Songti SC, STSong, SimSun, serif;font-size:24px;font-weight:700;color:rgb(7, 59, 114);padding-right:3px;\"><span leaf=\"\">山</span></span><span leaf=\"\">海之间，有值得记录的日常。在这里写下第一段叙述，让一个画面、一次对话或一个细节把读者带进故事。</span></p></section>"
+    },
+    {
+      "id": "C06",
+      "name": "页边批注",
+      "description": "正文与小号批注上下分组，避免挤压主阅读区。",
+      "category": "C",
+      "categoryLabel": "正文与导读",
+      "tags": [
+        "旁注",
+        "补充"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">在这里展开本段论述，先把</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">主要观点</span></span><span leaf=\"\">讲清楚。</span></p><section style=\"padding:10px 13px;border-left:2px solid rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-left:2px solid rgb(36, 123, 128);text-align:left;\"><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">旁注</span></p><p style=\"margin:4px 0px 0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">这里补充术语、背景或细节说明。</span></p></section></section>"
+    },
+    {
+      "id": "C07",
+      "name": "关键词释签",
+      "description": "三种行内标记配合短释义，建立稳定语义。",
+      "category": "C",
+      "categoryLabel": "正文与导读",
+      "tags": [
+        "关键词",
+        "标签"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-radius:3px;border-radius:3px;\"><span leaf=\"\">概念</span></span><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(7, 59, 114);background-color:rgb(235, 241, 248);border-radius:3px;border-radius:3px;\"><span leaf=\"\">重点</span></span><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(173, 130, 64);background-color:rgb(250, 248, 242);border-radius:3px;border-radius:3px;\"><span leaf=\"\">观察</span></span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">把</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">关键词</span></span><span leaf=\"\">放在这里，后面用一句话补充它在本篇中的含义。</span></p></section>"
+    },
+    {
+      "id": "C08",
+      "name": "金句展签",
+      "description": "像展览中的文字铭牌，突出值得停留的一句话。",
+      "category": "C",
+      "categoryLabel": "正文与导读",
+      "tags": [
+        "金句",
+        "引语"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:23px 20px;background-color:rgb(250, 248, 242);border-bottom:2px solid rgb(173, 130, 64);border-bottom:2px solid rgb(173, 130, 64);text-align:left;\"><p style=\"margin:0px;font-size:24px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);font-family:Georgia, serif;text-align:left;\"><span leaf=\"\">“</span></p><p style=\"margin:0px 0px 12px;font-size:21px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">把好奇留给世界，<br>把认真留给每一天。</span></p><p style=\"margin:18px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:right;\"><span leaf=\"\">—— {{引语来源}}</span></p></section></section>"
+    },
+    {
+      "id": "D01",
+      "name": "新闻要素单",
+      "description": "将时间、地点、人物与事件按事实字段组织。",
+      "category": "D",
+      "categoryLabel": "新闻与现场",
+      "tags": [
+        "新闻",
+        "事实"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">AT A GLANCE　／　要素速览</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">何时</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{活动时间}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">何地</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{活动地点}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">谁在现场</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{参与对象}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">发生了什么</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{核心事件}}</span></p></section></section>"
+    },
+    {
+      "id": "D02",
+      "name": "消息快讯",
+      "description": "短消息用清晰的细竖条，快速进入事实。",
+      "category": "D",
+      "categoryLabel": "新闻与现场",
+      "tags": [
+        "快讯",
+        "信息"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:15px 17px;border-left:3px solid rgb(7, 59, 114);background-color:rgb(242, 246, 250);border-left:3px solid rgb(7, 59, 114);text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-radius:3px;border-radius:3px;\"><span leaf=\"\">消息速递</span></span><p style=\"margin:0px 0px 12px;font-size:18px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">一句话新闻标题占位</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">这里放置简短消息，交代</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">核心事实</span></span><span leaf=\"\">与进展。</span></p></section></section>"
+    },
+    {
+      "id": "D03",
+      "name": "事实与背景",
+      "description": "区分当前事实和理解它所需的背景。",
+      "category": "D",
+      "categoryLabel": "新闻与现场",
+      "tags": [
+        "背景",
+        "事实"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(237, 245, 244);border-radius:5px;border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">FACT　／　事件事实</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">本栏写明经过核实的事件信息。</span></p></section><section style=\"padding:16px 0px 0px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">CONTEXT　／　背景补充</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">本栏交代相关背景、前因或历史脉络。</span></p></section></section>"
+    },
+    {
+      "id": "D04",
+      "name": "现场速记",
+      "description": "用时间点串起现场变化，不打散叙事。",
+      "category": "D",
+      "categoryLabel": "新闻与现场",
+      "tags": [
+        "现场",
+        "纪实"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">ON THE SCENE　／　现场速记</span></p><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">{{时刻一}}</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">现场片段占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">记下一个具体动作或细节。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">{{时刻二}}</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">现场变化占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">继续记录值得关注的新进展。</span></p></section></section>"
+    },
+    {
+      "id": "D05",
+      "name": "发言摘要",
+      "description": "明确发言主体、核心观点与转述内容。",
+      "category": "D",
+      "categoryLabel": "新闻与现场",
+      "tags": [
+        "发言",
+        "摘要"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:18px;border:1px solid rgb(220, 229, 232);border-top:3px solid rgb(36, 123, 128);border-top:3px solid rgb(36, 123, 128);border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">VOICE　／　发言摘记</span></p><p style=\"margin:0px 0px 12px;font-size:17px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">{{发言人及身份}}</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">核心观点占位。以准确转述交代发言要点，不把示例文字作为实际引语。</span></p></section></section>"
+    },
+    {
+      "id": "D06",
+      "name": "进展追踪",
+      "description": "已完成、正在推进与下一步分层呈现。",
+      "category": "D",
+      "categoryLabel": "新闻与现场",
+      "tags": [
+        "进展",
+        "追踪"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">FOLLOW UP　／　进展追踪</span></p><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">已完成</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">阶段成果占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">说明已经发生的实际进展。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">进行中</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">当前工作占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">说明正在推进的具体事项。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">下一步</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">后续计划占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">使用明确来源的后续安排。</span></p></section></section>"
+    },
+    {
+      "id": "D07",
+      "name": "图说现场",
+      "description": "让图片新闻的标题、图注和事实互相对应。",
+      "category": "D",
+      "categoryLabel": "新闻与现场",
+      "tags": [
+        "图说",
+        "新闻"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">IN PICTURES　／　图说现场</span></p><section style=\"padding:31px 16px;text-align:center;background-color:rgb(237, 245, 244);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">现场画面占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><section style=\"padding:15px 0px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:18px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">一个画面，一个现场</span></p><p style=\"margin:0px;font-size:13px;line-height:1.85;text-align:left;\"><span leaf=\"\">在这里填写图片对应的事实说明。</span></p></section></section>"
+    },
+    {
+      "id": "D08",
+      "name": "记者观察",
+      "description": "把观察与事实分开，并说明观察的依据。",
+      "category": "D",
+      "categoryLabel": "新闻与现场",
+      "tags": [
+        "记者",
+        "评论"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(250, 248, 242);border-radius:5px;border-left:3px solid rgb(173, 130, 64);border-left:3px solid rgb(173, 130, 64);border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">REPORTER’S VIEW　／　记者观察</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">从这次现场记录中，我们看到</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">值得追问的变化</span></span><span leaf=\"\">。在这里写下观察依据与进一步的思考。</span></p></section></section>"
+    },
+    {
+      "id": "E01",
+      "name": "人物名片",
+      "description": "身份、研究方向或兴趣分层展示。",
+      "category": "E",
+      "categoryLabel": "人物与访谈",
+      "tags": [
+        "人物",
+        "简介"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:22px;border:1px solid rgb(220, 229, 232);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><img src=\"assets/校徽.png\" alt=\"校徽标识\" width=\"48\" style=\"max-width:100%;height:auto;display:block;margin:0px auto;\"><p style=\"margin:14px 0px 12px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">PROFILE　／　人物档案</span></p><p style=\"margin:0px 0px 12px;font-size:22px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:center;\"><span leaf=\"\">{{人物姓名}}</span></p><p style=\"margin:0px 0px 12px;font-size:13px;line-height:1.85;text-align:center;\"><span leaf=\"\">{{身份介绍}}</span></p><section style=\"height:0px;width:100%;margin:16px 0px;border-top:1px solid rgb(220, 229, 232);font-size:0px;line-height:0;border-top:1px solid rgb(220, 229, 232);text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">正在关注</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{研究方向或兴趣}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">一句话自述</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{人物自述}}</span></p></section></section></section>"
+    },
+    {
+      "id": "E02",
+      "name": "对话切片",
+      "description": "问题短、回答长，用双轨语义区分采访双方。",
+      "category": "E",
+      "categoryLabel": "人物与访谈",
+      "tags": [
+        "采访",
+        "问答"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"margin-bottom:18px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">Q　／　采访者</span></p><p style=\"margin:0px 0px 12px;font-size:17px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">是什么让你选择了这条路？</span></p></section><section style=\"padding:20px;background-color:rgb(242, 246, 250);border-radius:5px;border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">A　／　{{受访者}}</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">回答内容占位。从</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">具体经历</span></span><span leaf=\"\">开始展开，让人物自己的语言构成故事。</span></p></section></section>"
+    },
+    {
+      "id": "E03",
+      "name": "成长年表",
+      "description": "用竖向细线串联经历，适合校友及毕业人物。",
+      "category": "E",
+      "categoryLabel": "人物与访谈",
+      "tags": [
+        "经历",
+        "时间线"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">JOURNEY　／　人物年表</span></p><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">{{阶段一}}</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">起点与选择</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">人物经历占位。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">{{阶段二}}</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">转折与行动</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">人物经历占位。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">{{阶段三}}</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">此刻与未来</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">人物经历占位。</span></p></section></section>"
+    },
+    {
+      "id": "E04",
+      "name": "人物侧写",
+      "description": "由一个具体场景进入性格与行动。",
+      "category": "E",
+      "categoryLabel": "人物与访谈",
+      "tags": [
+        "侧写",
+        "人物"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:21px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">故事，从一个细节开始。</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">在这里记录人物的一个动作、一句口头禅或一段日常。让</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">具体细节</span></span><span leaf=\"\">比抽象评价更有力量。</span></p></section>"
+    },
+    {
+      "id": "E05",
+      "name": "引语签章",
+      "description": "深色引文和细金线，给关键原话一张独立展签。",
+      "category": "E",
+      "categoryLabel": "人物与访谈",
+      "tags": [
+        "引语",
+        "人物"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:23px;background-color:rgb(16, 47, 72);border-radius:4px;border-radius:4px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(188, 210, 221);text-align:left;\"><span leaf=\"\">DIRECT QUOTE　／　原话摘录</span></p><p style=\"margin:0px 0px 12px;font-size:21px;line-height:1.5;font-weight:600;color:rgb(255, 255, 255);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">在这里放置经过核实的<br>人物原话。</span></p><section style=\"height:0px;width:20%;margin:16px 0px;border-top:1px solid rgb(173, 130, 64);font-size:0px;line-height:0;border-top:1px solid rgb(173, 130, 64);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(188, 210, 221);text-align:left;\"><span leaf=\"\">—— {{受访者姓名}}</span></p></section></section>"
+    },
+    {
+      "id": "E06",
+      "name": "不同的声音",
+      "description": "把多人观点平行排列，保留各自的主体。",
+      "category": "E",
+      "categoryLabel": "人物与访谈",
+      "tags": [
+        "群像",
+        "观点"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">VOICES　／　不同的声音</span></p><section style=\"padding:14px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-radius:3px;border-radius:3px;\"><span leaf=\"\">视角一</span></span><p style=\"margin:0px 0px 12px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{受访者甲}}</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">观点摘要占位。</span></p></section><section style=\"padding:14px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-radius:3px;border-radius:3px;\"><span leaf=\"\">视角二</span></span><p style=\"margin:0px 0px 12px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{受访者乙}}</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">观点摘要占位。</span></p></section></section>"
+    },
+    {
+      "id": "E07",
+      "name": "关键词肖像",
+      "description": "三个词解释一个人物，避免履历式堆叠。",
+      "category": "E",
+      "categoryLabel": "人物与访谈",
+      "tags": [
+        "人物",
+        "关键词"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:21px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">如果用三个词，<br>介绍此刻的自己。</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">关键词一</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{关键词及简短解释}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">关键词二</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{关键词及简短解释}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">关键词三</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{关键词及简短解释}}</span></p></section></section>"
+    },
+    {
+      "id": "E08",
+      "name": "采访手记",
+      "description": "为记录者的观察和采访过程保留一处落笔。",
+      "category": "E",
+      "categoryLabel": "人物与访谈",
+      "tags": [
+        "手记",
+        "记录"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(250, 248, 242);border-left:2px solid rgb(173, 130, 64);border-left:2px solid rgb(173, 130, 64);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">AFTER THE INTERVIEW　／　采访手记</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">采访结束后，最让人记住的是</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">一个真实的瞬间</span></span><span leaf=\"\">。这里记下采访过程与理解的变化。</span></p><p style=\"margin:18px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:right;\"><span leaf=\"\">记录者　／　{{记者姓名}}</span></p></section></section>"
+    },
+    {
+      "id": "F01",
+      "name": "研究问题卡",
+      "description": "先说明问题、对象与价值，让科研报道易于进入。",
+      "category": "F",
+      "categoryLabel": "学术与科研",
+      "tags": [
+        "研究",
+        "问题"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(237, 245, 244);border-radius:5px;border-left:3px solid rgb(36, 123, 128);border-left:3px solid rgb(36, 123, 128);border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">RESEARCH QUESTION　／　研究起点</span></p><p style=\"margin:0px 0px 12px;font-size:22px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">这个问题，<br>为什么值得研究？</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">研究对象</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{对象与范围}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">问题价值</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{价值与意义}}</span></p></section></section></section>"
+    },
+    {
+      "id": "F02",
+      "name": "方法路线",
+      "description": "把研究方法整理成有顺序的三步。",
+      "category": "F",
+      "categoryLabel": "学术与科研",
+      "tags": [
+        "科研",
+        "步骤"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">METHOD　／　方法路线</span></p><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">01</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">提出问题</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">说明问题与假设。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">02</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">收集与分析</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">交代材料、方法与分析过程。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">03</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">验证与讨论</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">说明结论与局限。</span></p></section></section>"
+    },
+    {
+      "id": "F03",
+      "name": "证据链",
+      "description": "从材料、分析到结论，逐层说明依据。",
+      "category": "F",
+      "categoryLabel": "学术与科研",
+      "tags": [
+        "研究",
+        "证据"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;border:1px solid rgb(220, 229, 232);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">EVIDENCE　／　证据链</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">材料</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{证据来源与取样说明}}</span></p></section><p style=\"margin:8px 0px;font-size:15px;line-height:1.85;text-align:center;color:rgb(36, 123, 128);\"><span leaf=\"\">↓</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">分析</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{分析方式与观察结果}}</span></p></section><p style=\"margin:8px 0px;font-size:15px;line-height:1.85;text-align:center;color:rgb(36, 123, 128);\"><span leaf=\"\">↓</span></p><section style=\"padding:20px;background-color:rgb(237, 245, 244);border-radius:5px;border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">结论</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{有边界的研究结论}}</span></p></section></section></section>"
+    },
+    {
+      "id": "F04",
+      "name": "概念释义",
+      "description": "将专有名词解释成可读的概念卡。",
+      "category": "F",
+      "categoryLabel": "学术与科研",
+      "tags": [
+        "术语",
+        "科普"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;border:1px solid rgb(220, 229, 232);border-radius:4px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:4px;text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-radius:3px;border-radius:3px;\"><span leaf=\"\">概念释义</span></span><p style=\"margin:0px 0px 12px;font-size:20px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">{{术语名称}}</span></p><p style=\"margin:0px 0px 12px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">{{英文名称}}</span></p><section style=\"height:0px;width:100%;margin:16px 0px;border-top:1px solid rgb(220, 229, 232);font-size:0px;line-height:0;border-top:1px solid rgb(220, 229, 232);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">用简短语言说明概念的</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">核心含义</span></span><span leaf=\"\">，再补一个与读者相关的例子。</span></p></section></section>"
+    },
+    {
+      "id": "F05",
+      "name": "文献出处卡",
+      "description": "将论文题名、作者和来源分组，保留核查线索。",
+      "category": "F",
+      "categoryLabel": "学术与科研",
+      "tags": [
+        "文献",
+        "来源"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:18px;background-color:rgb(250, 248, 242);border-top:2px solid rgb(173, 130, 64);border-top:2px solid rgb(173, 130, 64);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">REFERENCE　／　文献来源</span></p><p style=\"margin:0px 0px 12px;font-size:17px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{论文或报告题名}}</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">作者</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{作者与机构}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">来源</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{期刊或出版信息}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">检索标识</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{DOI 或公开来源}}</span></p></section></section></section>"
+    },
+    {
+      "id": "F06",
+      "name": "深海代码笺",
+      "description": "逐行段落保持缩进，适合技术科普和命令说明。",
+      "category": "F",
+      "categoryLabel": "学术与科研",
+      "tags": [
+        "代码",
+        "深色"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(16, 47, 72);border-radius:4px;border-radius:4px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(178, 205, 214);text-align:left;\"><span leaf=\"\">CODE　／　示例片段</span></p><p style=\"margin:0px;font-size:12px;line-height:1.7;font-family:ui-monospace, SFMono-Regular, Consolas, monospace;color:rgb(166, 214, 201);text-align:left;\"><span leaf=\"\"># 示例代码，请替换为正文代码</span></p><p style=\"margin:0px;font-size:12px;line-height:1.7;font-family:ui-monospace, SFMono-Regular, Consolas, monospace;color:rgb(229, 239, 244);text-align:left;\"><span leaf=\"\">def describe_topic(topic):</span></p><p style=\"margin:0px;font-size:12px;line-height:1.7;font-family:ui-monospace, SFMono-Regular, Consolas, monospace;color:rgb(229, 239, 244);text-align:left;\"><span leaf=\"\">　　return topic</span></p></section></section>"
+    },
+    {
+      "id": "F07",
+      "name": "浅色实验笺",
+      "description": "以浅底、细边与逐行文字呈现实验设置。",
+      "category": "F",
+      "categoryLabel": "学术与科研",
+      "tags": [
+        "代码",
+        "浅色"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(243, 247, 248);border:1px solid rgb(220, 229, 232);border-radius:4px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:4px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">EXPERIMENT NOTE　／　设置示例</span></p><p style=\"margin:0px;font-size:12px;line-height:1.7;font-family:ui-monospace, SFMono-Regular, Consolas, monospace;text-align:left;\"><span leaf=\"\"># 示例参数，请替换为真实设置</span></p><p style=\"margin:0px;font-size:12px;line-height:1.7;font-family:ui-monospace, SFMono-Regular, Consolas, monospace;text-align:left;\"><span leaf=\"\">sample_count = N</span></p><p style=\"margin:0px;font-size:12px;line-height:1.7;font-family:ui-monospace, SFMono-Regular, Consolas, monospace;text-align:left;\"><span leaf=\"\">method = \"example\"</span></p></section></section>"
+    },
+    {
+      "id": "F08",
+      "name": "行内代码段",
+      "description": "让参数、文件名和代码标识嵌入普通叙述。",
+      "category": "F",
+      "categoryLabel": "学术与科研",
+      "tags": [
+        "参数",
+        "行内代码"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">此处用 </span><code style=\"padding:2px 5px;background-color:rgb(237, 245, 244);color:rgb(7, 59, 114);font-family:ui-monospace, Consolas, monospace;font-size:13px;\"><span leaf=\"\">sample_count</span></code><span leaf=\"\"> 展示行内标识，前后保持正常的段落阅读节奏。</span></p></section>"
+    },
+    {
+      "id": "G01",
+      "name": "单项数字牌",
+      "description": "让一个关键数字拥有清楚的单位、口径与来源。",
+      "category": "G",
+      "categoryLabel": "数据与清单",
+      "tags": [
+        "指标",
+        "数据"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:22px;border:1px solid rgb(220, 229, 232);border-left:4px solid rgb(36, 123, 128);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:4px solid rgb(36, 123, 128);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">DATA POINT　／　关键数据</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">NN　单位占位</span></p><p style=\"margin:0px 0px 12px;font-size:16px;line-height:1.85;text-align:left;\"><span leaf=\"\">指标名称占位</span></p><section style=\"height:0px;width:100%;margin:16px 0px;border-top:1px solid rgb(220, 229, 232);font-size:0px;line-height:0;border-top:1px solid rgb(220, 229, 232);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">统计口径　／　{{口径与来源}}</span></p></section></section>"
+    },
+    {
+      "id": "G02",
+      "name": "三指标带",
+      "description": "三个指标上下连续呈现，避免手机端横排挤压。",
+      "category": "G",
+      "categoryLabel": "数据与清单",
+      "tags": [
+        "数据",
+        "多指标"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">BY THE NUMBERS　／　数据速览</span></p><section style=\"padding:13px 15px;margin:0px 0px 8px;border-left:2px solid rgb(7, 59, 114);background-color:rgb(240, 245, 250);border-left:2px solid rgb(7, 59, 114);text-align:left;\"><p style=\"margin:0px;font-size:24px;line-height:1.85;color:rgb(7, 59, 114);font-weight:700;text-align:left;\"><span leaf=\"\">0N</span><span style=\"font-size:14px;font-weight:400;color:rgb(101, 121, 133);\"><span leaf=\"\">　指标一占位</span></span></p><p style=\"margin:3px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">填写单位与统计口径</span></p></section><section style=\"padding:13px 15px;margin:0px 0px 8px;border-left:2px solid rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-left:2px solid rgb(36, 123, 128);text-align:left;\"><p style=\"margin:0px;font-size:24px;line-height:1.85;color:rgb(7, 59, 114);font-weight:700;text-align:left;\"><span leaf=\"\">0N</span><span style=\"font-size:14px;font-weight:400;color:rgb(101, 121, 133);\"><span leaf=\"\">　指标二占位</span></span></p><p style=\"margin:3px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">填写单位与统计口径</span></p></section><section style=\"padding:13px 15px;margin:0px 0px 8px;border-left:2px solid rgb(173, 130, 64);background-color:rgb(250, 248, 242);border-left:2px solid rgb(173, 130, 64);text-align:left;\"><p style=\"margin:0px;font-size:24px;line-height:1.85;color:rgb(7, 59, 114);font-weight:700;text-align:left;\"><span leaf=\"\">0N</span><span style=\"font-size:14px;font-weight:400;color:rgb(101, 121, 133);\"><span leaf=\"\">　指标三占位</span></span></p><p style=\"margin:3px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">填写单位与统计口径</span></p></section></section>"
+    },
+    {
+      "id": "G03",
+      "name": "事实对照表",
+      "description": "真实表格只承载数据，不承担页面布局。",
+      "category": "G",
+      "categoryLabel": "数据与清单",
+      "tags": [
+        "表格",
+        "对照"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">COMPARISON　／　信息对照</span></p><table style=\"border-collapse:collapse;table-layout:fixed;width:100%;margin:10px 0px;\"><thead><tr><th style=\"padding:10px 7px;text-align:left;background-color:rgb(7, 59, 114);color:rgb(255, 255, 255);font-size:12px;font-weight:500;line-height:1.6;border:1px solid rgb(7, 59, 114);border-top:1px solid #073B72;border-right:1px solid #073B72;border-bottom:1px solid #073B72;border-left:1px solid #073B72;\"><span leaf=\"\">维度</span></th><th style=\"padding:10px 7px;text-align:left;background-color:rgb(7, 59, 114);color:rgb(255, 255, 255);font-size:12px;font-weight:500;line-height:1.6;border:1px solid rgb(7, 59, 114);border-top:1px solid #073B72;border-right:1px solid #073B72;border-bottom:1px solid #073B72;border-left:1px solid #073B72;\"><span leaf=\"\">方案甲</span></th><th style=\"padding:10px 7px;text-align:left;background-color:rgb(7, 59, 114);color:rgb(255, 255, 255);font-size:12px;font-weight:500;line-height:1.6;border:1px solid rgb(7, 59, 114);border-top:1px solid #073B72;border-right:1px solid #073B72;border-bottom:1px solid #073B72;border-left:1px solid #073B72;\"><span leaf=\"\">方案乙</span></th></tr></thead><tbody><tr><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">条件占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">说明占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">说明占位</span></td></tr><tr><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(255, 255, 255);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">适用范围</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(255, 255, 255);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">说明占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(255, 255, 255);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">说明占位</span></td></tr><tr><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">注意事项</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">说明占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">说明占位</span></td></tr></tbody></table><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">表内均为示例信息，请替换为实际内容。</span></p></section>"
+    },
+    {
+      "id": "G04",
+      "name": "比例进度卡",
+      "description": "单一色条配清楚标注，静态展示进度。",
+      "category": "G",
+      "categoryLabel": "数据与清单",
+      "tags": [
+        "进度",
+        "比例"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(237, 245, 244);border-radius:5px;border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">PROGRESS　／　进度示例</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">72％</span></p><p style=\"margin:0px 0px 12px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">指标名称占位</span></p><section style=\"height:6px;background-color:rgb(215, 231, 227);border-radius:3px;border-radius:3px;text-align:left;\"><section style=\"width:72%;height:6px;background-color:rgb(36, 123, 128);font-size:0px;line-height:0;text-align:left;\"><span leaf=\"\"><br></span></section></section><p style=\"margin:12px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">示例数值　／　发布前替换为真实数据</span></p></section></section>"
+    },
+    {
+      "id": "G05",
+      "name": "序列榜单",
+      "description": "用轻量编号呈现排序，每项都有说明。",
+      "category": "G",
+      "categoryLabel": "数据与清单",
+      "tags": [
+        "排序",
+        "清单"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">ORDERED NOTES　／　序列信息</span></p><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">01</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">项目名称占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">补充排序依据或项目说明。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">02</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">项目名称占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">补充排序依据或项目说明。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">03</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">项目名称占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">补充排序依据或项目说明。</span></p></section></section>"
+    },
+    {
+      "id": "G06",
+      "name": "变化对照单",
+      "description": "用前值、后值和变化量讲清数据变化。",
+      "category": "G",
+      "categoryLabel": "数据与清单",
+      "tags": [
+        "变化",
+        "比较"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(250, 248, 242);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">CHANGE　／　变化对照</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">此前</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{前值与时间范围}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">此后</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{后值与时间范围}}</span></p></section><section style=\"padding:18px 0px 0px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:20px;line-height:1.5;font-weight:700;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">Δ　变化量占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">请补全比较口径和数据来源。</span></p></section></section></section>"
+    },
+    {
+      "id": "G07",
+      "name": "要点清单",
+      "description": "用细分隔线将并列要点组织得更易扫读。",
+      "category": "G",
+      "categoryLabel": "数据与清单",
+      "tags": [
+        "要点",
+        "列表"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">KEY NOTES　／　要点清单</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">—　</span></span><span leaf=\"\">第一条要点占位，控制在一个完整意思内。</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">—　</span></span><span leaf=\"\">第二条要点占位，保持同一层级。</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">—　</span></span><span leaf=\"\">第三条要点占位，补充关键内容。</span></p></section>"
+    },
+    {
+      "id": "G08",
+      "name": "行动检查单",
+      "description": "方框只表达检查状态，静态内容也能看懂。",
+      "category": "G",
+      "categoryLabel": "数据与清单",
+      "tags": [
+        "检查",
+        "清单"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(237, 245, 244);border-radius:5px;border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">CHECKLIST　／　行动检查</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">□　</span></span><span leaf=\"\">确认时间、地点与参与条件</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">□　</span></span><span leaf=\"\">准备需要提交的材料</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">□　</span></span><span leaf=\"\">完成信息核对与最终检查</span></p></section></section>"
+    },
+    {
+      "id": "H01",
+      "name": "山海邀请函",
+      "description": "从称呼到邀约语，兼顾正式与亲近。",
+      "category": "H",
+      "categoryLabel": "活动与日程",
+      "tags": [
+        "活动",
+        "邀请"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:24px;background-color:rgb(250, 248, 242);border-top:3px solid rgb(173, 130, 64);border-top:3px solid rgb(173, 130, 64);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">YOU ARE INVITED　／　诚挚邀约</span></p><p style=\"margin:0px 0px 12px;font-size:22px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">愿这一次相聚，<br>遇见更多可能。</span></p><p style=\"margin:22px 0px 12px 0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{称呼}}，你好：</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">在这里介绍</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">活动主题与参与价值</span></span><span leaf=\"\">，再说明活动信息。</span></p><p style=\"margin:22px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:right;\"><span leaf=\"\">{{主办单位}}</span></p></section></section>"
+    },
+    {
+      "id": "H02",
+      "name": "日历日期卡",
+      "description": "大号日期与完整时间并存，避免信息缺项。",
+      "category": "H",
+      "categoryLabel": "活动与日程",
+      "tags": [
+        "日历",
+        "日期"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:22px;border:1px solid rgb(220, 229, 232);border-top:5px solid rgb(36, 123, 128);border-radius:4px;border-top:5px solid rgb(36, 123, 128);border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:4px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">{{年份}}　／　{{月份}}</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:600;color:rgb(7, 59, 114);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">DD</span></p><p style=\"margin:0px 0px 12px;font-size:18px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{活动名称}}</span></p><section style=\"height:0px;width:100%;margin:16px 0px;border-top:1px solid rgb(220, 229, 232);font-size:0px;line-height:0;border-top:1px solid rgb(220, 229, 232);text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">完整时间</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{年}}年{{月}}月{{日}}日　{{时段}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">活动地点</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{地点}}</span></p></section></section></section>"
+    },
+    {
+      "id": "H03",
+      "name": "竖向议程",
+      "description": "每个时间节点都拥有独立的环节说明。",
+      "category": "H",
+      "categoryLabel": "活动与日程",
+      "tags": [
+        "活动",
+        "议程"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">AGENDA　／　活动议程</span></p><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">{{时段一}}</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">签到入场</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">环节说明占位。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">{{时段二}}</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">主题环节</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">环节说明占位。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">{{时段三}}</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">交流与结束</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">环节说明占位。</span></p></section></section>"
+    },
+    {
+      "id": "H04",
+      "name": "三步参与",
+      "description": "把参与方式拆成三个可执行动作。",
+      "category": "H",
+      "categoryLabel": "活动与日程",
+      "tags": [
+        "活动",
+        "流程"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">HOW TO JOIN　／　参与方式</span></p><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">STEP 01</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">了解活动</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">阅读主题、时间和参与条件。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">STEP 02</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">完成报名</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">按活动实际报名方式填写信息。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">STEP 03</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">准时到场</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">根据确认信息做好准备。</span></p></section></section>"
+    },
+    {
+      "id": "H05",
+      "name": "倒计时提示",
+      "description": "清楚提示剩余时间，保留实际截止日期。",
+      "category": "H",
+      "categoryLabel": "活动与日程",
+      "tags": [
+        "活动",
+        "倒计时"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:22px;background-color:rgb(250, 248, 242);border-bottom:2px solid rgb(173, 130, 64);border-bottom:2px solid rgb(173, 130, 64);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">COUNTDOWN　／　时间提醒</span></p><p style=\"margin:0px 0px 12px;font-size:24px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">T − N</span></p><p style=\"margin:0px 0px 12px;font-size:16px;line-height:1.85;text-align:left;\"><span leaf=\"\">距离活动开始还有{{天数}}天</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">活动时间　／　{{完整日期与时间}}</span></p></section></section>"
+    },
+    {
+      "id": "H06",
+      "name": "入场凭条",
+      "description": "票据式信息结构。作为视觉排版，不替代真实凭证。",
+      "category": "H",
+      "categoryLabel": "活动与日程",
+      "tags": [
+        "活动",
+        "入场"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"border:1px solid rgb(220, 229, 232);border-radius:9px;background-color:rgb(255, 255, 255);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:9px;text-align:left;\"><section style=\"padding:20px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">ADMISSION NOTE　／　参与信息</span></p><p style=\"margin:0px 0px 12px;font-size:19px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">{{活动名称}}</span></p></section><section style=\"padding:0px 20px 18px;border-top:1px solid rgb(220, 229, 232);border-top:1px solid rgb(220, 229, 232);text-align:left;\"><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">参与对象</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{对象范围}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">入场说明</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{实际入场要求}}</span></p></section><p style=\"margin:14px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">以主办方正式要求为准。</span></p></section></section></section>"
+    },
+    {
+      "id": "H07",
+      "name": "抵达路线",
+      "description": "上下一致的步骤，兼容窄屏与长地点名称。",
+      "category": "H",
+      "categoryLabel": "活动与日程",
+      "tags": [
+        "路线",
+        "指引"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">WAYFINDING　／　抵达指引</span></p><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">起点</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{出发位置}}</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">填写清楚的入口或参照物。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">途经</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{中途参照点}}</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">说明方向和必要提示。</span></p></section><section style=\"padding:0px 0px 15px 14px;margin:0px 0px 16px;border-left:2px solid rgb(220, 229, 232);border-left:2px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 3px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);font-weight:700;text-align:left;\"><span leaf=\"\">终点</span></p><p style=\"margin:0px 0px 5px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{目的地}}</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">填写楼栋、楼层与房间。</span></p></section></section>"
+    },
+    {
+      "id": "H08",
+      "name": "分工排班表",
+      "description": "用真正的表格呈现岗位、时段与负责人。",
+      "category": "H",
+      "categoryLabel": "活动与日程",
+      "tags": [
+        "分工",
+        "排班"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">TEAM PLAN　／　分工安排</span></p><table style=\"border-collapse:collapse;table-layout:fixed;width:100%;margin:10px 0px;\"><thead><tr><th style=\"padding:10px 7px;text-align:left;background-color:rgb(7, 59, 114);color:rgb(255, 255, 255);font-size:12px;font-weight:500;line-height:1.6;border:1px solid rgb(7, 59, 114);border-top:1px solid #073B72;border-right:1px solid #073B72;border-bottom:1px solid #073B72;border-left:1px solid #073B72;\"><span leaf=\"\">岗位</span></th><th style=\"padding:10px 7px;text-align:left;background-color:rgb(7, 59, 114);color:rgb(255, 255, 255);font-size:12px;font-weight:500;line-height:1.6;border:1px solid rgb(7, 59, 114);border-top:1px solid #073B72;border-right:1px solid #073B72;border-bottom:1px solid #073B72;border-left:1px solid #073B72;\"><span leaf=\"\">时段</span></th><th style=\"padding:10px 7px;text-align:left;background-color:rgb(7, 59, 114);color:rgb(255, 255, 255);font-size:12px;font-weight:500;line-height:1.6;border:1px solid rgb(7, 59, 114);border-top:1px solid #073B72;border-right:1px solid #073B72;border-bottom:1px solid #073B72;border-left:1px solid #073B72;\"><span leaf=\"\">负责人</span></th></tr></thead><tbody><tr><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">岗位占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">时段占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">{{姓名}}</span></td></tr><tr><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(255, 255, 255);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">岗位占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(255, 255, 255);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">时段占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(255, 255, 255);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">{{姓名}}</span></td></tr><tr><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">岗位占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">时段占位</span></td><td style=\"padding:10px 7px;font-size:12px;line-height:1.7;color:rgb(41, 63, 79);border:1px solid rgb(220, 229, 232);background-color:rgb(245, 248, 248);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span leaf=\"\">{{姓名}}</span></td></tr></tbody></table></section>"
+    },
+    {
+      "id": "I01",
+      "name": "正式通知单",
+      "description": "将事项、对象、安排与要求完整组织。",
+      "category": "I",
+      "categoryLabel": "通知与服务",
+      "tags": [
+        "通知",
+        "正式"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:21px;border:1px solid rgb(220, 229, 232);border-top:3px solid rgb(7, 59, 114);border-top:3px solid rgb(7, 59, 114);border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">NOTICE　／　通知</span></p><p style=\"margin:0px 0px 12px;font-size:21px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">{{通知标题}}</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{通知对象}}：</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">现就</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">相关事项</span></span><span leaf=\"\">通知如下，请按要求了解并做好准备。</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">具体安排</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{时间与地点}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">有关要求</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{实际要求}}</span></p></section><p style=\"margin:18px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:right;\"><span leaf=\"\">{{发布单位}}　／　{{发布日期}}</span></p></section></section>"
+    },
+    {
+      "id": "I02",
+      "name": "材料准备单",
+      "description": "把必带、必填、必交项目列明。",
+      "category": "I",
+      "categoryLabel": "通知与服务",
+      "tags": [
+        "材料",
+        "准备"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(237, 245, 244);border-radius:5px;border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">BEFORE YOU START　／　材料准备</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">□　</span></span><span leaf=\"\">材料名称占位　／　格式要求占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">□　</span></span><span leaf=\"\">材料名称占位　／　份数要求占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">□　</span></span><span leaf=\"\">材料名称占位　／　提交方式占位</span></p></section></section>"
+    },
+    {
+      "id": "I03",
+      "name": "截止提醒",
+      "description": "用金色边栏提示期限，完整写出截止时间。",
+      "category": "I",
+      "categoryLabel": "通知与服务",
+      "tags": [
+        "截止",
+        "提醒"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(250, 248, 242);border-radius:5px;border-left:3px solid rgb(173, 130, 64);border-left:3px solid rgb(173, 130, 64);border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">DEADLINE　／　截止提醒</span></p><p style=\"margin:0px 0px 12px;font-size:19px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{完整截止日期}}</span></p><p style=\"margin:0px 0px 12px;font-size:16px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{具体截止时刻}}</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">请在规定时间前完成{{事项}}。</span></p></section></section>"
+    },
+    {
+      "id": "I04",
+      "name": "参与条件说明",
+      "description": "把适用范围与限制条件分清。",
+      "category": "I",
+      "categoryLabel": "通知与服务",
+      "tags": [
+        "条件",
+        "范围"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">ELIGIBILITY　／　适用范围</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">面向对象</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{参与对象范围}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">需要满足</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{必要条件}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">补充说明</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{例外或限制条件}}</span></p></section></section>"
+    },
+    {
+      "id": "I05",
+      "name": "完成状态卡",
+      "description": "浅绿色块表达完成状态，明确下一步。",
+      "category": "I",
+      "categoryLabel": "通知与服务",
+      "tags": [
+        "状态",
+        "完成"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(239, 246, 241);border-radius:5px;border-left:3px solid rgb(36, 123, 128);border-left:3px solid rgb(36, 123, 128);border-radius:5px;text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(36, 123, 128);background-color:rgb(216, 234, 227);border-radius:3px;border-radius:3px;\"><span leaf=\"\">已完成</span></span><p style=\"margin:0px 0px 12px;font-size:18px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">事项完成说明占位</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">在这里填写已完成的事项与后续安排。</span></p></section></section>"
+    },
+    {
+      "id": "I06",
+      "name": "重要提醒卡",
+      "description": "用于安全提示、限制条件和需要特别注意的事项。",
+      "category": "I",
+      "categoryLabel": "通知与服务",
+      "tags": [
+        "提醒",
+        "重要"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(250, 241, 239);border-radius:5px;border-left:3px solid rgb(152, 67, 63);border-left:3px solid rgb(152, 67, 63);border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(152, 67, 63);text-align:left;\"><span leaf=\"\">IMPORTANT　／　重要提醒</span></p><p style=\"margin:0px 0px 12px;font-size:18px;line-height:1.5;font-weight:700;color:rgb(152, 67, 63);text-align:left;\"><span leaf=\"\">请留意这项要求</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">提醒内容占位。用明确、简短的语言说明风险或要求，并给出必要行动。</span></p></section></section>"
+    },
+    {
+      "id": "I07",
+      "name": "常见问题",
+      "description": "问答始终展开，不依赖公众号内交互。",
+      "category": "I",
+      "categoryLabel": "通知与服务",
+      "tags": [
+        "服务",
+        "问答"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">FAQ　／　常见问题</span></p><section style=\"padding:14px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">Q　谁可以参与？</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">A　填写真实的参与对象与条件。</span></p></section><section style=\"padding:14px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">Q　需要提前准备什么？</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">A　填写材料或入场要求。</span></p></section></section>"
+    },
+    {
+      "id": "I08",
+      "name": "联系信息卡",
+      "description": "负责人、渠道与咨询时段按字段呈现。",
+      "category": "I",
+      "categoryLabel": "通知与服务",
+      "tags": [
+        "联系",
+        "咨询"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:18px;background-color:rgb(237, 245, 244);border-radius:4px;border-radius:4px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">CONTACT　／　咨询方式</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">联系单位</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{部门或组织}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">咨询渠道</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{公开咨询方式}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">咨询时段</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{工作时间}}</span></p></section></section></section>"
+    },
+    {
+      "id": "J01",
+      "name": "全幅图文",
+      "description": "画面、题注与署名配套。校徽仅为实际图片格式示例。",
+      "category": "J",
+      "categoryLabel": "图像与媒体",
+      "tags": [
+        "图片",
+        "图注"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"text-align:left;\"><section style=\"padding:24px;background-color:rgb(244, 247, 249);text-align:left;\"><img src=\"assets/校徽.png\" alt=\"图片格式示例：学校校徽\" width=\"120\" style=\"max-width:100%;height:auto;display:block;margin:0px auto;\"></section><section style=\"padding:14px 0px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:17px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">图像标题占位</span></p><p style=\"margin:0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">图注占位。请替换为与实际画面一致的说明。</span></p><p style=\"margin:10px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">摄影　／　{{摄影者}}</span></p></section></section></section>"
+    },
+    {
+      "id": "J02",
+      "name": "影像展框",
+      "description": "外框、画幅和编号让摄影作品拥有展览感。",
+      "category": "J",
+      "categoryLabel": "图像与媒体",
+      "tags": [
+        "摄影",
+        "展框"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:12px;border:1px solid rgb(226, 223, 209);background-color:rgb(255, 255, 255);border-top:1px solid #E2DFD1;border-right:1px solid #E2DFD1;border-bottom:1px solid #E2DFD1;border-left:1px solid #E2DFD1;text-align:left;\"><section style=\"padding:41px 16px;text-align:center;background-color:rgb(250, 248, 242);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">摄影作品占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><section style=\"padding:16px 4px 4px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">FRAME 01　／　作品编号</span></p><p style=\"margin:0px 0px 12px;font-size:19px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">把这一刻，留在光里。</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">作品说明占位　／　{{摄影者}}</span></p></section></section></section>"
+    },
+    {
+      "id": "J03",
+      "name": "双图对照",
+      "description": "前后或两种情境上下排列，图注保持一一对应。",
+      "category": "J",
+      "categoryLabel": "图像与媒体",
+      "tags": [
+        "双图",
+        "对照"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">DIPTYCH　／　双图对照</span></p><section style=\"padding:18px 16px;text-align:center;background-color:rgb(237, 245, 244);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">画面甲占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><p style=\"margin:8px 0px 12px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">01　／　画面甲说明</span></p><section style=\"padding:18px 16px;text-align:center;background-color:rgb(250, 248, 242);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">画面乙占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><p style=\"margin:8px 0px 12px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">02　／　画面乙说明</span></p></section>"
+    },
+    {
+      "id": "J04",
+      "name": "三帧叙事",
+      "description": "用三帧完成起承转的影像阅读。",
+      "category": "J",
+      "categoryLabel": "图像与媒体",
+      "tags": [
+        "组图",
+        "叙事"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">THREE FRAMES　／　三帧故事</span></p><section style=\"margin-bottom:18px;text-align:left;\"><section style=\"padding:18px 16px;text-align:center;background-color:rgb(237, 245, 244);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">起点画面占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><p style=\"margin:8px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">01　／　故事开始</span></p></section><section style=\"margin-bottom:18px;text-align:left;\"><section style=\"padding:18px 16px;text-align:center;background-color:rgb(250, 248, 242);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">过程画面占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(173, 130, 64);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><p style=\"margin:8px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">02　／　故事展开</span></p></section><section style=\"margin-bottom:18px;text-align:left;\"><section style=\"padding:18px 16px;text-align:center;background-color:rgb(238, 243, 248);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(7, 59, 114);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(7, 59, 114);text-align:center;\"><span leaf=\"\">结果画面占位</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(7, 59, 114);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><p style=\"margin:8px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">03　／　故事回响</span></p></section></section>"
+    },
+    {
+      "id": "J05",
+      "name": "图片素材板",
+      "description": "清楚标明待插入的画面类型，方便编辑替换。",
+      "category": "J",
+      "categoryLabel": "图像与媒体",
+      "tags": [
+        "素材",
+        "占位"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:46px 16px;text-align:center;background-color:rgb(237, 245, 244);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">【插入本篇主图】</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><p style=\"margin:10px 0px 12px 0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:center;\"><span leaf=\"\">图片说明占位</span></p></section>"
+    },
+    {
+      "id": "J06",
+      "name": "视频预留卡",
+      "description": "静态视频封面预留，发布时在公众号插入实际视频。",
+      "category": "J",
+      "categoryLabel": "图像与媒体",
+      "tags": [
+        "视频",
+        "预留"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:34px 20px;background-color:rgb(237, 245, 244);border:1px solid rgb(220, 229, 232);border-radius:4px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:4px;text-align:left;\"><p style=\"margin:0px;font-size:24px;line-height:1.85;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">▷</span></p><p style=\"margin:0px 0px 12px;font-size:18px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:center;\"><span leaf=\"\">视频标题占位</span></p><p style=\"margin:0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:center;\"><span leaf=\"\">【请在公众号编辑器插入视频】</span></p></section></section>"
+    },
+    {
+      "id": "J07",
+      "name": "动图说明卡",
+      "description": "给 GIF 配一段短说明，当前展示为静态素材预留。",
+      "category": "J",
+      "categoryLabel": "图像与媒体",
+      "tags": [
+        "GIF",
+        "预留"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:15px;border:1px solid rgb(220, 229, 232);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-radius:3px;border-radius:3px;\"><span leaf=\"\">GIF　／　动图素材</span></span><section style=\"padding:18px 16px;text-align:center;background-color:rgb(237, 245, 244);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">【插入 GIF 动图】</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><p style=\"margin:10px 0px 0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:center;\"><span leaf=\"\">动图说明占位</span></p></section></section>"
+    },
+    {
+      "id": "J08",
+      "name": "资料展板",
+      "description": "公告、海报或成果图的说明区与画面区分开。",
+      "category": "J",
+      "categoryLabel": "图像与媒体",
+      "tags": [
+        "海报",
+        "资料"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">DOCUMENT PANEL　／　资料展板</span></p><section style=\"padding:36px 16px;text-align:center;background-color:rgb(241, 244, 248);border:1px solid rgb(220, 229, 232);border-radius:3px;border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;border-radius:3px;\"><p style=\"margin:0px;font-size:22px;line-height:1.7;letter-spacing:1.3px;color:rgb(7, 59, 114);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:3px 0px;font-size:13px;line-height:1.85;color:rgb(7, 59, 114);text-align:center;\"><span leaf=\"\">【插入资料图片】</span></p><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:2px;color:rgb(7, 59, 114);text-align:center;\"><span leaf=\"\">请替换为本篇素材</span></p></section><section style=\"padding:20px;background-color:rgb(247, 249, 250);border-radius:5px;border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:17px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">资料标题占位</span></p><p style=\"margin:0px;font-size:13px;line-height:1.85;text-align:left;\"><span leaf=\"\">填写资料来源、版本与需要读者关注的信息。</span></p></section></section>"
+    },
+    {
+      "id": "K01",
+      "name": "海岸明信片",
+      "description": "卡面、寄语和邮笺式落款保留校园记忆。",
+      "category": "K",
+      "categoryLabel": "校园与叙事",
+      "tags": [
+        "校园",
+        "明信片"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:25px;background-color:rgb(237, 245, 244);border:1px solid rgb(208, 227, 223);border-radius:3px;border-top:1px solid #D0E3DF;border-right:1px solid #D0E3DF;border-bottom:1px solid #D0E3DF;border-left:1px solid #D0E3DF;border-radius:3px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">POSTCARD　／　寄自山海</span></p><p style=\"margin:0px 0px 12px;font-size:22px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">海风翻过这一页，<br>故事抵达你身边。</span></p><section style=\"padding:3px 0px;text-align:left;\"><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:92%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:77%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:58%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:left;\"><span leaf=\"\"><br></span></section></section><p style=\"margin:22px 0px 12px 0px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">在这里写下校园片段或一段问候。</span></p><p style=\"margin:22px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">TO　／　{{收信对象}}</span></p></section></section>"
+    },
+    {
+      "id": "K02",
+      "name": "知行校训卡",
+      "description": "直接使用校训文字，以细线和留白呈现。",
+      "category": "K",
+      "categoryLabel": "校园与叙事",
+      "tags": [
+        "校训",
+        "校园"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:26px 18px;background-color:rgb(250, 248, 242);text-align:left;\"><img src=\"assets/校徽.png\" alt=\"东北大学校徽\" width=\"56\" style=\"max-width:100%;height:auto;display:block;margin:0px auto;\"><p style=\"margin:20px 0px;font-size:16px;line-height:1.7;letter-spacing:3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">自强不息　知行合一</span></p><section style=\"height:0px;width:24%;margin:0px auto;border-top:1px solid rgb(173, 130, 64);font-size:0px;line-height:0;border-top:1px solid rgb(173, 130, 64);text-align:left;\"><span leaf=\"\"><br></span></section><p style=\"margin:18px 0px 0px;font-size:13px;line-height:1.85;color:rgb(101, 121, 133);text-align:center;\"><span leaf=\"\">在这里写下与本篇主题相关的感悟。</span></p></section></section>"
+    },
+    {
+      "id": "K03",
+      "name": "四季采样",
+      "description": "四个季节成为校园内容的四个采样窗口。",
+      "category": "K",
+      "categoryLabel": "校园与叙事",
+      "tags": [
+        "四季",
+        "校园"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">FOUR SEASONS　／　校园采样</span></p><section style=\"padding:11px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-radius:3px;border-radius:3px;\"><span leaf=\"\">春</span></span><span leaf=\"\">春日片段占位</span></p></section><section style=\"padding:11px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(7, 59, 114);background-color:rgb(238, 243, 248);border-radius:3px;border-radius:3px;\"><span leaf=\"\">夏</span></span><span leaf=\"\">夏日片段占位</span></p></section><section style=\"padding:11px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(173, 130, 64);background-color:rgb(250, 248, 242);border-radius:3px;border-radius:3px;\"><span leaf=\"\">秋</span></span><span leaf=\"\">秋日片段占位</span></p></section><section style=\"padding:11px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px;font-size:14px;line-height:1.85;text-align:left;\"><span style=\"display:inline-block;padding:3px 9px;margin:0px 6px 7px 0px;font-size:11px;line-height:1.7;letter-spacing:1px;color:rgb(101, 121, 133);background-color:rgb(243, 245, 246);border-radius:3px;border-radius:3px;\"><span leaf=\"\">冬</span></span><span leaf=\"\">冬日片段占位</span></p></section></section>"
+    },
+    {
+      "id": "K04",
+      "name": "一封书信",
+      "description": "适合迎新、毕业、校友寄语与教师来信。",
+      "category": "K",
+      "categoryLabel": "校园与叙事",
+      "tags": [
+        "书信",
+        "毕业"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:20px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">亲爱的{{收信人}}：</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">在这里写下想说的话。从</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">共同经历的瞬间</span></span><span leaf=\"\">开始，慢慢说出期待与祝福。</span></p><p style=\"margin:0px 0px 12px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">愿你继续保持</span><span style=\"border-bottom:2px solid rgb(152, 199, 198);padding-bottom:2px;border-bottom:2px solid rgb(152, 199, 198);\"><span leaf=\"\">探索与行动的勇气</span></span><span leaf=\"\">，让未来的每一页都有自己的答案。</span></p><p style=\"margin:24px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:right;\"><span leaf=\"\">{{落款}}</span></p></section>"
+    },
+    {
+      "id": "K05",
+      "name": "成长阶梯",
+      "description": "阶段式留白与逐段缩进，表达成长的进程。",
+      "category": "K",
+      "categoryLabel": "校园与叙事",
+      "tags": [
+        "成长",
+        "阶段"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">GROWTH　／　向前一步</span></p><section style=\"margin:0px 0px 12px 0px;padding:13px 16px;border-left:2px solid rgb(36, 123, 128);background-color:rgb(242, 247, 247);border-left:2px solid rgb(36, 123, 128);text-align:left;\"><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">01</span></p><p style=\"margin:3px 0px;font-size:17px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">出发</span></p><p style=\"margin:0px;font-size:13px;line-height:1.85;text-align:left;\"><span leaf=\"\">新的问题与新的好奇。</span></p></section><section style=\"margin:0px 0px 12px 9px;padding:13px 16px;border-left:2px solid rgb(36, 123, 128);background-color:rgb(234, 242, 241);border-left:2px solid rgb(36, 123, 128);text-align:left;\"><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">02</span></p><p style=\"margin:3px 0px;font-size:17px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">尝试</span></p><p style=\"margin:0px;font-size:13px;line-height:1.85;text-align:left;\"><span leaf=\"\">把想法写进具体行动。</span></p></section><section style=\"margin:0px 0px 12px 18px;padding:13px 16px;border-left:2px solid rgb(36, 123, 128);background-color:rgb(226, 237, 235);border-left:2px solid rgb(36, 123, 128);text-align:left;\"><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">03</span></p><p style=\"margin:3px 0px;font-size:17px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">抵达</span></p><p style=\"margin:0px;font-size:13px;line-height:1.85;text-align:left;\"><span leaf=\"\">看见变化，也继续向前。</span></p></section></section>"
+    },
+    {
+      "id": "K06",
+      "name": "心愿清单",
+      "description": "给迎新、毕业与年度回望一份有留白的清单。",
+      "category": "K",
+      "categoryLabel": "校园与叙事",
+      "tags": [
+        "心愿",
+        "毕业"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(250, 248, 242);border-radius:5px;border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">WISH LIST　／　写给未来</span></p><p style=\"margin:0px 0px 12px;font-size:21px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">下一站，<br>想把这些事做好。</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">□　</span></span><span leaf=\"\">心愿占位，写下一个具体的小目标。</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">□　</span></span><span leaf=\"\">心愿占位，留给一件一直想做的事。</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">□　</span></span><span leaf=\"\">心愿占位，给未来一点新的可能。</span></p></section></section>"
+    },
+    {
+      "id": "K07",
+      "name": "山海旅行签",
+      "description": "以行李签意象，记录出发与再见。",
+      "category": "K",
+      "categoryLabel": "校园与叙事",
+      "tags": [
+        "毕业",
+        "回忆"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:23px;background-color:rgb(250, 248, 242);border:1px solid rgb(226, 223, 209);border-radius:5px 5px 16px 5px;border-top:1px solid #E2DFD1;border-right:1px solid #E2DFD1;border-bottom:1px solid #E2DFD1;border-left:1px solid #E2DFD1;border-radius:5px 5px 16px 5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">DEPARTURE　／　出发与再见</span></p><p style=\"margin:0px 0px 12px;font-size:20px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">目的地　／　更远的未来</span></p><section style=\"height:0px;width:100%;margin:16px 0px;border-top:1px solid rgb(220, 229, 232);font-size:0px;line-height:0;border-top:1px solid rgb(220, 229, 232);text-align:left;\"><span leaf=\"\"><br></span></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">随身携带</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{值得珍藏的记忆}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">下一站</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{新的期待}}</span></p></section><p style=\"margin:22px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">山海常在　欢迎归来</span></p></section></section>"
+    },
+    {
+      "id": "K08",
+      "name": "留白诗行",
+      "description": "短行与宽留白留住校园叙事中的情绪。",
+      "category": "K",
+      "categoryLabel": "校园与叙事",
+      "tags": [
+        "文学",
+        "留白"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:28px 15px;text-align:center;\"><p style=\"margin:0px 0px 12px;font-size:21px;line-height:2;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:center;\"><span leaf=\"\">把昨日折进书页，<br>把明天交给远方。</span></p><section style=\"padding:3px 0px;text-align:center;\"><section style=\"height:0px;border-top:1px solid rgb(173, 202, 197);border-radius:50%;width:92%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(173, 202, 197);border-radius:50%;text-align:center;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(173, 202, 197);border-radius:50%;width:77%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(173, 202, 197);border-radius:50%;text-align:center;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(173, 202, 197);border-radius:50%;width:58%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(173, 202, 197);border-radius:50%;text-align:center;\"><span leaf=\"\"><br></span></section></section><p style=\"margin:20px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:center;\"><span leaf=\"\">—— 诗行示例，请替换为本篇文字</span></p></section></section>"
+    },
+    {
+      "id": "L01",
+      "name": "三句收束",
+      "description": "回看、回应和展望各占一句，避免冗长总结。",
+      "category": "L",
+      "categoryLabel": "互动与文末",
+      "tags": [
+        "结尾",
+        "总结"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">TAKEAWAYS　／　写在最后</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">01　</span></span><span leaf=\"\">回看一句，概括本文的核心事实。</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">02　</span></span><span leaf=\"\">回应一句，说明与读者的关联。</span></p><p style=\"margin:0px;font-size:14px;line-height:1.85;padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><span style=\"color:rgb(36, 123, 128);font-size:13px;font-weight:600;\"><span leaf=\"\">03　</span></span><span leaf=\"\">展望一句，留下值得继续关注的问题。</span></p></section>"
+    },
+    {
+      "id": "L02",
+      "name": "留一个问题",
+      "description": "以一个真问题邀请思考，而非制造互动压力。",
+      "category": "L",
+      "categoryLabel": "互动与文末",
+      "tags": [
+        "互动",
+        "提问"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:22px;border-top:2px solid rgb(36, 123, 128);background-color:rgb(237, 245, 244);border-top:2px solid rgb(36, 123, 128);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">YOUR TURN　／　轮到你说</span></p><p style=\"margin:0px 0px 12px;font-size:22px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:left;\"><span leaf=\"\">关于这个话题，<br>你还有怎样的观察？</span></p><p style=\"margin:18px 0px 0px;font-size:13px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">把你的想法留在评论区。</span></p></section></section>"
+    },
+    {
+      "id": "L03",
+      "name": "故事征集",
+      "description": "清楚说明征集内容、方式和截止时间。",
+      "category": "L",
+      "categoryLabel": "互动与文末",
+      "tags": [
+        "征集",
+        "投稿"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;background-color:rgb(250, 248, 242);border-radius:5px;border-left:3px solid rgb(173, 130, 64);border-left:3px solid rgb(173, 130, 64);border-radius:5px;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(173, 130, 64);text-align:left;\"><span leaf=\"\">SHARE YOUR STORY　／　故事征集</span></p><p style=\"margin:0px 0px 12px;font-size:19px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">把你的山海故事，讲给我们听。</span></p><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">征集内容</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{主题与内容要求}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">参与方式</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{实际投稿方式}}</span></p></section><section style=\"padding:10px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 2px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">截止时间</span></p><p style=\"margin:0px;font-size:15px;line-height:1.85;text-align:left;\"><span leaf=\"\">{{完整截止时间}}</span></p></section></section></section>"
+    },
+    {
+      "id": "L04",
+      "name": "延伸阅读",
+      "description": "将关联内容以文字目录呈现，替换为实际可用链接。",
+      "category": "L",
+      "categoryLabel": "互动与文末",
+      "tags": [
+        "阅读",
+        "关联"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">FURTHER READING　／　继续阅读</span></p><section style=\"padding:12px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">01</span></p><p style=\"margin:4px 0px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{相关阅读标题一}}</span></p><p style=\"margin:0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">相关阅读说明占位</span></p></section><section style=\"padding:12px 0px;border-bottom:1px solid rgb(220, 229, 232);border-bottom:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">02</span></p><p style=\"margin:4px 0px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:left;\"><span leaf=\"\">{{相关阅读标题二}}</span></p><p style=\"margin:0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">相关阅读说明占位</span></p></section></section>"
+    },
+    {
+      "id": "L05",
+      "name": "资料领取说明",
+      "description": "说明资料内容、来源与领取方法，不模拟可点击按钮。",
+      "category": "L",
+      "categoryLabel": "互动与文末",
+      "tags": [
+        "资料",
+        "领取"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;border:1px solid rgb(220, 229, 232);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">RESOURCE NOTE　／　资料说明</span></p><p style=\"margin:0px 0px 12px;font-size:18px;line-height:1.5;font-weight:700;color:rgb(7, 59, 114);text-align:left;\"><span leaf=\"\">{{资料名称}}</span></p><p style=\"margin:0px 0px 12px;font-size:14px;line-height:1.85;text-align:left;\"><span leaf=\"\">填写资料内容、适用对象与来源。</span></p><section style=\"padding:20px;background-color:rgb(237, 245, 244);border-radius:5px;border-radius:5px;text-align:left;\"><p style=\"margin:0px;font-size:13px;line-height:1.85;text-align:left;\"><span leaf=\"\">领取方式　／　{{真实领取方法}}</span></p></section><p style=\"margin:12px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">如需附件，请在公众号支持的位置插入。</span></p></section></section>"
+    },
+    {
+      "id": "L06",
+      "name": "二维码预留",
+      "description": "明确的图片预留区，不生成不可扫描的假二维码。",
+      "category": "L",
+      "categoryLabel": "互动与文末",
+      "tags": [
+        "关注",
+        "二维码"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:20px;text-align:center;\"><section style=\"padding:30px 12px;max-width:150px;margin:0px auto;border:1px solid rgb(220, 229, 232);background-color:rgb(237, 245, 244);border-top:1px solid #DCE5E8;border-right:1px solid #DCE5E8;border-bottom:1px solid #DCE5E8;border-left:1px solid #DCE5E8;text-align:center;\"><p style=\"margin:0px;font-size:24px;line-height:1.85;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">＋</span></p><p style=\"margin:8px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:0;color:rgb(36, 123, 128);text-align:center;\"><span leaf=\"\">插入真实二维码</span></p></section><p style=\"margin:18px 0px 12px 0px;font-size:16px;line-height:1.5;font-weight:700;color:rgb(16, 47, 72);text-align:center;\"><span leaf=\"\">关注{{账号名称}}</span></p><p style=\"margin:0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:center;\"><span leaf=\"\">在这里补充关注后的内容介绍。</span></p></section></section>"
+    },
+    {
+      "id": "L07",
+      "name": "编辑署名单",
+      "description": "文末仅使用一次。按实际参与情况填写角色与姓名。",
+      "category": "L",
+      "categoryLabel": "互动与文末",
+      "tags": [
+        "署名",
+        "编辑"
+      ],
+      "featured": false,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:18px 0px;border-top:1px solid rgb(220, 229, 232);border-top:1px solid rgb(220, 229, 232);text-align:left;\"><p style=\"margin:0px 0px 12px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(36, 123, 128);text-align:left;\"><span leaf=\"\">CREDITS　／　制作名单</span></p><p style=\"margin:5px 0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">文字　｜　{{撰稿人}}</span></p><p style=\"margin:5px 0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">摄影　｜　{{摄影者}}</span></p><p style=\"margin:5px 0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">编辑　｜　{{编辑者}}</span></p><p style=\"margin:5px 0px;font-size:12px;line-height:1.85;color:rgb(101, 121, 133);text-align:left;\"><span leaf=\"\">审核　｜　{{审核者}}</span></p></section></section>"
+    },
+    {
+      "id": "L08",
+      "name": "山海落款",
+      "description": "校名与潮线构成统一的结束标识。",
+      "category": "L",
+      "categoryLabel": "互动与文末",
+      "tags": [
+        "落款",
+        "品牌"
+      ],
+      "featured": true,
+      "html": "<section style=\"box-sizing:border-box;width:100%;margin:0px 0px 24px;padding:0px;color:rgb(41, 63, 79);font-family:-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif;font-size:15px;line-height:1.85;word-wrap:break-word;text-align:left;\"><section style=\"padding:15px 10px 24px;text-align:center;\"><section style=\"padding:3px 0px;text-align:center;\"><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:92%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:center;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:77%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:center;\"><span leaf=\"\"><br></span></section><section style=\"height:0px;border-top:1px solid rgb(36, 123, 128);border-radius:50%;width:58%;margin:6px auto;font-size:0px;line-height:0;border-top:1px solid rgb(36, 123, 128);border-radius:50%;text-align:center;\"><span leaf=\"\"><br></span></section></section><p style=\"margin:18px 0px 12px 0px;font-size:19px;line-height:1.5;font-weight:600;color:rgb(16, 47, 72);font-family:Songti SC, STSong, SimSun, serif;text-align:center;\"><span leaf=\"\">山海有期，知行不止。</span></p><section style=\"margin-top:24px;text-align:center;\"><img src=\"assets/校名.png\" alt=\"东北大学秦皇岛分校中英文校名\" width=\"230\" style=\"max-width:100%;height:auto;display:block;margin:0px auto;\"></section><p style=\"margin:18px 0px 0px;font-size:11px;line-height:1.7;letter-spacing:1.3px;color:rgb(101, 121, 133);text-align:center;\"><span leaf=\"\">END　／　感谢阅读</span></p></section></section>"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "news",
+      "name": "校园新闻",
+      "kicker": "NEWS",
+      "description": "事实在前，现场随后，观点有出处。",
+      "ids": [
+        "A04",
+        "C01",
+        "C02",
+        "D01",
+        "B01",
+        "C03",
+        "D05",
+        "D06",
+        "L07",
+        "L08"
+      ],
+      "file": "examples/校园新闻_正文.html"
+    },
+    {
+      "id": "portrait",
+      "name": "人物专访",
+      "kicker": "PORTRAIT",
+      "description": "由细节走近人物，用对话展开经历。",
+      "ids": [
+        "A06",
+        "E01",
+        "E04",
+        "E02",
+        "E05",
+        "E03",
+        "E08",
+        "L07",
+        "L08"
+      ],
+      "file": "examples/人物专访_正文.html"
+    },
+    {
+      "id": "research",
+      "name": "科研科普",
+      "kicker": "RESEARCH",
+      "description": "提出问题，说明方法，让证据支撑结论。",
+      "ids": [
+        "A02",
+        "F01",
+        "F04",
+        "F02",
+        "F03",
+        "G02",
+        "F05",
+        "L04",
+        "L07",
+        "L08"
+      ],
+      "file": "examples/科研科普_正文.html"
+    },
+    {
+      "id": "event",
+      "name": "活动招募",
+      "kicker": "INVITATION",
+      "description": "先传达参与价值，再给完整行动路径。",
+      "ids": [
+        "A05",
+        "H01",
+        "H02",
+        "H03",
+        "H04",
+        "H06",
+        "I07",
+        "L06",
+        "L07",
+        "L08"
+      ],
+      "file": "examples/活动招募_正文.html"
+    },
+    {
+      "id": "notice",
+      "name": "通知服务",
+      "kicker": "NOTICE",
+      "description": "适用对象、时间、材料与咨询渠道一页清楚。",
+      "ids": [
+        "A04",
+        "I01",
+        "I04",
+        "I02",
+        "I03",
+        "I08",
+        "L07",
+        "L08"
+      ],
+      "file": "examples/通知服务_正文.html"
+    },
+    {
+      "id": "party",
+      "name": "党团专题",
+      "kicker": "SPECIAL",
+      "description": "正式开篇，准确记录，最后落到具体行动。",
+      "ids": [
+        "A07",
+        "C01",
+        "B01",
+        "D01",
+        "D05",
+        "E05",
+        "H04",
+        "L01",
+        "L07",
+        "L08"
+      ],
+      "file": "examples/党团专题_正文.html"
+    },
+    {
+      "id": "visual",
+      "name": "校园影像",
+      "kicker": "VISUAL DIARY",
+      "description": "画面为主，文字克制，让影像自己讲述。",
+      "ids": [
+        "A08",
+        "K03",
+        "J02",
+        "J04",
+        "K08",
+        "L03",
+        "L07",
+        "L08"
+      ],
+      "file": "examples/校园影像_正文.html"
+    },
+    {
+      "id": "letter",
+      "name": "迎新毕业",
+      "kicker": "A LETTER",
+      "description": "从一封信开始，连起校园记忆与新的出发。",
+      "ids": [
+        "A03",
+        "K04",
+        "K02",
+        "K05",
+        "K06",
+        "K07",
+        "L02",
+        "L07",
+        "L08"
+      ],
+      "file": "examples/迎新毕业_正文.html"
+    }
+  ]
+}

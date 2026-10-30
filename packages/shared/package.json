@@ -1,0 +1,4 @@
+{
+ "name": "@qinbian/shared", "version": "1.0.0", "private": true, "type": "module", "exports": "./src/index.ts",
+ "dependencies": { "parse5": "^8.0.0", "zod": "^4.0.0" }
+}

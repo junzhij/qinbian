@@ -1,0 +1,75 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - link "秦 秦编 一页之间，自有章法" [ref=e5] [cursor=pointer]:
+      - /url: /
+      - generic [ref=e6]: 秦
+      - generic [ref=e7]:
+        - text: 秦编
+        - generic [ref=e8]: 一页之间，自有章法
+    - navigation "主导航" [ref=e10]:
+      - link "资源库 藏" [ref=e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e14]: 资源库
+        - generic [ref=e15]: 藏
+      - link "图片素材" [ref=e16] [cursor=pointer]:
+        - /url: /assets
+      - link "我的文章" [ref=e22] [cursor=pointer]:
+        - /url: /documents
+    - generic [ref=e27]:
+      - generic [ref=e28]: 主题套组
+      - button "新建主题套组" [ref=e29] [cursor=pointer]
+    - button "全部资源" [ref=e32] [cursor=pointer]
+    - generic [ref=e36]:
+      - paragraph [ref=e41]: 把琐碎交给工具，把心思留给文字。
+      - link "回收站" [ref=e42] [cursor=pointer]:
+        - /url: /trash
+      - link "设置与备份" [ref=e46] [cursor=pointer]:
+        - /url: /settings
+      - generic [ref=e50]: 个人书房 · 本地保存
+  - main [ref=e52]:
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - paragraph [ref=e56]: 版式有序 · 灵感有处
+          - heading "全部资源。" [level=1] [ref=e57]
+          - paragraph [ref=e58]: 将常用的组件与编排模板，收进自己的书房。
+        - generic [ref=e59]:
+          - button "AI 制作" [ref=e60] [cursor=pointer]
+          - button "新建组件" [ref=e64] [cursor=pointer]
+      - generic [ref=e66]:
+        - generic [ref=e67]: 我的收藏与创作
+        - generic [ref=e68]: 0 枚组件／0 套模板／0 张配色卡
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - button "组件 0" [ref=e71] [cursor=pointer]:
+            - text: 组件
+            - generic [ref=e76]: "0"
+          - button "编排模板 0" [ref=e77] [cursor=pointer]:
+            - text: 编排模板
+            - generic [ref=e82]: "0"
+          - button "配色卡 0" [ref=e83] [cursor=pointer]:
+            - text: 配色卡
+            - generic [ref=e85]: "0"
+        - generic [ref=e86]:
+          - textbox "搜索资源" [ref=e90]:
+            - /placeholder: 寻一枚组件，或一个关键词…
+          - generic [ref=e91]: ⌕
+      - generic [ref=e92]:
+        - button "全部" [ref=e93] [cursor=pointer]
+        - button "封面与刊头" [ref=e94] [cursor=pointer]
+        - button "章节与分隔" [ref=e95] [cursor=pointer]
+        - button "正文与导读" [ref=e96] [cursor=pointer]
+        - button "新闻与现场" [ref=e97] [cursor=pointer]
+        - button "人物与访谈" [ref=e98] [cursor=pointer]
+        - button "学术与科研" [ref=e99] [cursor=pointer]
+        - button "数据与清单" [ref=e100] [cursor=pointer]
+        - button "活动与日程" [ref=e101] [cursor=pointer]
+        - button "通知与服务" [ref=e102] [cursor=pointer]
+        - button "图像与媒体" [ref=e103] [cursor=pointer]
+        - button "校园与叙事" [ref=e104] [cursor=pointer]
+        - button "互动与文末" [ref=e105] [cursor=pointer]
+      - generic [ref=e106]: 正在展开这份收藏…
+      - generic [ref=e107]:
+        - generic [ref=e108]: 把结构交给组件，把表达留给自己。
+        - generic [ref=e109]: 秦编 · 私人编排书房
+  - status

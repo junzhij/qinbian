@@ -1,0 +1,5 @@
+[  142098ms] [ERROR] Failed to load resource: the server responded with a status of 503 (Service Unavailable) @ http://127.0.0.1:3030/:0
+[  142713ms] [ERROR] Failed to load resource: the server responded with a status of 503 (Service Unavailable) @ http://127.0.0.1:3030/:0
+[  142744ms] [ERROR] Failed to load resource: the server responded with a status of 503 (Service Unavailable) @ http://127.0.0.1:3030/favicon.ico:0
+[  144569ms] [INFO] <Suspense> is an experimental feature and its API will likely change. @ http://127.0.0.1:3030/_nuxt/@fs/Users/jjz/Documents/%E8%AE%B0%E8%80%85%E5%9B%A2/qinbian/node_modules/.pnpm/@vue+runtime-core@3.5.44/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=4f648fe3:6186
+[  216506ms] [INFO] <Suspense> is an experimental feature and its API will likely change. @ http://127.0.0.1:3030/_nuxt/@fs/Users/jjz/Documents/%E8%AE%B0%E8%80%85%E5%9B%A2/qinbian/node_modules/.pnpm/@vue+runtime-core@3.5.44/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js?v=4f648fe3:6186
