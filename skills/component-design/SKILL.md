@@ -9,7 +9,7 @@ description: 为秦编生成或修改校园公众号图文组件，遵循指定�
 
 ## 结构与字体
 
-保持清楚的层级、留白与连续阅读，兼容320、375、414像素。用section组织卡片，用p承载标题、正文与图注，文字包在span leaf内；可含strong、em、a及必要的数据表格。样式全部内联，明确边框、圆角、对齐和间距。不要用div、figure承载装饰，也不用表格布局。旧容器会在导出时转换为兼容标签，并将继承字体写到文字层。
+整篇文章底色由外层统一设置，请参考articleBackgroundColor；组件外层默认透明，重点卡片可保留独立底色，不擅自覆盖文章背景。保持清楚的层级、留白与连续阅读，兼容320、375、414像素。用section组织卡片，用p承载标题、正文与图注，文字包在span leaf内；可含strong、em、a及必要的数据表格。样式全部内联，明确边框、圆角、对齐和间距。不要用div、figure承载装饰，也不用表格布局。旧容器会在导出时转换为兼容标签，并将继承字体写到文字层。
 
 标题、题签、引语用typography.heading，缺省'Songti SC',STSong,SimSun,serif，18—24px，字重400或600。正文用typography.body，缺省-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif，15px、行距1.85；图注11—13px。分别在对应元素写font-family，不让所有文字继承同一字体。用户指定或已有字体优先；改文案、配色和结构时保留字重、字号、行距与装饰。不依赖秦编界面网页字体，不引入外部字体，不用书法字体排长文。
 

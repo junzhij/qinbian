@@ -4,7 +4,7 @@ import { eq, desc, and, isNull } from 'drizzle-orm'
 import { z } from 'zod'
 import { readFileSync, createReadStream, writeFileSync, existsSync, rmSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { cropInputSchema, resourceInput, documentInput, themeInput, aiInput, models, sanitizeHtml, articleHtml, htmlAssetIds, inspectHtml, prepareComponent, normalizePalette, legacyTokens, type Block, type Resource } from '@qinbian/shared'
+import { normalizeAppearance, cropInputSchema, resourceInput, documentInput, themeInput, aiInput, models, sanitizeHtml, articleHtml, htmlAssetIds, inspectHtml, prepareComponent, normalizePalette, legacyTokens, type Block, type Resource } from '@qinbian/shared'
 import { config as loadConfig, type Config } from './config.ts'
 import { renderChart } from './charts.ts'
 import { chartFromUrl } from '@qinbian/shared'
@@ -37,7 +37,7 @@ export async function createApp(options:Partial<Config>={}){
    const data=prepareComponent(input.data,input.data.palette||store.bestPalette(input.data.html,normalizePalette(store.theme(input.themeSetId).palette)));const check=inspectHtml(data.html);if(check.issues.length)fail(400,check.issues.join('；'));store.assertAssets(check.html);return{...data,html:check.html}
   }
   if(input.kind==='palette')return{palette:normalizePalette(input.data.palette)}
-  return{blocks:store.normalizeBlocks(input.data.blocks||[])}
+  return{blocks:store.normalizeBlocks(input.data.blocks||[]),appearance:normalizeAppearance(input.data.appearance)}
  }
  const saveResource=(key:string,input:z.infer<typeof resourceInput>)=>{
   const old=store.resource(key);nonBuiltin(old);store.checkRevision(old,input.revision);store.assertWritableTheme(input.themeSetId)
@@ -88,14 +88,14 @@ export async function createApp(options:Partial<Config>={}){
  app.get('/api/documents/:id',async(req)=>store.document(param(req)))
  app.post('/api/documents',async(req,reply)=>{
   const body=(req.body||{}) as any
-  if(body.resourceId){const r=store.resource(body.resourceId);if(r.kind==='palette')fail(400,'配色卡用于套组与组件，请选择组件或模板开始文章');const blocks=r.kind==='template'?r.data.blocks||[]:[{...r.data,id:id(),sourceComponentId:r.id,legacyId:r.legacyId,name:r.name,html:r.data.html!,assetIds:htmlAssetIds(r.data.html!)}];return reply.code(201).send(createDocument({title:body.title||r.name+' · 新稿',themeSetId:r.themeSetId,blocks:blocks.map(b=>({...b,id:id()}))}))}
+  if(body.resourceId){const r=store.resource(body.resourceId);if(r.kind==='palette')fail(400,'配色卡用于套组与组件，请选择组件或模板开始文章');const blocks=r.kind==='template'?r.data.blocks||[]:[{...r.data,id:id(),sourceComponentId:r.id,legacyId:r.legacyId,name:r.name,html:r.data.html!,assetIds:htmlAssetIds(r.data.html!)}];return reply.code(201).send(createDocument({title:body.title||r.name+' · 新稿',themeSetId:r.themeSetId,appearance:r.data.appearance,blocks:blocks.map(b=>({...b,id:id()}))}))}
   return reply.code(201).send(createDocument(body))
  })
  app.put('/api/documents/:id',async(req)=>saveDocument(param(req),documentInput.parse(req.body)))
  app.post('/api/documents/:id/clone',async(req)=>{const d=store.document(param(req));return createDocument({...d,title:d.title+' 副本',blocks:d.blocks.map(b=>({...b,id:id()}))})})
  app.delete('/api/documents/:id',async(req)=>{store.document(param(req));store.db.update(documents).set({deletedAt:now()}).where(eq(documents.id,param(req))).run();return{ok:true}})
  app.post('/api/documents/:id/restore',async(req)=>{store.document(param(req),true);store.db.update(documents).set({deletedAt:null}).where(eq(documents.id,param(req))).run();return store.document(param(req))})
- app.post('/api/documents/:id/template',async(req)=>{const d=store.document(param(req)),body=(req.body||{}) as any;return createResource({name:body.name||d.title,themeSetId:body.themeSetId||'mine',kind:'template',description:body.description||'',data:{blocks:d.blocks.map(b=>({...b,id:id()}))}})})
+ app.post('/api/documents/:id/template',async(req)=>{const d=store.document(param(req)),body=(req.body||{}) as any;return createResource({name:body.name||d.title,themeSetId:body.themeSetId||'mine',kind:'template',description:body.description||'',data:{blocks:d.blocks.map(b=>({...b,id:id()})),appearance:d.appearance}})})
  app.get('/api/documents/:id/versions',async(req)=>store.db.select().from(versions).where(and(eq(versions.entityType,'document'),eq(versions.entityId,param(req)))).orderBy(desc(versions.revision)).all())
  app.post('/api/documents/:id/versions/:version/restore',async(req)=>{const p=req.params as any,v=store.db.select().from(versions).where(and(eq(versions.entityType,'document'),eq(versions.entityId,param(req)),eq(versions.revision,Number(p.version)))).get();if(!v)fail(404,'没有找到这个版本');return saveDocument(param(req),documentInput.parse({...v.payload,revision:(req.body as any)?.revision}))})
  app.post('/api/documents/import',async(req,reply)=>{
@@ -108,7 +108,7 @@ export async function createApp(options:Partial<Config>={}){
   }
   return reply.code(201).send(createDocument({title:input.title||'从山海知行导入的稿件',themeSetId:'shanhai',blocks}))
  })
- app.get('/api/documents/:id/export',async(req)=>{const d=store.document(param(req));return {title:d.title,html:await store.portable(articleHtml(d.blocks))}})
+ app.get('/api/documents/:id/export',async(req)=>{const d=store.document(param(req));return {title:d.title,html:await store.portable(articleHtml(d.blocks,d.appearance))}})
  app.post('/api/export',async(req)=>{const body=z.object({html:z.string().max(100_000_000)}).parse(req.body);return {html:await store.portable(body.html)}})
  app.get('/api/charts/render',async(req,reply)=>{const query=z.object({spec:z.string().max(18000)}).parse(req.query),chart=chartFromUrl('/api/charts/render?spec='+encodeURIComponent(query.spec));if(!chart)fail(400,'图表数据或格式无效');return reply.type('image/png').header('Cache-Control','private, max-age=86400').send(await renderChart(chart))})
  app.get('/api/assets',async(req)=>{const q=req.query as any;return store.db.select().from(assets).orderBy(desc(assets.createdAt)).all().filter(a=>q.trash==='true'?!!a.deletedAt:!a.deletedAt).filter(a=>!q.q||a.name.toLowerCase().includes(q.q.toLowerCase())).map(a=>({...a,references:store.references(a.id)}))})
@@ -138,13 +138,14 @@ export async function createApp(options:Partial<Config>={}){
   const target=input.targetType==='document'?store.document(input.targetId):store.resource(input.targetId)
   store.checkRevision(target,input.targetRevision);store.checkRevision(target,body.revision)
   if(input.targetType==='resource'&&'data' in target&&target.kind==='component'){
+   if(body.mode!=='replace'||input.operation!=='edit')fail(400,'新组件请另存，避免覆盖当前组件')
    const r=saveResource(target.id,resourceInput.parse({...target,data:{...target.data,html:result.html,palette:result.palette,fields:result.fields,values:result.values,colorMappings:result.colorMappings},revision:target.revision}));ai.update(job.id,{status:'applied'});return{type:'resource',value:r}
   }
   const blocks:Block[]=structuredClone('blocks' in target?target.blocks:(target as Resource).data.blocks||[])
   const metadata={palette:result.palette,fields:result.fields,values:result.values,colorMappings:result.colorMappings}
   if(body.mode==='insert')blocks.push({...metadata,id:id(),sourceComponentId:null,name:result.name,html:result.html,assetIds:htmlAssetIds(result.html)})
   else {const b=blocks.find(b=>b.id===input.blockId);if(!b)fail(409,'原组件已被移除，请将候选另存为组件');Object.assign(b,metadata,{html:result.html,assetIds:htmlAssetIds(result.html)})}
-  const value=input.targetType==='document'?saveDocument(target.id,documentInput.parse({...target,blocks,revision:target.revision})):saveResource(target.id,resourceInput.parse({...target,data:{blocks},revision:target.revision}))
+  const value=input.targetType==='document'?saveDocument(target.id,documentInput.parse({...target,blocks,revision:target.revision})):saveResource(target.id,resourceInput.parse({...target,data:{...('data' in target?target.data:{}),blocks},revision:target.revision}))
   ai.update(job.id,{status:'applied'});return{type:input.targetType,value}
  })
  app.post('/api/backups',async(_req,reply)=>{const file=await makeBackup(store);return reply.type('application/zip').header('Content-Disposition',`attachment; filename="${file.split('/').pop()}"`).send(createReadStream(file))})
