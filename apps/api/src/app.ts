@@ -4,7 +4,7 @@ import { eq, desc, and, isNull } from 'drizzle-orm'
 import { z } from 'zod'
 import { readFileSync, createReadStream, writeFileSync, existsSync, rmSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { normalizeAppearance, cropInputSchema, resourceInput, documentInput, themeInput, aiInput, models, sanitizeHtml, articleHtml, htmlAssetIds, inspectHtml, prepareComponent, normalizePalette, legacyTokens, type Block, type Resource } from '@qinbian/shared'
+import { applyElementResult, freezeTextStyles, normalizeAppearance, cropInputSchema, resourceInput, documentInput, themeInput, aiInput, models, sanitizeHtml, articleHtml, htmlAssetIds, inspectHtml, prepareComponent, normalizePalette, legacyTokens, type Block, type Resource } from '@qinbian/shared'
 import { config as loadConfig, type Config } from './config.ts'
 import { renderChart } from './charts.ts'
 import { chartFromUrl } from '@qinbian/shared'
@@ -34,10 +34,10 @@ export async function createApp(options:Partial<Config>={}){
  const cleanData=(input:z.infer<typeof resourceInput>)=>{
   if(input.kind==='component'){
    if(!input.data.html?.trim())fail(400,'组件内容不能为空')
-   const data=prepareComponent(input.data,input.data.palette||store.bestPalette(input.data.html,normalizePalette(store.theme(input.themeSetId).palette)));const check=inspectHtml(data.html);if(check.issues.length)fail(400,check.issues.join('；'));store.assertAssets(check.html);return{...data,html:check.html}
+   const data=prepareComponent({...input.data,html:freezeTextStyles(input.data.html)},input.data.palette||store.bestPalette(input.data.html,normalizePalette(store.theme(input.themeSetId).palette)));const check=inspectHtml(data.html);if(check.issues.length)fail(400,check.issues.join('；'));store.assertAssets(check.html);return{...data,html:check.html}
   }
   if(input.kind==='palette')return{palette:normalizePalette(input.data.palette)}
-  return{blocks:store.normalizeBlocks(input.data.blocks||[]),appearance:normalizeAppearance(input.data.appearance)}
+  return{blocks:store.normalizeBlocks(input.data.blocks||[],input.data.appearance),appearance:normalizeAppearance(input.data.appearance)}
  }
  const saveResource=(key:string,input:z.infer<typeof resourceInput>)=>{
   const old=store.resource(key);nonBuiltin(old);store.checkRevision(old,input.revision);store.assertWritableTheme(input.themeSetId)
@@ -48,7 +48,7 @@ export async function createApp(options:Partial<Config>={}){
  }
  const saveDocument=(key:string,input:z.infer<typeof documentInput>)=>{
   const old=store.document(key);store.checkRevision(old,input.revision);store.theme(input.themeSetId)
-  const patch={...input,blocks:store.normalizeBlocks(input.blocks),revision:old.revision+1,updatedAt:now()}
+  const patch={...input,blocks:store.normalizeBlocks(input.blocks,input.appearance),revision:old.revision+1,updatedAt:now()}
   store.sqlite.transaction(()=>{store.record('document',old);store.db.update(documents).set(patch).where(eq(documents.id,key)).run();store.record('document',store.document(key))})()
   return store.document(key)
  }
@@ -58,7 +58,7 @@ export async function createApp(options:Partial<Config>={}){
   store.db.insert(resources).values(row).run();store.record('resource',row);return row
  }
  const createDocument=(raw:unknown)=>{
-  const input=documentInput.parse(raw);store.theme(input.themeSetId);const t=now(),row={...input,id:id(),blocks:store.normalizeBlocks(input.blocks),revision:1,createdAt:t,updatedAt:t,deletedAt:null}
+  const input=documentInput.parse(raw);store.theme(input.themeSetId);const t=now(),row={...input,id:id(),blocks:store.normalizeBlocks(input.blocks,input.appearance),revision:1,createdAt:t,updatedAt:t,deletedAt:null}
   store.db.insert(documents).values(row).run();store.record('document',row);return row
  }
  app.get('/api/health',()=>({ok:true,app:'秦编',version:'1.0.0'}))
@@ -139,12 +139,13 @@ export async function createApp(options:Partial<Config>={}){
   store.checkRevision(target,input.targetRevision);store.checkRevision(target,body.revision)
   if(input.targetType==='resource'&&'data' in target&&target.kind==='component'){
    if(body.mode!=='replace'||input.operation!=='edit')fail(400,'新组件请另存，避免覆盖当前组件')
-   const r=saveResource(target.id,resourceInput.parse({...target,data:{...target.data,html:result.html,palette:result.palette,fields:result.fields,values:result.values,colorMappings:result.colorMappings},revision:target.revision}));ai.update(job.id,{status:'applied'});return{type:'resource',value:r}
+   const scoped=input.selection?applyElementResult(target.data,input.selection,result,input.locks):{...target.data,html:result.html,palette:result.palette,fields:result.fields,values:result.values,colorMappings:result.colorMappings};const r=saveResource(target.id,resourceInput.parse({...target,data:scoped,revision:target.revision}));ai.update(job.id,{status:'applied'});return{type:'resource',value:r}
   }
   const blocks:Block[]=structuredClone('blocks' in target?target.blocks:(target as Resource).data.blocks||[])
   const metadata={palette:result.palette,fields:result.fields,values:result.values,colorMappings:result.colorMappings}
+  if(input.selection&&body.mode!=='replace')fail(400,'精细候选只能替换原选中元素，或另存为组件')
   if(body.mode==='insert')blocks.push({...metadata,id:id(),sourceComponentId:null,name:result.name,html:result.html,assetIds:htmlAssetIds(result.html)})
-  else {const b=blocks.find(b=>b.id===input.blockId);if(!b)fail(409,'原组件已被移除，请将候选另存为组件');Object.assign(b,metadata,{html:result.html,assetIds:htmlAssetIds(result.html)})}
+  else {const b=blocks.find(b=>b.id===input.blockId);if(!b)fail(409,'原组件已被移除，请将候选另存为组件');if(input.selection){Object.assign(b,applyElementResult(b,input.selection,result,input.locks));b.assetIds=htmlAssetIds(b.html)}else Object.assign(b,metadata,{html:result.html,assetIds:htmlAssetIds(result.html)})}
   const value=input.targetType==='document'?saveDocument(target.id,documentInput.parse({...target,blocks,revision:target.revision})):saveResource(target.id,resourceInput.parse({...target,data:{...('data' in target?target.data:{}),blocks},revision:target.revision}))
   ai.update(job.id,{status:'applied'});return{type:input.targetType,value}
  })

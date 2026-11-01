@@ -76,3 +76,27 @@ type还支持`image`，值为素材库图片地址或素材id。空图片字段�
 组件模式返回`name`、`description`、`category`、`tags`、`html`、`fields`及`values`。配色卡模式只返回`name`、`description`和`colors`。后台进行格式、图片引用和正文样式检查，通过后仍须用户预览确认。
 
 模板和文章的每个组件实例都保存自己的HTML、配色、映射和字段快照。配色卡复用采用复制，更新配色卡不会悄悄改变旧稿。
+
+## 数据图与分隔符
+
+数据图在section的`data-qb-chart` JSON中声明类型、分类、系列、主题颜色及单位。数值可引用`{{fieldId}}`，不能执行表达式。受控渲染器生成PNG，并保留可读的原始数据文字；改数值或映射颜色会重新绘图。完整协议见`skills/component-design/references/data-charts.md`。
+
+分隔符生成器提供细线、双线、点状与章节题签，使用边框及可修改字段。规范见`skills/component-design/references/dividers.md`。
+
+## 整篇文章外观
+
+文章保存`appearance:{backgroundColor:"#EEF3EB"}`，六位十六进制色值，默认`#FFFFFF`。编排模板在`data.appearance`中保存同样设置；套用、复制、历史恢复、备份恢复与导出都会保留。仅修改文章外层，组件内部的明确底色保持原样。旧数据库通过0004迁移补白色背景。
+
+`appearance.textStyles`为可选全文文字规则，包含`enabled`、`preserveOverrides`和`roles`。五种角色为`body`、`heading`、`subheading`、`caption`、`quote`；每种可设`fontSize`、`lineHeight`、`align`、`indent`、`before`、`after`、`letterSpacing`、`weight`、`font`及可空的`color`。使用共享`normalizeTextStyles()`创建完整规则；无此设置时保留旧稿。
+
+段落可显式写`data-qb-role="body"`，`none`不参与全文规则。缺少角色的旧稿按字段、标签、字号及用途保守识别；图表、代码、数据表默认保留。`data-qb-style-mode="independent"`使该区域独立。应用时只调整文字属性，不重建组件外框。`data-qb-typography`由系统记录还原基线；不要由AI编造。手动字号与自定义色记录为局部例外；`data-qb-text-overrides`用于既保持主题映射又独立于全文规则的文字颜色。重置局部文字后重新跟随；导出时删除这些记录，只留实际内联样式。
+
+## 点选与局部AI修改
+
+选中位置使用组件内部的元素索引`path`，并保存所选HTML的`fingerprint`作为并发检查标记。悬停边框及尺寸标签位于画布外，不进入HTML。文字编辑仍只交给原段落编辑器，图片仍交给共享裁切器。
+
+AI请求传`selection:{path,fingerprint}`和`locks:{text:true,images:true,data:true}`，文章同时传`blockId`。服务端从当前文章重新提取所选区域，只发送相关字段、计算依赖及少量父层信息。候选必须同标签、单根、保留字段标记，并通过文字、图片及数据锁检查；只替换对应元素。变化的文字属性记作局部例外，结构大改记为独立区域。应用前核对文章版本及元素指纹，过期候选仍可另存。接口测试使用隔离数据库和本机模拟服务；真实DeepSeek验证单独执行。
+
+## 字体
+
+新正文默认继承公众号字体，不注入界面QinSerif字体。预览用平台默认栈回退，导出不主动指定字体族；明确选择的设备字体仍保留。详情与未完成的微信真机验收状态见README“字体兼容状态”。

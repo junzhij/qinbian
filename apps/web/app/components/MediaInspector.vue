@@ -5,7 +5,7 @@ import { imageElements, fitImageAsset, assetIdFromUrl } from '~/utils/image-slot
 const cropping=ref(false),imageBusy=ref(false)
 let cropBase='',cropIndex=0
 const props=defineProps<{html:string;mediaIndex?:number;legacyId?:string|null}>(),emit=defineEmits<{update:[html:string]}>(),ctx=useQinbian()
-const picker=ref(false),slotIndex=ref(0),width=ref(0),alt=ref(''),caption=ref(''),hasSlot=ref(false),imageSrc=ref(''),slotCount=ref(0),ratio=ref(false)
+const picker=ref(false),slotIndex=ref(props.mediaIndex||0),width=ref(0),alt=ref(''),caption=ref(''),hasSlot=ref(false),imageSrc=ref(''),slotCount=ref(0),ratio=ref(false)
 const value=ref(72),total=ref(100),unit=ref(''),label=ref(''),source=ref(''),color=ref('#247b80')
 const pct=computed(()=>total.value>0?Math.round(value.value/total.value*1000)/10:0)
 function parse(){const el=document.createElement('div');el.innerHTML=props.html;return el}

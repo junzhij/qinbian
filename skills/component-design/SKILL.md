@@ -11,9 +11,19 @@ description: 为秦编生成或修改校园公众号图文组件，遵循指定�
 
 整篇文章底色由外层统一设置，请参考articleBackgroundColor；组件外层默认透明，重点卡片可保留独立底色，不擅自覆盖文章背景。保持清楚的层级、留白与连续阅读，兼容320、375、414像素。用section组织卡片，用p承载标题、正文与图注，文字包在span leaf内；可含strong、em、a及必要的数据表格。样式全部内联，明确边框、圆角、对齐和间距。不要用div、figure承载装饰，也不用表格布局。旧容器会在导出时转换为兼容标签，并将继承字体写到文字层。
 
-标题、题签、引语用typography.heading，缺省'Songti SC',STSong,SimSun,serif，18—24px，字重400或600。正文用typography.body，缺省-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif，15px、行距1.85；图注11—13px。分别在对应元素写font-family，不让所有文字继承同一字体。用户指定或已有字体优先；改文案、配色和结构时保留字重、字号、行距与装饰。不依赖秦编界面网页字体，不引入外部字体，不用书法字体排长文。
+默认不设置font-family，跟随公众号自身字体。请求typography.heading/body/caption为inherit时不输出字体族；标题18—24px、字重400或600，正文15px、行距1.85，图注11—13px，靠字号、字重与留白建立层级。只有用户明确指定宋体、楷体等时才写设备字体栈，并说明跨设备可能回退；不能承诺手机显示同一字形。已有组件和用户指定字体优先保留，不批量重置字重、字号、行距与装饰。秦编界面思源宋体仅供软件界面，不进入正文，不引入外部字体，不把纯文字整体转为图片。依据微信公众平台前端团队字体规范：https://github.com/wechatjs/verify-article-structure-spec/blob/main/verify_article_structure.md#3字体使用规范。
 
 禁止脚本、事件、iframe、SVG、控件、外部样式、CSS变量、渐变、绝对或固定定位。
+
+## 对齐与长文本
+
+善用左对齐、居中、右对齐和两端对齐建立阅读秩序；同组标题、文字、图片及说明保持清楚的对齐关系，不把所有内容一概居中。
+
+正文、导读、人物简介、详细说明、长引用等可能承载大段连续文字的区域，默认在对应p元素内联设置text-align:justify（左右两端对齐）。即使当前示例或占位文案较短，也按其后续用途判断；适合长文的字段仍使用两端对齐。末行自然左齐，不用空格、额外字距或强制断行拉满。
+
+标题、短题签、短图注、署名、数字和图例不机械套用两端对齐，按用途选择左、居中或右对齐；诗歌等有明确断行设计的内容保留原布局。用户明确指定的对齐优先；仅修改文字或数据时不擅自重置原有对齐。
+
+段落标注data-qb-role：body正文、heading大标题、subheading小标题、caption图注署名、quote引文；none保留原设计。不要靠当前字数推断占位区用途。全文样式按角色应用；确需独立排版的区域使用data-qb-style-mode="independent"。保留系统的局部例外记录，不手写data-qb-typography。点选精修只返回所选单个元素，遵守文字、图片、数据锁；详见references/element-edit.md。
 
 ## 图片与裁切
 
@@ -45,4 +55,4 @@ description: 为秦编生成或修改校园公众号图文组件，遵循指定�
 
 只返回一个JSON对象，无Markdown或解释。组件模式返回name、description、category、tags、html、fields、values；html是完整可独立预览的正文，values是初始值。配色卡模式只返回name、description、colors，每色含id、name、regular、highlight、light，数量与请求一致，不生成HTML。
 
-返回前按结构化规则检查闭合、图片、移动宽度及数值一致性。收到检查错误时只修复错误，重新返回同样字段的完整JSON。
+返回前按结构化规则检查闭合、图片、移动宽度及数值一致性，并核对长文区域是否两端对齐、短文本是否采用合适的对齐方式。收到检查错误时只修复错误，重新返回同样字段的完整JSON。

@@ -48,7 +48,7 @@ export function composeParagraph(base:string,path:number[],editorHtml:string,nex
  const next=nextPath?elementAtPath(root,nextPath):null
  const content=document.createElement('div');content.innerHTML=editorHtml
  const paragraphs=Array.from(content.children) as HTMLElement[]
- const mergeAlignment=(node:HTMLElement,from:HTMLElement)=>{const alignment=from.style.textAlign;if(alignment&&node.style.textAlign!==alignment)node.style.textAlign=alignment}
+ const mergeAlignment=(node:HTMLElement,from:HTMLElement)=>{const alignment=from.style.textAlign;if(alignment&&node.style.textAlign!==alignment)node.style.textAlign=alignment;const keys=new Set([...(node.getAttribute('data-qb-custom-properties')||'').split(','),...(from.getAttribute('data-qb-custom-properties')||'').split(',')].filter(Boolean));if(keys.size)node.setAttribute('data-qb-custom-properties',[...keys].join(','))}
  if(paragraphs.length===1&&paragraphs[0]!.tagName==='P'){
   target.innerHTML=paragraphs[0]!.innerHTML;mergeAlignment(target,paragraphs[0]!)
  }else if(/^(P|H[234])$/.test(target.tagName)){

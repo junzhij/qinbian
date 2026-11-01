@@ -1,0 +1,3 @@
+export function componentInitial(name:string){return Array.from(name.trim())[0]||'文'}
+export interface ComponentFilter {query?:string;themeSetId?:string;category?:string;source?:'all'|'mine'|'builtin'}
+export function filterComponents<T extends {name:string;description?:string;category:string;tags:string[];themeSetId:string;builtin:boolean;legacyId?:string|null}>(items:T[],filter:ComponentFilter){const q=(filter.query||'').trim().toLocaleLowerCase();return items.filter(r=>(!filter.themeSetId||r.themeSetId===filter.themeSetId)&&(!filter.category||r.category===filter.category)&&(filter.source!=='mine'||!r.builtin)&&(filter.source!=='builtin'||r.builtin)&&(!q||[r.name,r.description||'',r.category,...r.tags,r.legacyId||''].join(' ').toLocaleLowerCase().includes(q)))}

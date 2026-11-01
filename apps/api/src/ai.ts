@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { eq, desc } from 'drizzle-orm'
 import { z } from 'zod'
-import { inspectHtml, rules, prepareComponent, componentSettingsSchema, normalizePalette, makeColor, paletteSchema, paletteEntries, extractFieldValues, type AiInput, type AiJob } from '@qinbian/shared'
+import { inspectHtml, rules, prepareComponent, componentSettingsSchema, normalizePalette, makeColor, paletteSchema, paletteEntries, extractFieldValues, requireElement, fieldIdsIn, applyElementResult, type ComponentData, type AiInput, type AiJob } from '@qinbian/shared'
 import { Store, id, now, fail } from './store.ts'
 import { jobs, resources, settings } from './schema.ts'
 
@@ -13,6 +13,18 @@ export class AiService {
  constructor(public store:Store){}
  get(key:string):AiJob{const job=this.store.db.select().from(jobs).where(eq(jobs.id,key)).get();if(!job)fail(404,'没有找到这次AI制作');return job as AiJob}
  update(key:string,patch:Partial<typeof jobs.$inferInsert>){this.store.db.update(jobs).set({...patch,updatedAt:now()}).where(eq(jobs.id,key)).run()}
+ scope(input:AiInput){
+  if(!input.selection||input.operation!=='edit'||!input.targetId)fail(400,'请先选中需要精修的元素')
+  const target=input.targetType==='document'?this.store.document(input.targetId):this.store.resource(input.targetId)
+  const data:ComponentData='blocks' in target?target.blocks.find(b=>b.id===input.blockId)||{}:target.kind==='component'?target.data:target.data.blocks?.find(b=>b.id===input.blockId)||{}
+  if(!data.html)fail(409,'原组件已被移除，请重新点选')
+  let element
+  try{element=requireElement(data.html,input.selection)}catch{fail(409,'选中元素已改变，请重新点选')}
+  if(element.parents.slice(0,-1).some(p=>p.chart))fail(400,'请选中整个数据图；图内文字可在数据设置中修改')
+  const ids=fieldIdsIn(element.html)
+  for(let pass=0;pass<3;pass++)for(const f of data.fields||[])if(ids.has(f.id)&&f.formula){ids.add(f.formula.numerator);ids.add(f.formula.denominator)}
+  return{data,element,settings:{palette:data.palette,fields:(data.fields||[]).filter(f=>ids.has(f.id)),values:Object.fromEntries(Object.entries(data.values||{}).filter(([key])=>ids.has(key))),colorMappings:data.colorMappings}}
+ }
  create(input:AiInput){
   const choices=[...input.prompt.matchAll(/([三四五六3-6])(?:种|个)?色/g)].filter(m=>!/(?:不要|不用|不使用|避免|非)$/.test(input.prompt.slice(Math.max(0,m.index!-5),m.index)))
   const choice=choices.at(-1)?.[1]
@@ -22,6 +34,7 @@ export class AiService {
   this.store.theme(input.themeSetId)
   if(input.operation==='edit'&&!input.sourceHtml&&!input.targetId)fail(400,'请选择需要修改的组件')
   if(input.targetId){const target=input.targetType==='document'?this.store.document(input.targetId):this.store.resource(input.targetId);this.store.checkRevision(target,input.targetRevision)}
+  if(input.selection)this.scope(input)
   for(const key of input.assetIds)this.store.asset(key)
   const model=input.model||this.store.db.select().from(settings).where(eq(settings.key,'model')).get()?.value||'deepseek-v4-pro'
   const key=id(),t=now();const controller=new AbortController();this.controllers.set(key,controller)
@@ -36,16 +49,18 @@ export class AiService {
    let source=input.sourceHtml,sourceSettings:any=input.settings||{}
    if(input.operation==='edit'&&!source&&input.targetId){const target=input.targetType==='document'?this.store.document(input.targetId):this.store.resource(input.targetId);source='blocks' in target?target.blocks.find(b=>b.id===input.blockId)?.html:target.data.html||target.data.blocks?.find(b=>b.id===input.blockId)?.html}
    if(input.operation==='edit'&&input.targetId&&!input.settings){const target=input.targetType==='document'?this.store.document(input.targetId):this.store.resource(input.targetId);sourceSettings='blocks' in target?target.blocks.find(b=>b.id===input.blockId)||{}:target.kind==='component'?target.data:target.data.blocks?.find(b=>b.id===input.blockId)||{}}
+   const scope=input.selection?this.scope(input):null
+   if(scope){source=scope.element.html;sourceSettings=scope.settings;skill+='\n\n'+readFileSync(resolve(this.store.config.root,'skills/component-design/references/element-edit.md'),'utf8')}
    const chartIntent=input.operation!=='palette'&&(input.designKind==='chart'||!!source?.includes('data-qb-chart')||/折线图|面积图|柱状图|条形图|饼图|环图|数据图|\b(?:line|area|bar|pie|donut)\b/i.test(input.prompt))
    const dividerIntent=input.operation!=='palette'&&(input.designKind==='divider'||/分隔符|分隔线|分割线|\bdivider\b/i.test(input.prompt))
    if(chartIntent)skill+='\n\n'+readFileSync(resolve(this.store.config.root,'skills/component-design/references/data-charts.md'),'utf8')
    if(dividerIntent)skill+='\n\n'+readFileSync(resolve(this.store.config.root,'skills/component-design/references/dividers.md'),'utf8')
    const all=this.store.db.select().from(resources).where(eq(resources.kind,'component')).all().filter(r=>!r.deletedAt)
-   const examples=(input.referenceIds.length?input.referenceIds.map(k=>this.store.resource(k)):all.filter(r=>r.themeSetId===theme.id&&(!chartIntent||r.data.html?.includes('data-qb-chart'))&&(!dividerIntent||r.category==='章节与分隔'||r.tags.includes('分隔符')))).slice(0,2).map(r=>({name:r.name,html:r.data.html}))
+   const examples=scope?[]:(input.referenceIds.length?input.referenceIds.map(k=>this.store.resource(k)):all.filter(r=>r.themeSetId===theme.id&&(!chartIntent||r.data.html?.includes('data-qb-chart'))&&(!dividerIntent||r.category==='章节与分隔'||r.tags.includes('分隔符')))).slice(0,2).map(r=>({name:r.name,html:r.data.html}))
    const assets=input.assetIds.map(k=>{const a=this.store.asset(k);return {id:a.id,name:a.name,width:a.width,height:a.height,url:`/api/assets/${a.id}/file`}})
    let palette=normalizePalette(input.palette||sourceSettings.palette||theme.palette,theme.tokens)
-   if(input.colorCount){palette={...palette,colors:palette.colors.slice(0,input.colorCount)};while(palette.colors.length<input.colorCount){const n=palette.colors.length+1;palette.colors.push(makeColor(`color${n}`,['墨蓝','灰青','朱砂','浅金','黛紫','石青'][n-1]!,['#183A49','#567067','#9E4B3B','#B38A55','#8A8393','#5B8790'][n-1]!))}}
-   const payload={operation:input.operation,request:input.prompt,theme:{name:theme.name,rules:theme.rules,articleBackgroundColor:input.articleBackgroundColor||'#FFFFFF'},palette,paletteTokens:paletteEntries(palette),colorCount:input.colorCount||palette.colors.length,typography:rules.typography,fields:sourceSettings.fields||[],values:sourceSettings.values||{},assets,examples,sourceHtml:source||null}
+   if(input.colorCount&&!scope){palette={...palette,colors:palette.colors.slice(0,input.colorCount)};while(palette.colors.length<input.colorCount){const n=palette.colors.length+1;palette.colors.push(makeColor(`color${n}`,['墨蓝','灰青','朱砂','浅金','黛紫','石青'][n-1]!,['#183A49','#567067','#9E4B3B','#B38A55','#8A8393','#5B8790'][n-1]!))}}
+   const payload={operation:input.operation,request:input.prompt,selection:scope?{tag:scope.element.tag,role:scope.element.role,parents:scope.element.parents.slice(-3).map(p=>({tag:p.tag,role:p.role})),locks:input.locks||{text:true,images:true,data:true}}:undefined,theme:{name:theme.name,rules:theme.rules,articleBackgroundColor:input.articleBackgroundColor||'#FFFFFF',textStyles:input.articleTextStyles},palette,paletteTokens:paletteEntries(palette),colorCount:scope?palette.colors.length:input.colorCount||palette.colors.length,typography:rules.typography,fields:sourceSettings.fields||[],values:sourceSettings.values||{},assets,examples,sourceHtml:source||null}
    const modeRules=input.operation==='palette'?'本次只生成配色卡，不生成HTML。返回JSON {name,description,colors:[{id:"color1",name:"颜色中文名",regular:"#RRGGBB",highlight:"#RRGGBB",light:"#RRGGBB"}]}。颜色数量必须等于请求colorCount，范围3至6；同一颜色的三档需协调，名称自由、有辨识度。':'本次生成完整组件JSON。颜色优先用style中的{{color1-regular}}、{{color2-highlight}}、{{color3-light}}占位符或data-qb-styles映射，不把主题色写死；数值和文案用fields和data-qb-field，修改时保留原有字段标记。'
    const messages:{role:string;content:string}[]=[{role:'system',content:skill+'\n\n'+modeRules},{role:'user',content:JSON.stringify(payload)}]
    for(let attempt=0;attempt<2;attempt++){
@@ -68,6 +83,7 @@ export class AiService {
      const checked=inspectHtml(metadata.html)
      if(checked.issues.length)throw new Error(checked.issues.join('；'))
      this.store.assertAssets(checked.html)
+     if(scope&&input.selection)applyElementResult(scope.data,input.selection,{...metadata,html:checked.html},input.locks)
      this.update(key,{status:'ready',result:{...result,...metadata,kind:'component',html:checked.html},error:null});return
     }catch(error){
      if(attempt===1)throw new Error('候选未通过检查，原内容未改变。'+(error instanceof z.ZodError?'输出字段不完整':error instanceof Error?error.message:'请修改需求后重试'))

@@ -9,7 +9,7 @@ import { renderChart } from './charts.ts'
 import { cropImage } from './crop.ts'
 import * as schema from './schema.ts'
 import type { Config } from './config.ts'
-import { assetUrl, sanitizeHtml, wechatHtml, materializeImages, cropInputSchema, centerCrop, chartFromUrl, htmlAssetIds, normalizePalette, prepareComponent, defaultPalette, paletteEntries, normalizeHex, type Block, type Resource, type Article, type Asset, type Palette } from '@qinbian/shared'
+import { assetUrl, sanitizeHtml, wechatHtml, materializeImages, cropInputSchema, centerCrop, chartFromUrl, htmlAssetIds, normalizePalette, prepareComponent, prepareArticleComponent, defaultPalette, paletteEntries, normalizeHex, type ArticleAppearance, type Block, type Resource, type Article, type Asset, type Palette } from '@qinbian/shared'
 
 export const now=()=>new Date().toISOString()
 export const id=()=>randomUUID()
@@ -49,7 +49,7 @@ export class Store {
   return refs
  }
  assertAssets(html:string){for(const a of htmlAssetIds(html)){const row=this.asset(a);if(row.deletedAt)fail(400,'组件引用了已删除的图片')}}
- normalizeBlocks(blocks:Block[]){return blocks.map(b=>{const data=prepareComponent(b,b.palette||this.bestPalette(b.html));this.assertAssets(data.html);return {...b,...data,id:b.id||id(),assetIds:htmlAssetIds(data.html)}})}
+ normalizeBlocks(blocks:Block[],appearance?:ArticleAppearance){return blocks.map(b=>{const data=prepareArticleComponent(b,appearance?.textStyles,b.palette||this.bestPalette(b.html));this.assertAssets(data.html);return {...b,...data,id:b.id||id(),assetIds:htmlAssetIds(data.html)}})}
  bestPalette(html:string,fallback?:Palette){
   const candidates=[...(fallback?[fallback]:[]),...this.db.select().from(schema.themeSets).all().filter(t=>!t.deletedAt).map(t=>normalizePalette(t.palette,t.tokens))]
   const colors=[...html.matchAll(/#[\da-fA-F]{3,6}\b|rgb\([^)]*\)/g)].map(m=>normalizeHex(m[0])).filter(Boolean)
@@ -109,8 +109,8 @@ export class Store {
    this.db.insert(schema.resources).values({id:'template-'+recipe.id,themeSetId:'shanhai',kind:'template',name:recipe.name,description:recipe.description,category:'编排模板',tags:[recipe.name],legacyId:'recipe-'+recipe.id,builtin:true,data:{blocks},revision:1,createdAt:t,updatedAt:t,deletedAt:null}).onConflictDoNothing().run()
   }
   for(const r of this.db.select().from(schema.resources).all())if(r.kind==='component'&&!r.data.palette){const data=prepareComponent(r.data,this.bestPalette(r.data.html||''));this.db.update(schema.resources).set({data}).where(eq(schema.resources.id,r.id)).run()}
-  for(const r of this.db.select().from(schema.resources).all())if(r.kind==='template'&&r.data.blocks?.some((b:Block)=>!b.palette))this.db.update(schema.resources).set({data:{...r.data,blocks:this.normalizeBlocks(r.data.blocks)}}).where(eq(schema.resources.id,r.id)).run()
-  for(const d of this.db.select().from(schema.documents).all())if(d.blocks.some((b:Block)=>!b.palette))this.db.update(schema.documents).set({blocks:this.normalizeBlocks(d.blocks)}).where(eq(schema.documents.id,d.id)).run()
+  for(const r of this.db.select().from(schema.resources).all())if(r.kind==='template'&&r.data.blocks?.some((b:Block)=>!b.palette))this.db.update(schema.resources).set({data:{...r.data,blocks:this.normalizeBlocks(r.data.blocks,r.data.appearance)}}).where(eq(schema.resources.id,r.id)).run()
+  for(const d of this.db.select().from(schema.documents).all())if(d.blocks.some((b:Block)=>!b.palette))this.db.update(schema.documents).set({blocks:this.normalizeBlocks(d.blocks,d.appearance)}).where(eq(schema.documents.id,d.id)).run()
   for(const p of [{id:'palette-shanhai',name:'山海原色',palette:normalizePalette(this.theme('shanhai').palette)}, {id:'palette-qingjin',name:'青衿纸墨',palette:defaultPalette}])this.db.insert(schema.resources).values({id:p.id,themeSetId:'shanhai',kind:'palette',name:p.name,description:'可复用的校园图文配色，每色含主题、强调与减淡三档。',category:'配色卡',tags:['配色'],legacyId:p.id,builtin:true,data:{palette:p.palette},revision:1,createdAt:t,updatedAt:t,deletedAt:null}).onConflictDoNothing().run()
   this.db.insert(schema.settings).values({key:'model',value:'deepseek-v4-pro'}).onConflictDoNothing().run()
   this.db.update(schema.jobs).set({status:'failed',error:'应用重新启动，未完成的任务已停止。可以手动重试。',updatedAt:now()}).where(eq(schema.jobs.status,'running')).run()

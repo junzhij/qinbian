@@ -1,28 +1,30 @@
 import { parseFragment, serialize } from 'parse5'
 import { z } from 'zod'
+import { articleTextStylesSchema, restoreTextStyles, applyTextStyles, cleanTextBackup, roleSchema, type ArticleTextStyles } from './text-styles.ts'
+import { elementSelectionSchema, elementLocksSchema, fieldIdsIn, replaceElement, requireElement, type ElementSelection, type ElementLocks } from './element-edit.ts'
+import { articleTypography } from './typography.ts'
 import { chartSchema, chartFromUrl } from './charts.ts'
 import { imageSpecSchema, type ImageCrop } from './images.ts'
-import { componentSettingsSchema, paletteSchema, bindComponent, type Palette, type ComponentSettings, type FieldDefinition } from './bindings.ts'
+import { componentSettingsSchema, paletteSchema, bindComponent, extractFieldValues, type Palette, type ComponentSettings, type FieldDefinition } from './bindings.ts'
 export * from './bindings.ts'
 export * from './images.ts'
 export * from './charts.ts'
 export * from './resources.ts'
+export * from './typography.ts'
+export * from './text-styles.ts'
+export * from './element-edit.ts'
 export * from './dividers.ts'
 export * from './wechat.ts'
 export * from './ids.ts'
 export * from './snapshots.ts'
 
-export const articleAppearanceSchema=z.object({backgroundColor:z.string().regex(/^#[0-9a-fA-F]{6}$/,'文章背景请使用六位十六进制颜色').transform(s=>s.toUpperCase()).default('#FFFFFF')})
+export const articleAppearanceSchema=z.object({backgroundColor:z.string().regex(/^#[0-9a-fA-F]{6}$/,'文章背景请使用六位十六进制颜色').transform(s=>s.toUpperCase()).default('#FFFFFF'),textStyles:articleTextStylesSchema.optional()})
 export type ArticleAppearance=z.infer<typeof articleAppearanceSchema>
 export function normalizeAppearance(value?:unknown):ArticleAppearance{const result=articleAppearanceSchema.safeParse(value??{});return result.success?result.data:{backgroundColor:'#FFFFFF'}}
 export const categories = ['封面与刊头','章节与分隔','正文与导读','新闻与现场','人物与访谈','学术与科研','数据与清单','活动与日程','通知与服务','图像与媒体','校园与叙事','互动与文末']
 export const models = ['deepseek-v4-pro', 'deepseek-flash'] as const
 export const rules = {
-  typography: {
-    heading: "'Songti SC',STSong,SimSun,serif",
-    body: "-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif",
-    caption: "-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif",
-  },
+  typography: articleTypography,
   maxFontSize: 24,
   bodyFontSize: 15,
   widths: [320,375,414],
@@ -81,6 +83,10 @@ export function sanitizeHtml(source:string, portable=false):string {
       if(css)attrs.push({name:'style',value:css})
       if(tag==='span'&&Object.hasOwn(old,'leaf'))attrs.push({name:'leaf',value:''})
       if(!portable){
+        if(roleSchema.safeParse(old['data-qb-role']).success)attrs.push({name:'data-qb-role',value:old['data-qb-role']})
+        if(old['data-qb-text-overrides']){const keys=old['data-qb-text-overrides'].split(',').filter((k:string)=>['font-size','font-family','font-weight','line-height','letter-spacing','text-align','text-indent','margin-top','margin-bottom','color'].includes(k));if(keys.length)attrs.push({name:'data-qb-text-overrides',value:keys.join(',')})}
+        if(old['data-qb-style-mode']==='independent')attrs.push({name:'data-qb-style-mode',value:'independent'})
+        if(old['data-qb-typography']){const backup=cleanTextBackup(old['data-qb-typography']);if(Object.keys(backup).length)attrs.push({name:'data-qb-typography',value:JSON.stringify(backup)})}
         if(old['data-qb-chart']){try{if(old['data-qb-chart'].length<16000)attrs.push({name:'data-qb-chart',value:JSON.stringify(chartSchema.parse(JSON.parse(old['data-qb-chart'])))})}catch{}}
         if(old['data-qb-image']){try{const spec=imageSpecSchema.parse(JSON.parse(old['data-qb-image']));attrs.push({name:'data-qb-image',value:JSON.stringify(spec)})}catch{}}
         if(old['data-qb-custom-color']==='true')attrs.push({name:'data-qb-custom-color',value:'true'})
@@ -115,12 +121,33 @@ export function inspectHtml(source:string){
   return {html:clean,issues:[...new Set(issues)],assetIds:htmlAssetIds(clean)}
 }
 export function prepareComponent(data:{html?:string}&Partial<ComponentSettings>,palette?:Palette){const result=bindComponent(data.html||'',data,palette);return{...result,html:sanitizeHtml(result.html)}}
+export function prepareArticleComponent(data:{html?:string}&Partial<ComponentSettings>,textStyles?:ArticleTextStyles,palette?:Palette){
+ const restore=!!textStyles||data.html?.includes('data-qb-typography')
+ const base=restore?restoreTextStyles(data.html||'',textStyles?.preserveOverrides??true):data.html||''
+ const prepared=prepareComponent({...data,html:base},palette)
+ return{...prepared,html:sanitizeHtml(applyTextStyles(prepared.html,textStyles).html)}
+}
+export function applyElementResult(data:ComponentData,selection:ElementSelection,candidate:ComponentData,locks:ElementLocks={text:true,images:true,data:true}){
+ const original=requireElement(data.html||'',selection),related=fieldIdsIn(original.html)
+ for(const parent of original.parents)if(parent.field)related.add(parent.field)
+ if(original.parents.slice(0,-1).some(p=>p.chart))throw new Error('图表内部由数据控制，请选择整个图表区域')
+ const oldFields=data.fields||[],newFields=(candidate.fields||[]).filter(f=>!oldFields.some(old=>old.id===f.id)),fields=[...oldFields,...newFields]
+ if(fields.length>80)throw new Error('局部修改后的字段数量不能超过80')
+ const allowed=new Set([...related,...newFields.map(f=>f.id)]),nextValues={...data.values}
+ for(const[key,value]of Object.entries(candidate.values||{}))if(allowed.has(key)){
+  const field=oldFields.find(f=>f.id===key)
+  if(locks.data&&field&&['number','computed'].includes(field.type)&&Number(value)!==Number(data.values?.[key]??field.default))throw new Error('候选改变了锁定的数值，请保持原数据')
+  nextValues[key]=value
+ }
+ const html=replaceElement(data.html||'',selection,candidate.html||'',locks)
+ return prepareComponent({...data,html,fields,values:{...nextValues,...extractFieldValues(html,fields)}})
+}
 export const blockSchema=z.object({id:z.string().min(1),sourceComponentId:z.string().nullable().optional(),name:z.string().default('图文组件'),legacyId:z.string().nullable().optional(),html:z.string().max(500_000),assetIds:z.array(z.string()).default([]),...componentSettingsSchema.partial().shape})
 export type Block=z.infer<typeof blockSchema>
 export const resourceInput=z.object({themeSetId:z.string().default('mine'),kind:z.enum(['component','template','palette']),name:z.string().trim().min(1).max(100),description:z.string().max(1000).default(''),category:z.string().max(100).default('正文与导读'),tags:z.array(z.string().max(40)).max(20).default([]),data:z.object({html:z.string().max(500_000).optional(),blocks:z.array(blockSchema).max(200).optional(),appearance:articleAppearanceSchema.optional(),...componentSettingsSchema.partial().shape}),revision:z.number().int().positive().optional()})
 export const documentInput=z.object({title:z.string().trim().min(1).max(150),themeSetId:z.string().default('mine'),appearance:articleAppearanceSchema.default({backgroundColor:'#FFFFFF'}),blocks:z.array(blockSchema).max(200).default([]),revision:z.number().int().positive().optional()})
 export const themeInput=z.object({name:z.string().trim().min(1).max(80),description:z.string().max(1000).default(''),tokens:z.record(z.string(),z.string()).default({}),palette:paletteSchema.optional(),rules:z.string().max(4000).default('')})
-export const aiInput=z.object({operation:z.enum(['generate','edit','palette']),articleBackgroundColor:z.string().regex(/^#[0-9a-fA-F]{6}$/).optional(),designKind:z.enum(['component','chart','divider']).optional(),prompt:z.string().trim().min(2).max(4000),themeSetId:z.string().default('shanhai'),model:z.enum(models).optional(),colorCount:z.number().int().min(3).max(6).optional(),palette:paletteSchema.optional(),referenceIds:z.array(z.string()).max(2).default([]),assetIds:z.array(z.string()).max(8).default([]),sourceHtml:z.string().max(500_000).optional(),settings:componentSettingsSchema.partial().optional(),targetType:z.enum(['resource','document']).optional(),targetId:z.string().optional(),targetRevision:z.number().int().optional(),blockId:z.string().optional()})
+export const aiInput=z.object({operation:z.enum(['generate','edit','palette']),selection:elementSelectionSchema.optional(),locks:elementLocksSchema.optional(),articleTextStyles:articleTextStylesSchema.optional(),articleBackgroundColor:z.string().regex(/^#[0-9a-fA-F]{6}$/).optional(),designKind:z.enum(['component','chart','divider']).optional(),prompt:z.string().trim().min(2).max(4000),themeSetId:z.string().default('shanhai'),model:z.enum(models).optional(),colorCount:z.number().int().min(3).max(6).optional(),palette:paletteSchema.optional(),referenceIds:z.array(z.string()).max(2).default([]),assetIds:z.array(z.string()).max(8).default([]),sourceHtml:z.string().max(500_000).optional(),settings:componentSettingsSchema.partial().optional(),targetType:z.enum(['resource','document']).optional(),targetId:z.string().optional(),targetRevision:z.number().int().optional(),blockId:z.string().optional()})
 export type AiInput=z.infer<typeof aiInput>
 export interface ThemeSet {id:string;name:string;description:string;builtin:boolean;tokens:Record<string,string>;palette?:Palette;rules:string;createdAt:string;updatedAt:string;deletedAt:string|null}
 export interface ComponentData extends Partial<ComponentSettings>{html?:string;blocks?:Block[];appearance?:ArticleAppearance}
@@ -129,4 +156,4 @@ export interface Article {id:string;title:string;themeSetId:string;blocks:Block[
 export interface Asset {id:string;name:string;fileName:string;mime:string;bytes:number;width:number;height:number;hash:string;builtin:boolean;deletedAt:string|null;createdAt:string;sourceAssetId?:string|null;crop?:ImageCrop|null;references?:{type:string;id:string;name:string}[]}
 export interface AiResult extends Partial<ComponentSettings>{kind?:'component'|'palette';name:string;description:string;category:string;tags:string[];html:string}
 export interface AiJob {id:string;operation:'generate'|'edit'|'palette';status:'queued'|'running'|'validating'|'ready'|'failed'|'cancelled'|'applied';model:string;request:AiInput;result:null|AiResult;error:string|null;usage:Record<string,number>|null;createdAt:string;updatedAt:string}
-export function articleHtml(blocks:Block[],appearance?:ArticleAppearance){const background=normalizeAppearance(appearance).backgroundColor;return `<section style="box-sizing:border-box;max-width:680px;margin:0 auto;padding:20px 18px;background-color:${background};font-family:-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif;font-size:15px;line-height:1.85;color:#293F4F;text-align:left;">${blocks.map(b=>sanitizeHtml(b.html)).join('')}</section>`}
+export function articleHtml(blocks:Block[],appearance?:ArticleAppearance){const background=normalizeAppearance(appearance).backgroundColor;return `<section style="box-sizing:border-box;max-width:680px;margin:0 auto;padding:20px 18px;background-color:${background};font-size:15px;line-height:1.85;color:#293F4F;text-align:left;">${blocks.map(b=>prepareArticleComponent(b,appearance?.textStyles).html).join('')}</section>`}

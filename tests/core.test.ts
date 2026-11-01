@@ -112,12 +112,18 @@ test('AI生成、结构修正、失败、取消与过期替换保护',async()=>{
  server.listen(0,'127.0.0.1');await once(server,'listening');const address=server.address() as any
  const c=await fixture({apiKey:'sk-test-only',aiBase:'http://127.0.0.1:'+address.port,aiTimeout:2000})
  try{
-  let j=(await c.app.inject({method:'POST',url:'/api/ai/jobs',payload:{operation:'generate',prompt:'采用三色设计生成演示卡',colorCount:6}})).json();j=await ready(c,j.id);assert.equal(j.status,'ready');assert.equal(lastRequest.model,'deepseek-v4-pro');assert.equal(lastRequest.response_format.type,'json_object');const context=JSON.parse(lastRequest.messages[1].content);assert.ok(context.examples.length<=2);assert.match(context.typography.heading,/Songti SC/);assert.match(context.typography.body,/PingFang SC/);assert.equal(context.colorCount,3);assert.equal(context.palette.colors.length,3)
+  let j=(await c.app.inject({method:'POST',url:'/api/ai/jobs',payload:{operation:'generate',prompt:'采用三色设计生成演示卡',colorCount:6}})).json();j=await ready(c,j.id);assert.equal(j.status,'ready');assert.equal(lastRequest.model,'deepseek-v4-pro');assert.equal(lastRequest.response_format.type,'json_object');const context=JSON.parse(lastRequest.messages[1].content);assert.ok(context.examples.length<=2);assert.equal(context.typography.heading,'inherit');assert.equal(context.typography.body,'inherit');assert.match(context.typography.previewStack,/mp-quote/);assert.equal(context.colorCount,3);assert.equal(context.palette.colors.length,3)
   const saved=await c.app.inject({method:'POST',url:'/api/ai/jobs/'+j.id+'/apply',payload:{mode:'save'}});assert.equal(saved.statusCode,200);const r=saved.json().value
   j=(await c.app.inject({method:'POST',url:'/api/ai/jobs',payload:{operation:'edit',prompt:'换成朱砂色',targetType:'resource',targetId:r.id,targetRevision:r.revision,sourceHtml:r.data.html}})).json();j=await ready(c,j.id)
   await c.app.inject({method:'PUT',url:'/api/resources/'+r.id,payload:{...r,name:'已经继续修改'}})
   assert.equal((await c.app.inject({method:'POST',url:'/api/ai/jobs/'+j.id+'/apply',payload:{mode:'replace',revision:2}})).statusCode,409)
   assert.equal(c.store.resource(r.id).name,'已经继续修改')
+  const beforeGenerate=c.store.resource(r.id)
+  j=(await c.app.inject({method:'POST',url:'/api/ai/jobs',payload:{operation:'generate',prompt:'创建一枚独立的新组件',targetType:'resource',targetId:r.id,targetRevision:beforeGenerate.revision}})).json();j=await ready(c,j.id)
+  assert.equal(j.status,'ready');assert.equal(JSON.parse(lastRequest.messages[1].content).sourceHtml,null)
+  assert.equal((await c.app.inject({method:'POST',url:'/api/ai/jobs/'+j.id+'/apply',payload:{mode:'insert',revision:beforeGenerate.revision}})).statusCode,400)
+  assert.equal(c.store.resource(r.id).revision,beforeGenerate.revision);assert.equal(c.store.resource(r.id).data.html,beforeGenerate.data.html)
+  assert.equal((await c.app.inject({method:'POST',url:'/api/ai/jobs/'+j.id+'/apply',payload:{mode:'save'}})).statusCode,200)
   mode='repair';calls=0;j=(await c.app.inject({method:'POST',url:'/api/ai/jobs',payload:{operation:'generate',prompt:'请修正演示卡'}})).json();j=await ready(c,j.id);assert.equal(j.status,'ready');assert.equal(calls,2)
   mode='invalid';calls=0;j=(await c.app.inject({method:'POST',url:'/api/ai/jobs',payload:{operation:'generate',prompt:'生成不合格测试'}})).json();j=await ready(c,j.id);assert.equal(j.status,'failed');assert.equal(calls,2)
   mode='slow';j=(await c.app.inject({method:'POST',url:'/api/ai/jobs',payload:{operation:'generate',prompt:'取消演示测试'}})).json();await new Promise(r=>setTimeout(r,20));const cancelled=(await c.app.inject({method:'POST',url:'/api/ai/jobs/'+j.id+'/cancel'})).json();assert.equal(cancelled.status,'cancelled')
