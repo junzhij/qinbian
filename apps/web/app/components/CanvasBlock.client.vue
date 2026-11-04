@@ -105,4 +105,11 @@ onBeforeUnmount(()=>{clearTimeout(blurTimer);measureObserver?.disconnect();edito
 defineExpose({inspectAt:selectElement,editAt(path:number[]){if(!island.value)return;const el=elementAtPath(island.value,path);if(el){const paragraph=editableTextElement(island.value,el);if(paragraph)editParagraph(paragraph)}},flush:()=>{publish(compose().html);return working},blur:stop})
 </script>
 <template><div ref="wrapper" class="canvas-render-wrap"><div ref="island" class="canvas-island" :style="{fontFamily:wechatFontStack}" :class="{selected,readonly,inspecting:inspect}" :tabindex="inspect?0:undefined" @click="clicked" @mousemove="hover" @mouseleave="hoverPath=null;measureRing()" @keydown.stop="event=>{if(inspect&&event.key==='Escape')emit('inspectExit')}"/><div v-if="inspect&&ring" class="inspect-ring" :class="{hovering:!!hoverPath}" :style="{left:ring.left+'px',top:ring.top+'px',width:ring.width+'px',height:ring.height+'px'}"><span>{{ring.label}} · {{Math.round(ring.width)}} × {{Math.round(ring.height)}}</span></div></div></template>
-<style scoped>.canvas-render-wrap{position:relative}.canvas-island.inspecting{cursor:crosshair}.canvas-island.inspecting :deep(*){cursor:crosshair!important}.inspect-ring{position:absolute;pointer-events:none;border:1px solid #4f7b65;background:#88b86b0d;z-index:12;box-sizing:border-box}.inspect-ring.hovering{border-style:dashed;border-color:#79916c}.inspect-ring>span{position:absolute;left:0;bottom:100%;max-width:220px;padding:3px 7px;font:9px/1.5 var(--sans);color:#fffdf7;background:#4f7b65;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:2px 2px 0 0}</style>
+<style scoped>
+.canvas-render-wrap{position:relative}
+.canvas-island.inspecting{cursor:crosshair}
+.canvas-island.inspecting :deep(*){cursor:crosshair!important}
+.inspect-ring{position:absolute;pointer-events:none;border:1.5px solid var(--focus);background:rgba(47,109,132,.06);z-index:12;box-sizing:border-box}
+.inspect-ring.hovering{border-style:dashed}
+.inspect-ring>span{position:absolute;left:-1.5px;bottom:100%;max-width:220px;padding:2px 8px;font:500 11px/1.5 var(--sans);color:#fff;background:var(--focus);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:4px 4px 0 0}
+</style>

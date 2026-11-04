@@ -10,4 +10,4 @@ function loaded(){inside?.disconnect();const body=frame.value?.contentDocument?.
 onMounted(()=>{observer=new ResizeObserver(entries=>{available.value=entries[0]?.contentRect.width||375});if(host.value)observer.observe(host.value)})
 onBeforeUnmount(()=>{observer?.disconnect();inside?.disconnect()})
 </script>
-<template><div ref="host" class="html-preview" :class="{compact}" :style="size"><iframe ref="frame" title="图文内容预览" loading="lazy" sandbox="allow-same-origin" :srcdoc="source" :style="{width:width+'px',height:height+'px',transform:`scale(${scale})`}" @load="loaded"/></div></template>
+<template><div ref="host" class="html-preview" :class="{compact}" :style="size"><iframe ref="frame" title="图文内容预览" loading="lazy" sandbox="allow-same-origin" :srcdoc="source" :style="{width:width+'px',height:height+'px',transform:`scale(${scale})`,left:compact?`max(0px, calc(50% - ${width*scale/2}px))`:'0'}" @load="loaded"/></div></template>
